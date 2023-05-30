@@ -12,6 +12,7 @@ namespace ioop_assignment
 {
     public partial class AdminDashboard : Form
     {
+        public static string userID;
         public static string username;
         public static string name;
         public static string role;
@@ -20,9 +21,10 @@ namespace ioop_assignment
             InitializeComponent();
         }
 
-        public AdminDashboard(string uname, string n, string r)
+        public AdminDashboard(string id,string uname, string n, string r)
         {
             InitializeComponent();
+            userID = id;
             username = uname;
             name = n;
             role = r;
@@ -39,7 +41,6 @@ namespace ioop_assignment
             DateTime loggedInDate = DateTime.Now;
             lbl_loggedintime.Text = "Logged in on: \n" + loggedInDate.ToString();
             lbl_role.Text = "Role: " + role;
-            panel_updateprofile.Visible = false;
             MouseCursorChanged();
         }
 
@@ -62,9 +63,17 @@ namespace ioop_assignment
             //pic_viewfeedback.Cursor = Cursors.Hand;
             //
         }
+        private void lbl_regtrainer_Click(object sender, EventArgs e)
+        {
+            panel_updateprofile.Visible = false;
+            panel_registertrainer.Visible = true;
+        }
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
+            
             panel_updateprofile.Visible = true;
+            panel_registertrainer.Visible = false;
+
             //load viewProfile
             Users obj1 = new Users(username);
             Users.viewProfile(obj1);
@@ -85,6 +94,13 @@ namespace ioop_assignment
         private void lbl_home_Click(object sender, EventArgs e)
         {
             panel_updateprofile.Visible = false;
+            panel_registertrainer.Visible = false;
+        }
+
+        private void btn_rt_register_Click(object sender, EventArgs e)
+        {
+            Trainer obj1 = new Trainer(txtbox_rt_username.Text, txtbox_rt_password.Text, txtbox_rt_name.Text, txtbox_rt_phone.Text, txtbox_rt_email.Text);
+            MessageBox.Show(obj1.addTrainer());
         }
     }
 }
