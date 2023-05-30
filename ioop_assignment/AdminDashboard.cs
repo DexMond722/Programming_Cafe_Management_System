@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +43,68 @@ namespace ioop_assignment
             lbl_loggedintime.Text = "Logged in on: \n" + loggedInDate.ToString();
             lbl_role.Text = "Role: " + role;
             MouseCursorChanged();
+            Loadlistbox();
+        }
+
+        private void Loadlistbox()
+        {
+            ArrayList name = new ArrayList();
+
+            name = Trainer.viewAll();
+            foreach (var item in name)
+            {
+                lstbox_rt_view.Items.Add(item);
+            }
+        }
+
+        private void Reloadlistbox()
+        {
+            ArrayList name = Trainer.viewAll();
+            lstbox_rt_view.Items.Clear(); 
+            foreach (var item in name)
+            {
+                lstbox_rt_view.Items.Add(item);
+            }
+        }
+
+        private void Deletetrainer()
+        {
+            if (lstbox_rt_view.SelectedItem != null)
+            {
+                string selectedTrainerName = lstbox_rt_view.SelectedItem.ToString();
+
+                Trainer obj1 = new Trainer(selectedTrainerName);
+                MessageBox.Show(obj1.deleteTrainer(selectedTrainerName));
+
+                lstbox_rt_view.Items.Remove(lstbox_rt_view.SelectedItem);
+            }
+        }
+
+        private void viewProfile()
+        {
+            Users obj1 = new Users(username);
+            Users.viewProfile(obj1);
+
+            txtbox_name.Text = obj1.Name;
+            txtbox_phone.Text = obj1.Phone;
+            txtbox_email.Text = obj1.Email;
+        }
+
+        private void updateProfile()
+        {
+            Users obj1 = new Users(username);
+            MessageBox.Show(obj1.updateProfile(txtbox_name.Text, txtbox_phone.Text, txtbox_email.Text));
+        }
+        private void Registertrainer()
+        {
+            Trainer obj1 = new Trainer(txtbox_rt_username.Text, txtbox_rt_password.Text, txtbox_rt_name.Text, txtbox_rt_phone.Text, txtbox_rt_email.Text);
+            MessageBox.Show(obj1.addTrainer());
+
+            txtbox_rt_username.Text = "";
+            txtbox_rt_password.Text = "";
+            txtbox_rt_name.Text = "";
+            txtbox_rt_phone.Text = "";
+            txtbox_rt_email.Text = "";
         }
 
         private void MouseCursorChanged()
@@ -73,22 +136,12 @@ namespace ioop_assignment
             
             panel_updateprofile.Visible = true;
             panel_registertrainer.Visible = false;
-
-            //load viewProfile
-            Users obj1 = new Users(username);
-            Users.viewProfile(obj1);
-
-            txtbox_name.Text = obj1.Name;
-            txtbox_phone.Text = obj1.Phone;
-            txtbox_email.Text = obj1.Email;
-            //
-
+            viewProfile();
         }
 
         private void btn_updateprofile_Click(object sender, EventArgs e)
         {
-            Users obj1 = new Users(username);
-            MessageBox.Show(obj1.updateProfile(txtbox_name.Text, txtbox_phone.Text, txtbox_email.Text));
+            updateProfile();
         }
 
         private void lbl_home_Click(object sender, EventArgs e)
@@ -99,8 +152,14 @@ namespace ioop_assignment
 
         private void btn_rt_register_Click(object sender, EventArgs e)
         {
-            Trainer obj1 = new Trainer(txtbox_rt_username.Text, txtbox_rt_password.Text, txtbox_rt_name.Text, txtbox_rt_phone.Text, txtbox_rt_email.Text);
-            MessageBox.Show(obj1.addTrainer());
+            Registertrainer();
+            Reloadlistbox();
         }
+
+        private void btn_rt_deletetrainer_Click(object sender, EventArgs e)
+        {
+            Deletetrainer();
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -33,6 +34,13 @@ namespace ioop_assignment
             this.phone = phone;
             this.email = email;
         }
+
+        public Trainer(string name)
+        {
+            this.name = name;
+        }
+
+
         public string addTrainer()
         {
             string status;
@@ -53,10 +61,44 @@ namespace ioop_assignment
             if (i != 0)
                 status = "Trainer Registered";
             else
-                status = "Unable to Register Trainer.";
+                status = "Unable to Register Trainer";
             con.Close();
             return status;
         }
 
+        public static ArrayList viewAll()
+        {
+            ArrayList nm = new ArrayList();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select name from Users where role = 'trainer'", con);
+            SqlDataReader rd = cmd.ExecuteReader();
+            while (rd.Read())
+            {
+                nm.Add(rd.GetString(0));
+            }
+            con.Close();
+            return nm;
+        }
+
+        public string deleteTrainer(string name)
+        {
+            string status;
+            con.Open();
+            
+            SqlCommand cmd = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
+            SqlCommand cmd2 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
+
+            cmd.Parameters.AddWithValue("@TrainerName", name);
+            cmd2.Parameters.AddWithValue("@TrainerName", name);
+            cmd.ExecuteNonQuery();
+
+            int i = cmd2.ExecuteNonQuery();
+            if (i != 0)
+                status = "Trainer Deleted";
+            else
+                status = "Unable to Delete Trainer";
+            con.Close();
+            return status;
+        }
     }
 }
