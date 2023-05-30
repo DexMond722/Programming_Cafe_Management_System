@@ -28,20 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.admin_close = new System.Windows.Forms.Button();
+            this.btn_closeapp = new System.Windows.Forms.Button();
             this.lbl_role = new System.Windows.Forms.Label();
             this.lbl_loggedintime = new System.Windows.Forms.Label();
             this.lbl_identity = new System.Windows.Forms.Label();
             this.panel_info = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_button = new System.Windows.Forms.Panel();
+            this.pic_sendfeedback = new System.Windows.Forms.PictureBox();
             this.lbl_sendfeedback = new System.Windows.Forms.Label();
             this.lbl_viewenroll = new System.Windows.Forms.Label();
             this.lbl_updatecoachclass = new System.Windows.Forms.Label();
             this.lbl_addcoachclass = new System.Windows.Forms.Label();
+            this.pic_updateprofile = new System.Windows.Forms.PictureBox();
             this.lbl_updateprofile = new System.Windows.Forms.Label();
             this.lbl_assigntrainer = new System.Windows.Forms.Label();
             this.lbl_regtrainer = new System.Windows.Forms.Label();
+            this.pic_home = new System.Windows.Forms.PictureBox();
             this.lbl_home = new System.Windows.Forms.Label();
+            this.pic_viewenroll = new System.Windows.Forms.PictureBox();
+            this.pic_updatecoachclass = new System.Windows.Forms.PictureBox();
+            this.pic_addcoachclass = new System.Windows.Forms.PictureBox();
             this.panel_updateprofile = new System.Windows.Forms.Panel();
             this.btn_updateprofile = new System.Windows.Forms.Button();
             this.txtbox_phone = new System.Windows.Forms.TextBox();
@@ -51,40 +58,33 @@
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_upprofile = new System.Windows.Forms.Label();
-            this.pic_sendfeedback = new System.Windows.Forms.PictureBox();
-            this.pic_viewenroll = new System.Windows.Forms.PictureBox();
-            this.pic_updatecoachclass = new System.Windows.Forms.PictureBox();
-            this.pic_addcoachclass = new System.Windows.Forms.PictureBox();
-            this.pic_updateprofile = new System.Windows.Forms.PictureBox();
-            this.pic_home = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_info.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
-            this.panel_updateprofile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_sendfeedback)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_updateprofile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_viewenroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_updatecoachclass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_addcoachclass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_updateprofile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_home)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel_updateprofile.SuspendLayout();
             this.SuspendLayout();
             // 
-            // admin_close
+            // btn_closeapp
             // 
-            this.admin_close.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.admin_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.admin_close.FlatAppearance.BorderSize = 0;
-            this.admin_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.admin_close.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin_close.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.admin_close.Location = new System.Drawing.Point(989, 0);
-            this.admin_close.Name = "admin_close";
-            this.admin_close.Size = new System.Drawing.Size(40, 29);
-            this.admin_close.TabIndex = 1;
-            this.admin_close.Text = "X";
-            this.admin_close.UseVisualStyleBackColor = false;
-            this.admin_close.Click += new System.EventHandler(this.admin_close_Click);
+            this.btn_closeapp.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_closeapp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_closeapp.FlatAppearance.BorderSize = 0;
+            this.btn_closeapp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_closeapp.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_closeapp.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_closeapp.Location = new System.Drawing.Point(989, 0);
+            this.btn_closeapp.Name = "btn_closeapp";
+            this.btn_closeapp.Size = new System.Drawing.Size(40, 29);
+            this.btn_closeapp.TabIndex = 1;
+            this.btn_closeapp.Text = "X";
+            this.btn_closeapp.UseVisualStyleBackColor = false;
+            this.btn_closeapp.Click += new System.EventHandler(this.admin_close_Click);
             // 
             // lbl_role
             // 
@@ -130,6 +130,16 @@
             this.panel_info.Size = new System.Drawing.Size(284, 237);
             this.panel_info.TabIndex = 10;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ioop_assignment.Properties.Resources.profile_picture;
+            this.pictureBox1.Location = new System.Drawing.Point(85, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(106, 110);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel_button
             // 
             this.panel_button.BackColor = System.Drawing.Color.LightGray;
@@ -151,6 +161,16 @@
             this.panel_button.Name = "panel_button";
             this.panel_button.Size = new System.Drawing.Size(283, 394);
             this.panel_button.TabIndex = 11;
+            // 
+            // pic_sendfeedback
+            // 
+            this.pic_sendfeedback.Image = global::ioop_assignment.Properties.Resources.feedback;
+            this.pic_sendfeedback.Location = new System.Drawing.Point(10, 269);
+            this.pic_sendfeedback.Name = "pic_sendfeedback";
+            this.pic_sendfeedback.Size = new System.Drawing.Size(43, 45);
+            this.pic_sendfeedback.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_sendfeedback.TabIndex = 19;
+            this.pic_sendfeedback.TabStop = false;
             // 
             // lbl_sendfeedback
             // 
@@ -192,6 +212,16 @@
             this.lbl_addcoachclass.TabIndex = 12;
             this.lbl_addcoachclass.Text = "Add Coaching Class";
             // 
+            // pic_updateprofile
+            // 
+            this.pic_updateprofile.Image = global::ioop_assignment.Properties.Resources.update;
+            this.pic_updateprofile.Location = new System.Drawing.Point(10, 329);
+            this.pic_updateprofile.Name = "pic_updateprofile";
+            this.pic_updateprofile.Size = new System.Drawing.Size(43, 45);
+            this.pic_updateprofile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_updateprofile.TabIndex = 11;
+            this.pic_updateprofile.TabStop = false;
+            // 
             // lbl_updateprofile
             // 
             this.lbl_updateprofile.AutoSize = true;
@@ -223,6 +253,16 @@
             this.lbl_regtrainer.TabIndex = 2;
             this.lbl_regtrainer.Text = "Register Trainer";
             // 
+            // pic_home
+            // 
+            this.pic_home.Image = global::ioop_assignment.Properties.Resources.home2;
+            this.pic_home.Location = new System.Drawing.Point(11, 21);
+            this.pic_home.Name = "pic_home";
+            this.pic_home.Size = new System.Drawing.Size(43, 45);
+            this.pic_home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_home.TabIndex = 1;
+            this.pic_home.TabStop = false;
+            // 
             // lbl_home
             // 
             this.lbl_home.AutoSize = true;
@@ -233,6 +273,36 @@
             this.lbl_home.TabIndex = 0;
             this.lbl_home.Text = "Home";
             this.lbl_home.Click += new System.EventHandler(this.lbl_home_Click);
+            // 
+            // pic_viewenroll
+            // 
+            this.pic_viewenroll.Image = global::ioop_assignment.Properties.Resources.viewenroll;
+            this.pic_viewenroll.Location = new System.Drawing.Point(11, 201);
+            this.pic_viewenroll.Name = "pic_viewenroll";
+            this.pic_viewenroll.Size = new System.Drawing.Size(43, 45);
+            this.pic_viewenroll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_viewenroll.TabIndex = 17;
+            this.pic_viewenroll.TabStop = false;
+            // 
+            // pic_updatecoachclass
+            // 
+            this.pic_updatecoachclass.Image = global::ioop_assignment.Properties.Resources.updateclass;
+            this.pic_updatecoachclass.Location = new System.Drawing.Point(11, 140);
+            this.pic_updatecoachclass.Name = "pic_updatecoachclass";
+            this.pic_updatecoachclass.Size = new System.Drawing.Size(43, 45);
+            this.pic_updatecoachclass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_updatecoachclass.TabIndex = 15;
+            this.pic_updatecoachclass.TabStop = false;
+            // 
+            // pic_addcoachclass
+            // 
+            this.pic_addcoachclass.Image = global::ioop_assignment.Properties.Resources.addclass;
+            this.pic_addcoachclass.Location = new System.Drawing.Point(10, 78);
+            this.pic_addcoachclass.Name = "pic_addcoachclass";
+            this.pic_addcoachclass.Size = new System.Drawing.Size(43, 45);
+            this.pic_addcoachclass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_addcoachclass.TabIndex = 13;
+            this.pic_addcoachclass.TabStop = false;
             // 
             // panel_updateprofile
             // 
@@ -331,76 +401,6 @@
             this.lbl_upprofile.TabIndex = 0;
             this.lbl_upprofile.Text = "Update Profile";
             // 
-            // pic_sendfeedback
-            // 
-            this.pic_sendfeedback.Image = global::ioop_assignment.Properties.Resources.feedback;
-            this.pic_sendfeedback.Location = new System.Drawing.Point(10, 269);
-            this.pic_sendfeedback.Name = "pic_sendfeedback";
-            this.pic_sendfeedback.Size = new System.Drawing.Size(43, 45);
-            this.pic_sendfeedback.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_sendfeedback.TabIndex = 19;
-            this.pic_sendfeedback.TabStop = false;
-            // 
-            // pic_viewenroll
-            // 
-            this.pic_viewenroll.Image = global::ioop_assignment.Properties.Resources.viewenroll;
-            this.pic_viewenroll.Location = new System.Drawing.Point(11, 201);
-            this.pic_viewenroll.Name = "pic_viewenroll";
-            this.pic_viewenroll.Size = new System.Drawing.Size(43, 45);
-            this.pic_viewenroll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_viewenroll.TabIndex = 17;
-            this.pic_viewenroll.TabStop = false;
-            // 
-            // pic_updatecoachclass
-            // 
-            this.pic_updatecoachclass.Image = global::ioop_assignment.Properties.Resources.updateclass;
-            this.pic_updatecoachclass.Location = new System.Drawing.Point(11, 140);
-            this.pic_updatecoachclass.Name = "pic_updatecoachclass";
-            this.pic_updatecoachclass.Size = new System.Drawing.Size(43, 45);
-            this.pic_updatecoachclass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_updatecoachclass.TabIndex = 15;
-            this.pic_updatecoachclass.TabStop = false;
-            // 
-            // pic_addcoachclass
-            // 
-            this.pic_addcoachclass.Image = global::ioop_assignment.Properties.Resources.addclass;
-            this.pic_addcoachclass.Location = new System.Drawing.Point(10, 78);
-            this.pic_addcoachclass.Name = "pic_addcoachclass";
-            this.pic_addcoachclass.Size = new System.Drawing.Size(43, 45);
-            this.pic_addcoachclass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_addcoachclass.TabIndex = 13;
-            this.pic_addcoachclass.TabStop = false;
-            // 
-            // pic_updateprofile
-            // 
-            this.pic_updateprofile.Image = global::ioop_assignment.Properties.Resources.update;
-            this.pic_updateprofile.Location = new System.Drawing.Point(10, 329);
-            this.pic_updateprofile.Name = "pic_updateprofile";
-            this.pic_updateprofile.Size = new System.Drawing.Size(43, 45);
-            this.pic_updateprofile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_updateprofile.TabIndex = 11;
-            this.pic_updateprofile.TabStop = false;
-            // 
-            // pic_home
-            // 
-            this.pic_home.Image = global::ioop_assignment.Properties.Resources.home2;
-            this.pic_home.Location = new System.Drawing.Point(11, 21);
-            this.pic_home.Name = "pic_home";
-            this.pic_home.Size = new System.Drawing.Size(43, 45);
-            this.pic_home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_home.TabIndex = 1;
-            this.pic_home.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ioop_assignment.Properties.Resources.profile_picture;
-            this.pictureBox1.Location = new System.Drawing.Point(85, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(106, 110);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // TrainerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,7 +408,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
-            this.Controls.Add(this.admin_close);
+            this.Controls.Add(this.btn_closeapp);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
@@ -419,24 +419,24 @@
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.panel_info.ResumeLayout(false);
             this.panel_info.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_button.ResumeLayout(false);
             this.panel_button.PerformLayout();
-            this.panel_updateprofile.ResumeLayout(false);
-            this.panel_updateprofile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_sendfeedback)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_updateprofile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_viewenroll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_updatecoachclass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_addcoachclass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_updateprofile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_home)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel_updateprofile.ResumeLayout(false);
+            this.panel_updateprofile.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button admin_close;
+        private System.Windows.Forms.Button btn_closeapp;
         private System.Windows.Forms.Label lbl_role;
         private System.Windows.Forms.Label lbl_loggedintime;
         private System.Windows.Forms.Label lbl_identity;

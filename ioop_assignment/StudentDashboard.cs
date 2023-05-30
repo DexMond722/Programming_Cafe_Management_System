@@ -40,13 +40,6 @@ namespace ioop_assignment
             lbl_loggedintime.Text = "Logged in on: \n" + loggedInDate.ToString();
             lbl_role.Text = "Role: " + role;
             panel_updateprofile.Visible = false;
-            Users obj1 = new Users(username);
-            Users.viewProfile(obj1);
-
-            txtbox_name.Text = obj1.Name;
-            txtbox_phone.Text = obj1.Phone;
-            txtbox_email.Text = obj1.Email;
-
             MouseCursorChanged();
         }
 
@@ -54,18 +47,18 @@ namespace ioop_assignment
         {
             //Base functions
             lbl_home.Cursor = Cursors.Hand;
-            pic_home.Cursor = Cursors.Hand;
+            //pic_home.Cursor = Cursors.Hand;
             lbl_updateprofile.Cursor = Cursors.Hand;
-            pic_updateprofile.Cursor = Cursors.Hand;
+            //pic_updateprofile.Cursor = Cursors.Hand;
             //
             //student functions
             lbl_viewschedule.Cursor = Cursors.Hand;
-            pic_viewschedule.Cursor = Cursors.Hand;
+            //pic_viewschedule.Cursor = Cursors.Hand;
             lbl_sendrequest.Cursor = Cursors.Hand;
-            pic_sendrequest.Cursor = Cursors.Hand;
-            pic_delrequest.Cursor = Cursors.Hand;
+            //pic_sendrequest.Cursor = Cursors.Hand;
+            //pic_delrequest.Cursor = Cursors.Hand;
             lbl_delrequest.Cursor = Cursors.Hand;
-            pic_invpayment.Cursor = Cursors.Hand;
+            //pic_invpayment.Cursor = Cursors.Hand;
             lbl_invpayment.Cursor = Cursors.Hand;
             //
         }
@@ -73,6 +66,14 @@ namespace ioop_assignment
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
             panel_updateprofile.Visible = true;
+            //load viewProfile
+            Users obj1 = new Users(username);
+            Users.viewProfile(obj1);
+
+            txtbox_name.Text = obj1.Name;
+            txtbox_phone.Text = obj1.Phone;
+            txtbox_email.Text = obj1.Email;
+            //
         }
 
         private void btn_updateprofile_Click(object sender, EventArgs e)
