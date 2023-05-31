@@ -93,7 +93,7 @@
             this.admin_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.admin_close.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admin_close.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.admin_close.Location = new System.Drawing.Point(989, 0);
+            this.admin_close.Location = new System.Drawing.Point(986, 0);
             this.admin_close.Name = "admin_close";
             this.admin_close.Size = new System.Drawing.Size(40, 29);
             this.admin_close.TabIndex = 1;
@@ -309,7 +309,7 @@
             this.panel_updateprofile.Controls.Add(this.lbl_email);
             this.panel_updateprofile.Controls.Add(this.lbl_name);
             this.panel_updateprofile.Controls.Add(this.lbl_upprofile);
-            this.panel_updateprofile.Location = new System.Drawing.Point(290, 12);
+            this.panel_updateprofile.Location = new System.Drawing.Point(282, 4);
             this.panel_updateprofile.Name = "panel_updateprofile";
             this.panel_updateprofile.Size = new System.Drawing.Size(739, 624);
             this.panel_updateprofile.TabIndex = 12;
@@ -413,34 +413,40 @@
             this.panel_registertrainer.Controls.Add(this.lbl_rt_password);
             this.panel_registertrainer.Controls.Add(this.lbl_rt_username);
             this.panel_registertrainer.Controls.Add(this.lbl_rt_registertrainer);
-            this.panel_registertrainer.Location = new System.Drawing.Point(282, 0);
+            this.panel_registertrainer.Location = new System.Drawing.Point(282, 3);
             this.panel_registertrainer.Name = "panel_registertrainer";
-            this.panel_registertrainer.Size = new System.Drawing.Size(739, 627);
+            this.panel_registertrainer.Size = new System.Drawing.Size(739, 624);
             this.panel_registertrainer.TabIndex = 5;
             // 
             // lstbox_rt_view
             // 
+            this.lstbox_rt_view.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstbox_rt_view.FormattingEnabled = true;
+            this.lstbox_rt_view.ItemHeight = 18;
             this.lstbox_rt_view.Location = new System.Drawing.Point(501, 169);
             this.lstbox_rt_view.Name = "lstbox_rt_view";
-            this.lstbox_rt_view.Size = new System.Drawing.Size(155, 264);
+            this.lstbox_rt_view.Size = new System.Drawing.Size(155, 256);
             this.lstbox_rt_view.TabIndex = 15;
             // 
             // btn_rt_deletetrainer
             // 
-            this.btn_rt_deletetrainer.Location = new System.Drawing.Point(546, 500);
+            this.btn_rt_deletetrainer.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_rt_deletetrainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_rt_deletetrainer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rt_deletetrainer.ForeColor = System.Drawing.Color.White;
+            this.btn_rt_deletetrainer.Location = new System.Drawing.Point(521, 499);
             this.btn_rt_deletetrainer.Name = "btn_rt_deletetrainer";
-            this.btn_rt_deletetrainer.Size = new System.Drawing.Size(88, 32);
+            this.btn_rt_deletetrainer.Size = new System.Drawing.Size(106, 46);
             this.btn_rt_deletetrainer.TabIndex = 14;
             this.btn_rt_deletetrainer.Text = "Delete";
-            this.btn_rt_deletetrainer.UseVisualStyleBackColor = true;
+            this.btn_rt_deletetrainer.UseVisualStyleBackColor = false;
             this.btn_rt_deletetrainer.Click += new System.EventHandler(this.btn_rt_deletetrainer_Click);
             // 
             // lbl_rt_deletetrainer
             // 
             this.lbl_rt_deletetrainer.AutoSize = true;
             this.lbl_rt_deletetrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_rt_deletetrainer.Location = new System.Drawing.Point(486, 83);
+            this.lbl_rt_deletetrainer.Location = new System.Drawing.Point(485, 95);
             this.lbl_rt_deletetrainer.Name = "lbl_rt_deletetrainer";
             this.lbl_rt_deletetrainer.Size = new System.Drawing.Size(192, 32);
             this.lbl_rt_deletetrainer.TabIndex = 12;
@@ -448,12 +454,16 @@
             // 
             // btn_rt_register
             // 
-            this.btn_rt_register.Location = new System.Drawing.Point(142, 500);
+            this.btn_rt_register.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_rt_register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_rt_register.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rt_register.ForeColor = System.Drawing.Color.White;
+            this.btn_rt_register.Location = new System.Drawing.Point(156, 501);
             this.btn_rt_register.Name = "btn_rt_register";
-            this.btn_rt_register.Size = new System.Drawing.Size(88, 32);
+            this.btn_rt_register.Size = new System.Drawing.Size(122, 45);
             this.btn_rt_register.TabIndex = 11;
             this.btn_rt_register.Text = "Register";
-            this.btn_rt_register.UseVisualStyleBackColor = true;
+            this.btn_rt_register.UseVisualStyleBackColor = false;
             this.btn_rt_register.Click += new System.EventHandler(this.btn_rt_register_Click);
             // 
             // txtbox_rt_email
@@ -472,21 +482,21 @@
             // 
             // txtbox_rt_name
             // 
-            this.txtbox_rt_name.Location = new System.Drawing.Point(210, 302);
+            this.txtbox_rt_name.Location = new System.Drawing.Point(210, 303);
             this.txtbox_rt_name.Name = "txtbox_rt_name";
             this.txtbox_rt_name.Size = new System.Drawing.Size(184, 20);
             this.txtbox_rt_name.TabIndex = 8;
             // 
             // txtbox_rt_password
             // 
-            this.txtbox_rt_password.Location = new System.Drawing.Point(210, 238);
+            this.txtbox_rt_password.Location = new System.Drawing.Point(210, 243);
             this.txtbox_rt_password.Name = "txtbox_rt_password";
             this.txtbox_rt_password.Size = new System.Drawing.Size(184, 20);
             this.txtbox_rt_password.TabIndex = 7;
             // 
             // txtbox_rt_username
             // 
-            this.txtbox_rt_username.Location = new System.Drawing.Point(210, 169);
+            this.txtbox_rt_username.Location = new System.Drawing.Point(210, 179);
             this.txtbox_rt_username.Name = "txtbox_rt_username";
             this.txtbox_rt_username.Size = new System.Drawing.Size(184, 20);
             this.txtbox_rt_username.TabIndex = 6;
@@ -497,9 +507,9 @@
             this.lbl_rt_email.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rt_email.Location = new System.Drawing.Point(19, 418);
             this.lbl_rt_email.Name = "lbl_rt_email";
-            this.lbl_rt_email.Size = new System.Drawing.Size(155, 25);
+            this.lbl_rt_email.Size = new System.Drawing.Size(161, 25);
             this.lbl_rt_email.TabIndex = 5;
-            this.lbl_rt_email.Text = "Email Address";
+            this.lbl_rt_email.Text = "Email Address:";
             // 
             // lbl_rt_phone
             // 
@@ -507,9 +517,9 @@
             this.lbl_rt_phone.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rt_phone.Location = new System.Drawing.Point(19, 362);
             this.lbl_rt_phone.Name = "lbl_rt_phone";
-            this.lbl_rt_phone.Size = new System.Drawing.Size(165, 25);
+            this.lbl_rt_phone.Size = new System.Drawing.Size(171, 25);
             this.lbl_rt_phone.TabIndex = 4;
-            this.lbl_rt_phone.Text = "Phone Number";
+            this.lbl_rt_phone.Text = "Phone Number:";
             // 
             // lbl_rt_name
             // 
@@ -517,9 +527,9 @@
             this.lbl_rt_name.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rt_name.Location = new System.Drawing.Point(19, 302);
             this.lbl_rt_name.Name = "lbl_rt_name";
-            this.lbl_rt_name.Size = new System.Drawing.Size(75, 25);
+            this.lbl_rt_name.Size = new System.Drawing.Size(81, 25);
             this.lbl_rt_name.TabIndex = 3;
-            this.lbl_rt_name.Text = "Name";
+            this.lbl_rt_name.Text = "Name:";
             // 
             // lbl_rt_password
             // 
@@ -527,9 +537,9 @@
             this.lbl_rt_password.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rt_password.Location = new System.Drawing.Point(19, 243);
             this.lbl_rt_password.Name = "lbl_rt_password";
-            this.lbl_rt_password.Size = new System.Drawing.Size(107, 25);
+            this.lbl_rt_password.Size = new System.Drawing.Size(113, 25);
             this.lbl_rt_password.TabIndex = 2;
-            this.lbl_rt_password.Text = "Password";
+            this.lbl_rt_password.Text = "Password:";
             // 
             // lbl_rt_username
             // 
@@ -537,15 +547,15 @@
             this.lbl_rt_username.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rt_username.Location = new System.Drawing.Point(19, 174);
             this.lbl_rt_username.Name = "lbl_rt_username";
-            this.lbl_rt_username.Size = new System.Drawing.Size(115, 25);
+            this.lbl_rt_username.Size = new System.Drawing.Size(121, 25);
             this.lbl_rt_username.TabIndex = 1;
-            this.lbl_rt_username.Text = "Username";
+            this.lbl_rt_username.Text = "Username:";
             // 
             // lbl_rt_registertrainer
             // 
             this.lbl_rt_registertrainer.AutoSize = true;
             this.lbl_rt_registertrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_rt_registertrainer.Location = new System.Drawing.Point(76, 83);
+            this.lbl_rt_registertrainer.Location = new System.Drawing.Point(107, 95);
             this.lbl_rt_registertrainer.Name = "lbl_rt_registertrainer";
             this.lbl_rt_registertrainer.Size = new System.Drawing.Size(211, 32);
             this.lbl_rt_registertrainer.TabIndex = 0;

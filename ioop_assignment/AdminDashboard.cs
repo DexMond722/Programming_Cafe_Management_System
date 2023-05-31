@@ -42,8 +42,16 @@ namespace ioop_assignment
             DateTime loggedInDate = DateTime.Now;
             lbl_loggedintime.Text = "Logged in on: \n" + loggedInDate.ToString();
             lbl_role.Text = "Role: " + role;
+            txtbox_rt_password.UseSystemPasswordChar = true;
+            InitialVisibleItem();
             MouseCursorChanged();
             Loadlistbox();
+        }
+
+        private void InitialVisibleItem()
+        {
+            panel_registertrainer.Visible = false;
+            panel_updateprofile.Visible = false;
         }
 
         private void Loadlistbox()
@@ -97,14 +105,19 @@ namespace ioop_assignment
         }
         private void Registertrainer()
         {
-            Trainer obj1 = new Trainer(txtbox_rt_username.Text, txtbox_rt_password.Text, txtbox_rt_name.Text, txtbox_rt_phone.Text, txtbox_rt_email.Text);
-            MessageBox.Show(obj1.addTrainer());
+            if (!string.IsNullOrEmpty(txtbox_rt_username.Text) && !string.IsNullOrEmpty(txtbox_rt_password.Text))
+            {
+                Trainer obj1 = new Trainer(txtbox_rt_username.Text, txtbox_rt_password.Text, txtbox_rt_name.Text, txtbox_rt_phone.Text, txtbox_rt_email.Text);
+                MessageBox.Show(obj1.addTrainer());
+            }
+            else
+                MessageBox.Show("Please insert data");
 
-            txtbox_rt_username.Text = "";
-            txtbox_rt_password.Text = "";
-            txtbox_rt_name.Text = "";
-            txtbox_rt_phone.Text = "";
-            txtbox_rt_email.Text = "";
+            txtbox_rt_username.Text = null;
+            txtbox_rt_password.Text = null;
+            txtbox_rt_name.Text = null;
+            txtbox_rt_phone.Text = null;
+            txtbox_rt_email.Text = null;
         }
 
         private void MouseCursorChanged()
