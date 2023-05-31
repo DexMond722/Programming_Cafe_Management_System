@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,9 @@ namespace ioop_assignment
         public static string username;
         public static string name;
         public static string role;
+        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+        SqlDataAdapter adpt;
+        DataTable dt;
         public TrainerDashboard()
         {
             InitializeComponent();
@@ -26,6 +31,12 @@ namespace ioop_assignment
             username = uname;
             name = n;
             role = r;
+            panel_updateCoachingClass.Visible = false;
+            panel_viewStudentEnr.Visible = false;
+            panel_sendFeedback.Visible = false;
+            panel_addCoachingClass.Visible = false;
+            panel_updateprofile.Visible = false;
+            showData();
         }
 
         private void admin_close_Click(object sender, EventArgs e)
@@ -67,6 +78,10 @@ namespace ioop_assignment
 
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
+            panel_updateCoachingClass.Visible = false;
+            panel_viewStudentEnr.Visible = false;
+            panel_sendFeedback.Visible = false;
+            panel_addCoachingClass.Visible = false;
             panel_updateprofile.Visible = true;
             //load viewProfile
             Users obj1 = new Users(username);
@@ -87,6 +102,70 @@ namespace ioop_assignment
         private void lbl_home_Click(object sender, EventArgs e)
         {
             panel_updateprofile.Visible = false;
+            panel_addCoachingClass.Visible = false;
+            panel_updateCoachingClass.Visible = false;
+            panel_viewStudentEnr.Visible = false;
+            panel_sendFeedback.Visible = false;
+        }
+
+        private void lbl_addcoachclass_Click(object sender, EventArgs e)
+        {
+            panel_updateprofile.Visible = false;
+            panel_updateCoachingClass.Visible = false;
+            panel_viewStudentEnr.Visible = false;
+            panel_sendFeedback.Visible = false;
+            panel_addCoachingClass.Visible = true;
+        }
+
+        private void lbl_updatecoachclass_Click(object sender, EventArgs e)
+        {
+            panel_updateprofile.Visible = false;
+            panel_viewStudentEnr.Visible = false;
+            panel_sendFeedback.Visible = false;
+            panel_addCoachingClass.Visible = false;
+            panel_updateCoachingClass.Visible = true;
+        }
+
+        private void lbl_viewenroll_Click(object sender, EventArgs e)
+        {
+            panel_updateprofile.Visible = false;
+            panel_sendFeedback.Visible = false;
+            panel_addCoachingClass.Visible = false;
+            panel_updateCoachingClass.Visible = false;
+            panel_viewStudentEnr.Visible = true;
+        }
+
+        private void lbl_sendfeedback_Click(object sender, EventArgs e)
+        {
+            panel_updateprofile.Visible = false;
+            panel_addCoachingClass.Visible = false;
+            panel_updateCoachingClass.Visible = false;
+            panel_viewStudentEnr.Visible = false;
+            panel_sendFeedback.Visible = true;
+        }
+
+        private void btn_addCoachingClass_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string moduleName = textBox_ModuleName.Text;
+            double charges = double.Parse(textBox_Charges.Text);
+            string schedule = textBox_Schedule.Text;
+            Coaching coach = new Coaching(moduleName, charges, schedule);
+            coach.addCoachingClass();
+            textBox_ModuleName.Text = string.Empty;
+            textBox_Charges.Text = string.Empty;
+            textBox_Schedule.Text = string.Empty;
+            con.Close();
+            showData();
+        }
+
+        // show the database table in datagridview Coaching Class
+        public void showData()
+        {
+            adpt = new SqlDataAdapter("SELECT * FROM CoachingClass", con);
+            dt = new DataTable();
+            adpt.Fill(dt);
+            dataGridView_CoachingClass.DataSource = dt;
         }
     }
 }
