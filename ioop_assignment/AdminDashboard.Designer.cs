@@ -72,6 +72,15 @@
             this.lbl_rt_password = new System.Windows.Forms.Label();
             this.lbl_rt_username = new System.Windows.Forms.Label();
             this.lbl_rt_registertrainer = new System.Windows.Forms.Label();
+            this.panel_assigntrainer = new System.Windows.Forms.Panel();
+            this.lbl_at_assigntrainer = new System.Windows.Forms.Label();
+            this.lbl_at_trainer = new System.Windows.Forms.Label();
+            this.lbl_at_level = new System.Windows.Forms.Label();
+            this.lbl_at_module = new System.Windows.Forms.Label();
+            this.cbox_at_trainer = new System.Windows.Forms.ComboBox();
+            this.cbox_at_level = new System.Windows.Forms.ComboBox();
+            this.cbox_at_module = new System.Windows.Forms.ComboBox();
+            this.btn_at_assign = new System.Windows.Forms.Button();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -83,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_home)).BeginInit();
             this.panel_updateprofile.SuspendLayout();
             this.panel_registertrainer.SuspendLayout();
+            this.panel_assigntrainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // admin_close
@@ -255,6 +265,7 @@
             this.lbl_assigntrainer.Size = new System.Drawing.Size(135, 23);
             this.lbl_assigntrainer.TabIndex = 4;
             this.lbl_assigntrainer.Text = "Assign Trainer";
+            this.lbl_assigntrainer.Click += new System.EventHandler(this.lbl_assigntrainer_Click);
             // 
             // pic_regtrainer
             // 
@@ -309,7 +320,7 @@
             this.panel_updateprofile.Controls.Add(this.lbl_email);
             this.panel_updateprofile.Controls.Add(this.lbl_name);
             this.panel_updateprofile.Controls.Add(this.lbl_upprofile);
-            this.panel_updateprofile.Location = new System.Drawing.Point(282, 4);
+            this.panel_updateprofile.Location = new System.Drawing.Point(283, 8);
             this.panel_updateprofile.Name = "panel_updateprofile";
             this.panel_updateprofile.Size = new System.Drawing.Size(739, 624);
             this.panel_updateprofile.TabIndex = 12;
@@ -413,7 +424,7 @@
             this.panel_registertrainer.Controls.Add(this.lbl_rt_password);
             this.panel_registertrainer.Controls.Add(this.lbl_rt_username);
             this.panel_registertrainer.Controls.Add(this.lbl_rt_registertrainer);
-            this.panel_registertrainer.Location = new System.Drawing.Point(282, 3);
+            this.panel_registertrainer.Location = new System.Drawing.Point(283, 3);
             this.panel_registertrainer.Name = "panel_registertrainer";
             this.panel_registertrainer.Size = new System.Drawing.Size(739, 624);
             this.panel_registertrainer.TabIndex = 5;
@@ -561,6 +572,102 @@
             this.lbl_rt_registertrainer.TabIndex = 0;
             this.lbl_rt_registertrainer.Text = "Register Trainer";
             // 
+            // panel_assigntrainer
+            // 
+            this.panel_assigntrainer.Controls.Add(this.btn_at_assign);
+            this.panel_assigntrainer.Controls.Add(this.cbox_at_module);
+            this.panel_assigntrainer.Controls.Add(this.cbox_at_level);
+            this.panel_assigntrainer.Controls.Add(this.cbox_at_trainer);
+            this.panel_assigntrainer.Controls.Add(this.lbl_at_module);
+            this.panel_assigntrainer.Controls.Add(this.lbl_at_level);
+            this.panel_assigntrainer.Controls.Add(this.lbl_at_trainer);
+            this.panel_assigntrainer.Controls.Add(this.lbl_at_assigntrainer);
+            this.panel_assigntrainer.Location = new System.Drawing.Point(283, 4);
+            this.panel_assigntrainer.Name = "panel_assigntrainer";
+            this.panel_assigntrainer.Size = new System.Drawing.Size(739, 624);
+            this.panel_assigntrainer.TabIndex = 6;
+            // 
+            // lbl_at_assigntrainer
+            // 
+            this.lbl_at_assigntrainer.AutoSize = true;
+            this.lbl_at_assigntrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_assigntrainer.Location = new System.Drawing.Point(269, 77);
+            this.lbl_at_assigntrainer.Name = "lbl_at_assigntrainer";
+            this.lbl_at_assigntrainer.Size = new System.Drawing.Size(192, 32);
+            this.lbl_at_assigntrainer.TabIndex = 0;
+            this.lbl_at_assigntrainer.Text = "Assign Trainer";
+            // 
+            // lbl_at_trainer
+            // 
+            this.lbl_at_trainer.AutoSize = true;
+            this.lbl_at_trainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_trainer.Location = new System.Drawing.Point(146, 183);
+            this.lbl_at_trainer.Name = "lbl_at_trainer";
+            this.lbl_at_trainer.Size = new System.Drawing.Size(108, 32);
+            this.lbl_at_trainer.TabIndex = 1;
+            this.lbl_at_trainer.Text = "Trainer:";
+            // 
+            // lbl_at_level
+            // 
+            this.lbl_at_level.AutoSize = true;
+            this.lbl_at_level.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_level.Location = new System.Drawing.Point(165, 422);
+            this.lbl_at_level.Name = "lbl_at_level";
+            this.lbl_at_level.Size = new System.Drawing.Size(89, 32);
+            this.lbl_at_level.TabIndex = 2;
+            this.lbl_at_level.Text = "Level:";
+            // 
+            // lbl_at_module
+            // 
+            this.lbl_at_module.AutoSize = true;
+            this.lbl_at_module.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_module.Location = new System.Drawing.Point(146, 295);
+            this.lbl_at_module.Name = "lbl_at_module";
+            this.lbl_at_module.Size = new System.Drawing.Size(120, 32);
+            this.lbl_at_module.TabIndex = 3;
+            this.lbl_at_module.Text = "Module:";
+            // 
+            // cbox_at_trainer
+            // 
+            this.cbox_at_trainer.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_at_trainer.FormattingEnabled = true;
+            this.cbox_at_trainer.Location = new System.Drawing.Point(340, 189);
+            this.cbox_at_trainer.Name = "cbox_at_trainer";
+            this.cbox_at_trainer.Size = new System.Drawing.Size(190, 25);
+            this.cbox_at_trainer.TabIndex = 4;
+            // 
+            // cbox_at_level
+            // 
+            this.cbox_at_level.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_at_level.FormattingEnabled = true;
+            this.cbox_at_level.Location = new System.Drawing.Point(340, 429);
+            this.cbox_at_level.Name = "cbox_at_level";
+            this.cbox_at_level.Size = new System.Drawing.Size(190, 25);
+            this.cbox_at_level.TabIndex = 5;
+            // 
+            // cbox_at_module
+            // 
+            this.cbox_at_module.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_at_module.FormattingEnabled = true;
+            this.cbox_at_module.Location = new System.Drawing.Point(340, 302);
+            this.cbox_at_module.Name = "cbox_at_module";
+            this.cbox_at_module.Size = new System.Drawing.Size(190, 25);
+            this.cbox_at_module.TabIndex = 6;
+            // 
+            // btn_at_assign
+            // 
+            this.btn_at_assign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_at_assign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_at_assign.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_at_assign.ForeColor = System.Drawing.Color.White;
+            this.btn_at_assign.Location = new System.Drawing.Point(311, 531);
+            this.btn_at_assign.Name = "btn_at_assign";
+            this.btn_at_assign.Size = new System.Drawing.Size(109, 46);
+            this.btn_at_assign.TabIndex = 7;
+            this.btn_at_assign.Text = "Assign";
+            this.btn_at_assign.UseVisualStyleBackColor = false;
+            this.btn_at_assign.Click += new System.EventHandler(this.btn_at_assign_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -569,6 +676,7 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.admin_close);
+            this.Controls.Add(this.panel_assigntrainer);
             this.Controls.Add(this.panel_registertrainer);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_button);
@@ -593,6 +701,8 @@
             this.panel_updateprofile.PerformLayout();
             this.panel_registertrainer.ResumeLayout(false);
             this.panel_registertrainer.PerformLayout();
+            this.panel_assigntrainer.ResumeLayout(false);
+            this.panel_assigntrainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -643,5 +753,14 @@
         private System.Windows.Forms.Button btn_rt_deletetrainer;
         private System.Windows.Forms.Label lbl_rt_deletetrainer;
         private System.Windows.Forms.ListBox lstbox_rt_view;
+        private System.Windows.Forms.Panel panel_assigntrainer;
+        private System.Windows.Forms.Label lbl_at_assigntrainer;
+        private System.Windows.Forms.Button btn_at_assign;
+        private System.Windows.Forms.ComboBox cbox_at_module;
+        private System.Windows.Forms.ComboBox cbox_at_level;
+        private System.Windows.Forms.ComboBox cbox_at_trainer;
+        private System.Windows.Forms.Label lbl_at_module;
+        private System.Windows.Forms.Label lbl_at_level;
+        private System.Windows.Forms.Label lbl_at_trainer;
     }
 }

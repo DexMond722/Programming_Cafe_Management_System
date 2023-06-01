@@ -17,6 +17,8 @@ namespace ioop_assignment
         private string name;
         private string phone;
         private string email;
+        private string modulename;
+        private string levelname;
         static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
         public string UserID { get { return UserID; } set { UserID = value; } }
@@ -25,6 +27,9 @@ namespace ioop_assignment
         public string Name { get { return name; } set { name = value; } }
         public string Phone { get { return phone; } set { phone = value; } }
         public string Email { get { return email; } set { email = value; } }
+        public string Modulename { get { return modulename; } set { modulename = value; } }
+        public string Levelname { get { return levelname; } set { levelname = value; } }
+
 
         public Trainer(string username, string password, string name, string phone, string email)
         {
@@ -38,6 +43,13 @@ namespace ioop_assignment
         public Trainer(string name)
         {
             this.name = name;
+        }
+
+        public Trainer(string name, string modulename, string levelname)
+        {
+            this.name = name;
+            this.modulename = modulename;
+            this.levelname = levelname;
         }
 
 
@@ -84,21 +96,98 @@ namespace ioop_assignment
         {
             string status;
             con.Open();
-            
-            SqlCommand cmd = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
-            SqlCommand cmd2 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
+            SqlCommand cmd2 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
+            SqlCommand cmd3 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
+
 
             cmd.Parameters.AddWithValue("@TrainerName", name);
             cmd2.Parameters.AddWithValue("@TrainerName", name);
+            cmd3.Parameters.AddWithValue("@TrainerName", name);
             cmd.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
 
-            int i = cmd2.ExecuteNonQuery();
+            int i = cmd3.ExecuteNonQuery();
             if (i != 0)
                 status = "Trainer Deleted";
             else
                 status = "Unable to Delete Trainer";
             con.Close();
             return status;
+        }
+
+        public static ArrayList viewModule()
+        {
+            ArrayList nm = new ArrayList();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select distinct modulename FROM Modules", con);
+            SqlDataReader rd = cmd.ExecuteReader();
+
+            while (rd.Read())
+            {
+                nm.Add(rd.GetString(0));
+            }
+            con.Close();
+            return nm;
+        }
+
+        public static ArrayList viewLevel()
+        {
+            ArrayList nm = new ArrayList();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select distinct levelname FROM Levels", con);
+            SqlDataReader rd = cmd.ExecuteReader();
+
+            while (rd.Read())
+            {
+                nm.Add(rd.GetString(0));
+            }
+            con.Close();
+            return nm;
+        }
+
+        public string assignTrainer(string name, string modulename, string levelname)
+        {
+            string status;
+            int trainerID = GetTrainerID(name);
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO TrainerModules(trainerID, moduleID) SELECT @trainerID, m.moduleID FROM Modules m JOIN Levels l ON m.levelID = l.levelID WHERE m.moduleName = @ModuleName AND l.levelName = @LevelName" , con);
+
+            cmd.Parameters.AddWithValue("@trainerID", trainerID);
+            cmd.Parameters.AddWithValue("@levelName", levelname);
+            cmd.Parameters.AddWithValue("@ModuleName", modulename);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+            con.Close();
+
+            if (rowsAffected > 0)
+                status = "Trainer Assigned";
+            else
+                status = "Unable to Assign Trainer";
+
+            return status;
+        }
+
+        private int GetTrainerID(string name)
+        {
+            int trainerID = -1; 
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
+            cmd.Parameters.AddWithValue("@TrainerName", name);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                trainerID = reader.GetInt32(0);
+            }
+
+            reader.Close();
+            con.Close();
+
+            return trainerID;
         }
     }
 }
