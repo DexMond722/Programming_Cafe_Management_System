@@ -59,11 +59,8 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_upprofile = new System.Windows.Forms.Label();
             this.panel_addCoachingClass = new System.Windows.Forms.Panel();
-            this.dataGridView_CoachingClass = new System.Windows.Forms.DataGridView();
             this.btn_addCoachingClass = new System.Windows.Forms.Button();
-            this.textBox_Charges = new System.Windows.Forms.TextBox();
-            this.textBox_Schedule = new System.Windows.Forms.TextBox();
-            this.textBox_ModuleName = new System.Windows.Forms.TextBox();
+            this.txtBox_Schedule = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -74,6 +71,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel_sendFeedback = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.cmbBox_module = new System.Windows.Forms.ComboBox();
+            this.cmbBox_level = new System.Windows.Forms.ComboBox();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -85,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_addcoachclass)).BeginInit();
             this.panel_updateprofile.SuspendLayout();
             this.panel_addCoachingClass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CoachingClass)).BeginInit();
             this.panel_updateCoachingClass.SuspendLayout();
             this.panel_viewStudentEnr.SuspendLayout();
             this.panel_sendFeedback.SuspendLayout();
@@ -429,11 +427,10 @@
             // panel_addCoachingClass
             // 
             this.panel_addCoachingClass.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel_addCoachingClass.Controls.Add(this.dataGridView_CoachingClass);
+            this.panel_addCoachingClass.Controls.Add(this.cmbBox_level);
+            this.panel_addCoachingClass.Controls.Add(this.cmbBox_module);
             this.panel_addCoachingClass.Controls.Add(this.btn_addCoachingClass);
-            this.panel_addCoachingClass.Controls.Add(this.textBox_Charges);
-            this.panel_addCoachingClass.Controls.Add(this.textBox_Schedule);
-            this.panel_addCoachingClass.Controls.Add(this.textBox_ModuleName);
+            this.panel_addCoachingClass.Controls.Add(this.txtBox_Schedule);
             this.panel_addCoachingClass.Controls.Add(this.label1);
             this.panel_addCoachingClass.Controls.Add(this.label2);
             this.panel_addCoachingClass.Controls.Add(this.label3);
@@ -443,70 +440,43 @@
             this.panel_addCoachingClass.Size = new System.Drawing.Size(730, 610);
             this.panel_addCoachingClass.TabIndex = 15;
             // 
-            // dataGridView_CoachingClass
-            // 
-            this.dataGridView_CoachingClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_CoachingClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_CoachingClass.Location = new System.Drawing.Point(90, 339);
-            this.dataGridView_CoachingClass.Name = "dataGridView_CoachingClass";
-            this.dataGridView_CoachingClass.Size = new System.Drawing.Size(537, 183);
-            this.dataGridView_CoachingClass.TabIndex = 8;
-            // 
             // btn_addCoachingClass
             // 
             this.btn_addCoachingClass.BackColor = System.Drawing.Color.DimGray;
             this.btn_addCoachingClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addCoachingClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_addCoachingClass.Location = new System.Drawing.Point(271, 280);
+            this.btn_addCoachingClass.Location = new System.Drawing.Point(260, 385);
             this.btn_addCoachingClass.Name = "btn_addCoachingClass";
-            this.btn_addCoachingClass.Size = new System.Drawing.Size(185, 42);
+            this.btn_addCoachingClass.Size = new System.Drawing.Size(212, 57);
             this.btn_addCoachingClass.TabIndex = 7;
             this.btn_addCoachingClass.Text = "add";
             this.btn_addCoachingClass.UseVisualStyleBackColor = false;
             this.btn_addCoachingClass.Click += new System.EventHandler(this.btn_addCoachingClass_Click);
             // 
-            // textBox_Charges
+            // txtBox_Schedule
             // 
-            this.textBox_Charges.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_Charges.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Charges.Location = new System.Drawing.Point(367, 167);
-            this.textBox_Charges.Name = "textBox_Charges";
-            this.textBox_Charges.Size = new System.Drawing.Size(243, 23);
-            this.textBox_Charges.TabIndex = 6;
-            // 
-            // textBox_Schedule
-            // 
-            this.textBox_Schedule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_Schedule.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Schedule.Location = new System.Drawing.Point(367, 226);
-            this.textBox_Schedule.Name = "textBox_Schedule";
-            this.textBox_Schedule.Size = new System.Drawing.Size(243, 23);
-            this.textBox_Schedule.TabIndex = 5;
-            // 
-            // textBox_ModuleName
-            // 
-            this.textBox_ModuleName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_ModuleName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_ModuleName.Location = new System.Drawing.Point(367, 107);
-            this.textBox_ModuleName.Name = "textBox_ModuleName";
-            this.textBox_ModuleName.Size = new System.Drawing.Size(243, 23);
-            this.textBox_ModuleName.TabIndex = 4;
+            this.txtBox_Schedule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBox_Schedule.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_Schedule.Location = new System.Drawing.Point(354, 292);
+            this.txtBox_Schedule.Name = "txtBox_Schedule";
+            this.txtBox_Schedule.Size = new System.Drawing.Size(243, 23);
+            this.txtBox_Schedule.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(148, 156);
+            this.label1.Location = new System.Drawing.Point(174, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 32);
+            this.label1.Size = new System.Drawing.Size(89, 32);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Charges:";
+            this.label1.Text = "Level:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(61, 217);
+            this.label2.Location = new System.Drawing.Point(59, 285);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(220, 32);
             this.label2.TabIndex = 2;
@@ -516,7 +486,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(73, 98);
+            this.label3.Location = new System.Drawing.Point(71, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(208, 32);
             this.label3.TabIndex = 1;
@@ -586,6 +556,24 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Send Feedback";
             // 
+            // cmbBox_module
+            // 
+            this.cmbBox_module.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBox_module.FormattingEnabled = true;
+            this.cmbBox_module.Location = new System.Drawing.Point(354, 214);
+            this.cmbBox_module.Name = "cmbBox_module";
+            this.cmbBox_module.Size = new System.Drawing.Size(243, 25);
+            this.cmbBox_module.TabIndex = 8;
+            // 
+            // cmbBox_level
+            // 
+            this.cmbBox_level.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBox_level.FormattingEnabled = true;
+            this.cmbBox_level.Location = new System.Drawing.Point(354, 126);
+            this.cmbBox_level.Name = "cmbBox_level";
+            this.cmbBox_level.Size = new System.Drawing.Size(243, 25);
+            this.cmbBox_level.TabIndex = 9;
+            // 
             // TrainerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,7 +609,6 @@
             this.panel_updateprofile.PerformLayout();
             this.panel_addCoachingClass.ResumeLayout(false);
             this.panel_addCoachingClass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CoachingClass)).EndInit();
             this.panel_updateCoachingClass.ResumeLayout(false);
             this.panel_updateCoachingClass.PerformLayout();
             this.panel_viewStudentEnr.ResumeLayout(false);
@@ -665,11 +652,8 @@
         private System.Windows.Forms.Label lbl_upprofile;
         private System.Windows.Forms.Button btn_updateprofile;
         private System.Windows.Forms.Panel panel_addCoachingClass;
-        private System.Windows.Forms.DataGridView dataGridView_CoachingClass;
         private System.Windows.Forms.Button btn_addCoachingClass;
-        private System.Windows.Forms.TextBox textBox_Charges;
-        private System.Windows.Forms.TextBox textBox_Schedule;
-        private System.Windows.Forms.TextBox textBox_ModuleName;
+        private System.Windows.Forms.TextBox txtBox_Schedule;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -680,5 +664,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel_sendFeedback;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbBox_level;
+        private System.Windows.Forms.ComboBox cmbBox_module;
     }
 }

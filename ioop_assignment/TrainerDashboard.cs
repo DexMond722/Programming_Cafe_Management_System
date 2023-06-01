@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -17,9 +18,7 @@ namespace ioop_assignment
         public static string username;
         public static string name;
         public static string role;
-        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
-        SqlDataAdapter adpt;
-        DataTable dt;
+        
         public TrainerDashboard()
         {
             InitializeComponent();
@@ -36,7 +35,6 @@ namespace ioop_assignment
             panel_sendFeedback.Visible = false;
             panel_addCoachingClass.Visible = false;
             panel_updateprofile.Visible = false;
-            showData();
         }
 
         private void admin_close_Click(object sender, EventArgs e)
@@ -44,14 +42,20 @@ namespace ioop_assignment
             Application.Exit();
         }
 
-        private void AdminDashboard_Load(object sender, EventArgs e)
+        private void FormInitial()
         {
             lbl_identity.Text = "Welcome back, " + name;
             DateTime loggedInDate = DateTime.Now;
             lbl_loggedintime.Text = "Logged in on: \n" + loggedInDate.ToString();
             lbl_role.Text = "Role: " + role;
-            panel_updateprofile.Visible = false;
+        }
+
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+            FormInitial();
             MouseCursorChanged();
+            loadComboBox();
         }
 
         private void MouseCursorChanged()
@@ -144,28 +148,60 @@ namespace ioop_assignment
             panel_sendFeedback.Visible = true;
         }
 
-        private void btn_addCoachingClass_Click(object sender, EventArgs e)
+        private void loadComboBox()
         {
-            con.Open();
-            string moduleName = textBox_ModuleName.Text;
-            double charges = double.Parse(textBox_Charges.Text);
-            string schedule = textBox_Schedule.Text;
-            Coaching coach = new Coaching(moduleName, charges, schedule);
-            coach.addCoachingClass();
-            textBox_ModuleName.Text = string.Empty;
-            textBox_Charges.Text = string.Empty;
-            textBox_Schedule.Text = string.Empty;
-            con.Close();
-            showData();
+            ArrayList moduleName = new ArrayList();
+
+            moduleName = Coaching.viewModuleName();
+            foreach (var item in moduleName)
+            {
+                cmbBox_module.Items.Add(item);
+            }
+
+            ArrayList level = new ArrayList();
+
+            moduleName = Coaching.viewLevel();
+            foreach (var item in moduleName)
+            {
+                cmbBox_level.Items.Add(item);
+            }
         }
 
-        // show the database table in datagridview Coaching Class
-        public void showData()
+        // Return the item selected in combobox if no selected item return empty string
+        private string GetSelectedComboBoxItem(ComboBox comboBox)
         {
-            adpt = new SqlDataAdapter("SELECT * FROM CoachingClass", con);
-            dt = new DataTable();
-            adpt.Fill(dt);
-            dataGridView_CoachingClass.DataSource = dt;
+            if (comboBox.SelectedIndex != -1)
+            {
+                return comboBox.SelectedItem.ToString();
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
+
+        // add coaching class
+        private void addCoachingClass()
+        {
+            if (cmbBox_module.SelectedIndex != -1 && !string.IsNullOrEmpty(txtBox_Schedule.Text))
+            {
+                Coaching obj1 = new Coaching(GetSelectedComboBoxItem(cmbBox_module), GetSelectedComboBoxItem(cmbBox_level), txtBox_Schedule.Text);
+                obj1.Username = username;
+                MessageBox.Show(obj1.addCoachingClass());
+            }
+            else
+                MessageBox.Show("Please insert data");
+
+            cmbBox_module.SelectedIndex = -1;
+            cmbBox_level.SelectedIndex = -1;
+            txtBox_Schedule.Text = String.Empty;
+        }
+
+        private void btn_addCoachingClass_Click(object sender, EventArgs e)
+        {
+            addCoachingClass();
+        }
+
+        
     }
 }
