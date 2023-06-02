@@ -52,14 +52,19 @@ namespace ioop_assignment
             InitialVisibleItem();
             MouseCursorChanged();
             Loadlistbox();
-            LoadCombobox();
+            LoadAssignTrainerCombobox();
+            LoadViewIncomeComboBox();
+            LoadViewIncomeDGV();
         }
+
+
 
         private void InitialVisibleItem()
         {
             panel_registertrainer.Visible = false;
             panel_updateprofile.Visible = false;
             panel_assigntrainer.Visible = false;
+            panel_viewincome.Visible = false;
         }
 
         private void Loadlistbox()
@@ -75,27 +80,11 @@ namespace ioop_assignment
 
         private void Reloadlistbox()
         {
-            ArrayList name = Trainer.viewAll();
-            lstbox_rt_view.Items.Clear(); 
-            foreach (var item in name)
-            {
-                lstbox_rt_view.Items.Add(item);
-            }
+            lstbox_rt_view.Items.Clear();
+            Loadlistbox();
         }
 
-        private void Deletetrainer()
-        {
-            if (lstbox_rt_view.SelectedItem != null)
-            {
-                string selectedTrainerName = lstbox_rt_view.SelectedItem.ToString();
-
-                Trainer obj1 = new Trainer(selectedTrainerName);
-                MessageBox.Show(obj1.deleteTrainer(selectedTrainerName));
-
-                lstbox_rt_view.Items.Remove(lstbox_rt_view.SelectedItem);
-            }
-        }
-        private void LoadCombobox()
+        private void LoadAssignTrainerCombobox()
         {
             ArrayList trainername = new ArrayList();
 
@@ -118,6 +107,54 @@ namespace ioop_assignment
             {
                 cbox_at_level.Items.Add(item);
             }
+        }
+
+        private void ReloadAssignTrainerCombobox()
+        {
+            cbox_at_level.Items.Clear();
+            cbox_at_module.Items.Clear();
+            cbox_at_trainer.Items.Clear();
+            LoadAssignTrainerCombobox();
+        }
+
+            private void LoadViewIncomeComboBox()
+        {
+            ArrayList trainername = new ArrayList();
+
+            trainername = Trainer.viewAll();
+            foreach (var item in trainername)
+            {
+                cbox_vi_trainer.Items.Add(item);
+            }
+            ArrayList module = new ArrayList();
+
+            module = Trainer.viewModule();
+            foreach (var item in module)
+            {
+                cbox_vi_module.Items.Add(item);
+            }
+            ArrayList level = new ArrayList();
+
+            level = Trainer.viewLevel();
+            foreach (var item in level)
+            {
+                cbox_vi_level.Items.Add(item);
+            }
+        }
+
+        private void ReloadViewIncomeComboBox()
+        {
+            cbox_vi_trainer.Items.Clear();
+            cbox_vi_module.Items.Clear();
+            cbox_vi_level.Items.Clear();
+            LoadViewIncomeComboBox();
+        }
+
+
+        private void LoadViewIncomeDGV()
+        {
+            DataTable dataTable = Trainer.Loadincome();
+            dgv_vi_income.DataSource = dataTable;
         }
 
         private void viewProfile()
@@ -151,6 +188,21 @@ namespace ioop_assignment
             txtbox_rt_name.Text = null;
             txtbox_rt_phone.Text = null;
             txtbox_rt_email.Text = null;
+        }
+
+        private void Deletetrainer()
+        {
+            if (lstbox_rt_view.SelectedItem != null)
+            {
+                string selectedTrainerName = lstbox_rt_view.SelectedItem.ToString();
+
+                Trainer obj1 = new Trainer(selectedTrainerName);
+                MessageBox.Show(obj1.deleteTrainer(selectedTrainerName));
+
+                lstbox_rt_view.Items.Remove(lstbox_rt_view.SelectedItem);
+            }
+            else
+                MessageBox.Show("Please select Trainers first");
         }
 
         private void AssignTrainer()
@@ -192,6 +244,7 @@ namespace ioop_assignment
             panel_updateprofile.Visible = false;
             panel_registertrainer.Visible = true;
             panel_assigntrainer.Visible = false;
+            panel_viewincome.Visible = false;
         }
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
@@ -199,6 +252,7 @@ namespace ioop_assignment
             panel_updateprofile.Visible = true;
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = false;
+            panel_viewincome.Visible = false;
             viewProfile();
         }
 
@@ -212,17 +266,22 @@ namespace ioop_assignment
             panel_updateprofile.Visible = false;
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = false;
+            panel_viewincome.Visible = false;
         }
 
         private void btn_rt_register_Click(object sender, EventArgs e)
         {
             Registertrainer();
             Reloadlistbox();
+            ReloadAssignTrainerCombobox();
         }
 
         private void btn_rt_deletetrainer_Click(object sender, EventArgs e)
         {
             Deletetrainer();
+            ReloadAssignTrainerCombobox();
+            ReloadViewIncomeComboBox();
+            LoadViewIncomeDGV();
         }
 
         private void lbl_assigntrainer_Click(object sender, EventArgs e)
@@ -230,13 +289,25 @@ namespace ioop_assignment
             panel_updateprofile.Visible = false;
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = true;
+            panel_viewincome.Visible = false;
         }
 
         private void btn_at_assign_Click(object sender, EventArgs e)
         {
             AssignTrainer();
+            LoadViewIncomeDGV();
         }
 
+        private void lbl_viewincome_Click(object sender, EventArgs e)
+        {
+            panel_viewincome.Visible = true;
+            ReloadViewIncomeComboBox();
 
+        }
+
+        private void btn_vi_search_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

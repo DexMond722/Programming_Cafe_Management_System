@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace ioop_assignment
         private string modulename;
         private string levelname;
         static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+
 
         public string UserID { get { return UserID; } set { UserID = value; } }
         public string Username { get { return username; } set { username = value; } }
@@ -51,7 +53,6 @@ namespace ioop_assignment
             this.modulename = modulename;
             this.levelname = levelname;
         }
-
 
         public string addTrainer()
         {
@@ -97,18 +98,22 @@ namespace ioop_assignment
             string status;
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
-            SqlCommand cmd2 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
-            SqlCommand cmd3 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
+            SqlCommand cmd = new SqlCommand("DELETE FROM Invoice WHERE trainerID = (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
+            SqlCommand cmd2 = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
+            SqlCommand cmd3 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
+            SqlCommand cmd4 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
+            
 
 
             cmd.Parameters.AddWithValue("@TrainerName", name);
             cmd2.Parameters.AddWithValue("@TrainerName", name);
             cmd3.Parameters.AddWithValue("@TrainerName", name);
+            cmd4.Parameters.AddWithValue("@TrainerName", name);
             cmd.ExecuteNonQuery();
             cmd2.ExecuteNonQuery();
+            cmd3.ExecuteNonQuery();
 
-            int i = cmd3.ExecuteNonQuery();
+            int i = cmd4.ExecuteNonQuery();
             if (i != 0)
                 status = "Trainer Deleted";
             else
@@ -158,8 +163,12 @@ namespace ioop_assignment
             cmd.Parameters.AddWithValue("@trainerID", trainerID);
             cmd.Parameters.AddWithValue("@levelName", levelname);
             cmd.Parameters.AddWithValue("@ModuleName", modulename);
-
-            int rowsAffected = cmd.ExecuteNonQuery();
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO Invoice (trainerID, moduleID, paymentID, amount) SELECT Trainers.trainerID, Modules.moduleID, Payment.paymentID, Modules.charges FROM Trainers INNER JOIN TrainerModules ON Trainers.trainerID = TrainerModules.trainerID INNER JOIN Modules ON TrainerModules.moduleID = Modules.moduleID INNER JOIN Levels ON Modules.levelID = Levels.levelID CROSS JOIN Payment WHERE Trainers.trainerID = @trainerID AND Modules.modulename = @ModuleName AND Levels.levelname = @levelname AND Payment.paymentstatus = 'unpaid'", con);
+            cmd2.Parameters.AddWithValue("@trainerID", trainerID);
+            cmd2.Parameters.AddWithValue("@ModuleName", modulename);
+            cmd2.Parameters.AddWithValue("@levelName", levelname);
+            cmd.ExecuteNonQuery();
+            int rowsAffected = cmd2.ExecuteNonQuery();
             con.Close();
 
             if (rowsAffected > 0)
@@ -189,5 +198,20 @@ namespace ioop_assignment
 
             return trainerID;
         }
+
+        public static DataTable Loadincome()
+        {
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM vwIncome", con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            con.Close();
+
+            return dataTable;
+
+        }
+        
     }
 }

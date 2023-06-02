@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.admin_close = new System.Windows.Forms.Button();
             this.lbl_role = new System.Windows.Forms.Label();
             this.lbl_loggedintime = new System.Windows.Forms.Label();
@@ -73,14 +74,24 @@
             this.lbl_rt_username = new System.Windows.Forms.Label();
             this.lbl_rt_registertrainer = new System.Windows.Forms.Label();
             this.panel_assigntrainer = new System.Windows.Forms.Panel();
-            this.lbl_at_assigntrainer = new System.Windows.Forms.Label();
-            this.lbl_at_trainer = new System.Windows.Forms.Label();
-            this.lbl_at_level = new System.Windows.Forms.Label();
-            this.lbl_at_module = new System.Windows.Forms.Label();
-            this.cbox_at_trainer = new System.Windows.Forms.ComboBox();
-            this.cbox_at_level = new System.Windows.Forms.ComboBox();
-            this.cbox_at_module = new System.Windows.Forms.ComboBox();
             this.btn_at_assign = new System.Windows.Forms.Button();
+            this.cbox_at_module = new System.Windows.Forms.ComboBox();
+            this.cbox_at_level = new System.Windows.Forms.ComboBox();
+            this.cbox_at_trainer = new System.Windows.Forms.ComboBox();
+            this.lbl_at_module = new System.Windows.Forms.Label();
+            this.lbl_at_level = new System.Windows.Forms.Label();
+            this.lbl_at_trainer = new System.Windows.Forms.Label();
+            this.lbl_at_assigntrainer = new System.Windows.Forms.Label();
+            this.panel_viewincome = new System.Windows.Forms.Panel();
+            this.btn_vi_search = new System.Windows.Forms.Button();
+            this.cbox_vi_level = new System.Windows.Forms.ComboBox();
+            this.cbox_vi_module = new System.Windows.Forms.ComboBox();
+            this.cbox_vi_trainer = new System.Windows.Forms.ComboBox();
+            this.lbl_vi_level = new System.Windows.Forms.Label();
+            this.lbl_vi_module = new System.Windows.Forms.Label();
+            this.lbl_vi_trainer = new System.Windows.Forms.Label();
+            this.dgv_vi_income = new System.Windows.Forms.DataGridView();
+            this.lbl_vi_viewincome = new System.Windows.Forms.Label();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -93,6 +104,8 @@
             this.panel_updateprofile.SuspendLayout();
             this.panel_registertrainer.SuspendLayout();
             this.panel_assigntrainer.SuspendLayout();
+            this.panel_viewincome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_vi_income)).BeginInit();
             this.SuspendLayout();
             // 
             // admin_close
@@ -245,6 +258,7 @@
             this.lbl_viewincome.Size = new System.Drawing.Size(130, 23);
             this.lbl_viewincome.TabIndex = 6;
             this.lbl_viewincome.Text = "View Income";
+            this.lbl_viewincome.Click += new System.EventHandler(this.lbl_viewincome_Click);
             // 
             // pic_assigntrainer
             // 
@@ -587,73 +601,6 @@
             this.panel_assigntrainer.Size = new System.Drawing.Size(739, 624);
             this.panel_assigntrainer.TabIndex = 6;
             // 
-            // lbl_at_assigntrainer
-            // 
-            this.lbl_at_assigntrainer.AutoSize = true;
-            this.lbl_at_assigntrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_at_assigntrainer.Location = new System.Drawing.Point(269, 77);
-            this.lbl_at_assigntrainer.Name = "lbl_at_assigntrainer";
-            this.lbl_at_assigntrainer.Size = new System.Drawing.Size(192, 32);
-            this.lbl_at_assigntrainer.TabIndex = 0;
-            this.lbl_at_assigntrainer.Text = "Assign Trainer";
-            // 
-            // lbl_at_trainer
-            // 
-            this.lbl_at_trainer.AutoSize = true;
-            this.lbl_at_trainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_at_trainer.Location = new System.Drawing.Point(146, 183);
-            this.lbl_at_trainer.Name = "lbl_at_trainer";
-            this.lbl_at_trainer.Size = new System.Drawing.Size(108, 32);
-            this.lbl_at_trainer.TabIndex = 1;
-            this.lbl_at_trainer.Text = "Trainer:";
-            // 
-            // lbl_at_level
-            // 
-            this.lbl_at_level.AutoSize = true;
-            this.lbl_at_level.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_at_level.Location = new System.Drawing.Point(165, 422);
-            this.lbl_at_level.Name = "lbl_at_level";
-            this.lbl_at_level.Size = new System.Drawing.Size(89, 32);
-            this.lbl_at_level.TabIndex = 2;
-            this.lbl_at_level.Text = "Level:";
-            // 
-            // lbl_at_module
-            // 
-            this.lbl_at_module.AutoSize = true;
-            this.lbl_at_module.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_at_module.Location = new System.Drawing.Point(146, 295);
-            this.lbl_at_module.Name = "lbl_at_module";
-            this.lbl_at_module.Size = new System.Drawing.Size(120, 32);
-            this.lbl_at_module.TabIndex = 3;
-            this.lbl_at_module.Text = "Module:";
-            // 
-            // cbox_at_trainer
-            // 
-            this.cbox_at_trainer.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbox_at_trainer.FormattingEnabled = true;
-            this.cbox_at_trainer.Location = new System.Drawing.Point(340, 189);
-            this.cbox_at_trainer.Name = "cbox_at_trainer";
-            this.cbox_at_trainer.Size = new System.Drawing.Size(190, 25);
-            this.cbox_at_trainer.TabIndex = 4;
-            // 
-            // cbox_at_level
-            // 
-            this.cbox_at_level.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbox_at_level.FormattingEnabled = true;
-            this.cbox_at_level.Location = new System.Drawing.Point(340, 429);
-            this.cbox_at_level.Name = "cbox_at_level";
-            this.cbox_at_level.Size = new System.Drawing.Size(190, 25);
-            this.cbox_at_level.TabIndex = 5;
-            // 
-            // cbox_at_module
-            // 
-            this.cbox_at_module.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbox_at_module.FormattingEnabled = true;
-            this.cbox_at_module.Location = new System.Drawing.Point(340, 302);
-            this.cbox_at_module.Name = "cbox_at_module";
-            this.cbox_at_module.Size = new System.Drawing.Size(190, 25);
-            this.cbox_at_module.TabIndex = 6;
-            // 
             // btn_at_assign
             // 
             this.btn_at_assign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -668,6 +615,187 @@
             this.btn_at_assign.UseVisualStyleBackColor = false;
             this.btn_at_assign.Click += new System.EventHandler(this.btn_at_assign_Click);
             // 
+            // cbox_at_module
+            // 
+            this.cbox_at_module.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_at_module.FormattingEnabled = true;
+            this.cbox_at_module.Location = new System.Drawing.Point(340, 302);
+            this.cbox_at_module.Name = "cbox_at_module";
+            this.cbox_at_module.Size = new System.Drawing.Size(190, 25);
+            this.cbox_at_module.TabIndex = 6;
+            // 
+            // cbox_at_level
+            // 
+            this.cbox_at_level.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_at_level.FormattingEnabled = true;
+            this.cbox_at_level.Location = new System.Drawing.Point(340, 429);
+            this.cbox_at_level.Name = "cbox_at_level";
+            this.cbox_at_level.Size = new System.Drawing.Size(190, 25);
+            this.cbox_at_level.TabIndex = 5;
+            // 
+            // cbox_at_trainer
+            // 
+            this.cbox_at_trainer.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_at_trainer.FormattingEnabled = true;
+            this.cbox_at_trainer.Location = new System.Drawing.Point(340, 189);
+            this.cbox_at_trainer.Name = "cbox_at_trainer";
+            this.cbox_at_trainer.Size = new System.Drawing.Size(190, 25);
+            this.cbox_at_trainer.TabIndex = 4;
+            // 
+            // lbl_at_module
+            // 
+            this.lbl_at_module.AutoSize = true;
+            this.lbl_at_module.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_module.Location = new System.Drawing.Point(146, 295);
+            this.lbl_at_module.Name = "lbl_at_module";
+            this.lbl_at_module.Size = new System.Drawing.Size(120, 32);
+            this.lbl_at_module.TabIndex = 3;
+            this.lbl_at_module.Text = "Module:";
+            // 
+            // lbl_at_level
+            // 
+            this.lbl_at_level.AutoSize = true;
+            this.lbl_at_level.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_level.Location = new System.Drawing.Point(165, 422);
+            this.lbl_at_level.Name = "lbl_at_level";
+            this.lbl_at_level.Size = new System.Drawing.Size(89, 32);
+            this.lbl_at_level.TabIndex = 2;
+            this.lbl_at_level.Text = "Level:";
+            // 
+            // lbl_at_trainer
+            // 
+            this.lbl_at_trainer.AutoSize = true;
+            this.lbl_at_trainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_trainer.Location = new System.Drawing.Point(146, 183);
+            this.lbl_at_trainer.Name = "lbl_at_trainer";
+            this.lbl_at_trainer.Size = new System.Drawing.Size(108, 32);
+            this.lbl_at_trainer.TabIndex = 1;
+            this.lbl_at_trainer.Text = "Trainer:";
+            // 
+            // lbl_at_assigntrainer
+            // 
+            this.lbl_at_assigntrainer.AutoSize = true;
+            this.lbl_at_assigntrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_assigntrainer.Location = new System.Drawing.Point(269, 77);
+            this.lbl_at_assigntrainer.Name = "lbl_at_assigntrainer";
+            this.lbl_at_assigntrainer.Size = new System.Drawing.Size(192, 32);
+            this.lbl_at_assigntrainer.TabIndex = 0;
+            this.lbl_at_assigntrainer.Text = "Assign Trainer";
+            // 
+            // panel_viewincome
+            // 
+            this.panel_viewincome.Controls.Add(this.btn_vi_search);
+            this.panel_viewincome.Controls.Add(this.cbox_vi_level);
+            this.panel_viewincome.Controls.Add(this.cbox_vi_module);
+            this.panel_viewincome.Controls.Add(this.cbox_vi_trainer);
+            this.panel_viewincome.Controls.Add(this.lbl_vi_level);
+            this.panel_viewincome.Controls.Add(this.lbl_vi_module);
+            this.panel_viewincome.Controls.Add(this.lbl_vi_trainer);
+            this.panel_viewincome.Controls.Add(this.dgv_vi_income);
+            this.panel_viewincome.Controls.Add(this.lbl_vi_viewincome);
+            this.panel_viewincome.Location = new System.Drawing.Point(283, 6);
+            this.panel_viewincome.Name = "panel_viewincome";
+            this.panel_viewincome.Size = new System.Drawing.Size(739, 624);
+            this.panel_viewincome.TabIndex = 8;
+            // 
+            // btn_vi_search
+            // 
+            this.btn_vi_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_vi_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_vi_search.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_vi_search.ForeColor = System.Drawing.Color.White;
+            this.btn_vi_search.Location = new System.Drawing.Point(557, 168);
+            this.btn_vi_search.Name = "btn_vi_search";
+            this.btn_vi_search.Size = new System.Drawing.Size(99, 60);
+            this.btn_vi_search.TabIndex = 8;
+            this.btn_vi_search.Text = "Search";
+            this.btn_vi_search.UseVisualStyleBackColor = false;
+            this.btn_vi_search.Click += new System.EventHandler(this.btn_vi_search_Click);
+            // 
+            // cbox_vi_level
+            // 
+            this.cbox_vi_level.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_vi_level.FormattingEnabled = true;
+            this.cbox_vi_level.Location = new System.Drawing.Point(275, 277);
+            this.cbox_vi_level.Name = "cbox_vi_level";
+            this.cbox_vi_level.Size = new System.Drawing.Size(186, 25);
+            this.cbox_vi_level.TabIndex = 7;
+            // 
+            // cbox_vi_module
+            // 
+            this.cbox_vi_module.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_vi_module.FormattingEnabled = true;
+            this.cbox_vi_module.Location = new System.Drawing.Point(275, 188);
+            this.cbox_vi_module.Name = "cbox_vi_module";
+            this.cbox_vi_module.Size = new System.Drawing.Size(186, 25);
+            this.cbox_vi_module.TabIndex = 6;
+            // 
+            // cbox_vi_trainer
+            // 
+            this.cbox_vi_trainer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_vi_trainer.FormattingEnabled = true;
+            this.cbox_vi_trainer.Location = new System.Drawing.Point(275, 96);
+            this.cbox_vi_trainer.Name = "cbox_vi_trainer";
+            this.cbox_vi_trainer.Size = new System.Drawing.Size(186, 25);
+            this.cbox_vi_trainer.TabIndex = 5;
+            // 
+            // lbl_vi_level
+            // 
+            this.lbl_vi_level.AutoSize = true;
+            this.lbl_vi_level.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vi_level.Location = new System.Drawing.Point(94, 277);
+            this.lbl_vi_level.Name = "lbl_vi_level";
+            this.lbl_vi_level.Size = new System.Drawing.Size(79, 28);
+            this.lbl_vi_level.TabIndex = 4;
+            this.lbl_vi_level.Text = "Level:";
+            // 
+            // lbl_vi_module
+            // 
+            this.lbl_vi_module.AutoSize = true;
+            this.lbl_vi_module.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vi_module.Location = new System.Drawing.Point(94, 185);
+            this.lbl_vi_module.Name = "lbl_vi_module";
+            this.lbl_vi_module.Size = new System.Drawing.Size(107, 28);
+            this.lbl_vi_module.TabIndex = 3;
+            this.lbl_vi_module.Text = "Module:";
+            // 
+            // lbl_vi_trainer
+            // 
+            this.lbl_vi_trainer.AutoSize = true;
+            this.lbl_vi_trainer.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vi_trainer.Location = new System.Drawing.Point(94, 96);
+            this.lbl_vi_trainer.Name = "lbl_vi_trainer";
+            this.lbl_vi_trainer.Size = new System.Drawing.Size(96, 28);
+            this.lbl_vi_trainer.TabIndex = 2;
+            this.lbl_vi_trainer.Text = "Trainer:";
+            // 
+            // dgv_vi_income
+            // 
+            this.dgv_vi_income.AllowUserToAddRows = false;
+            this.dgv_vi_income.AllowUserToDeleteRows = false;
+            this.dgv_vi_income.AllowUserToResizeColumns = false;
+            this.dgv_vi_income.AllowUserToResizeRows = false;
+            this.dgv_vi_income.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_vi_income.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_vi_income.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgv_vi_income.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_vi_income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_vi_income.Location = new System.Drawing.Point(95, 349);
+            this.dgv_vi_income.Name = "dgv_vi_income";
+            this.dgv_vi_income.ReadOnly = true;
+            this.dgv_vi_income.Size = new System.Drawing.Size(561, 241);
+            this.dgv_vi_income.TabIndex = 1;
+            // 
+            // lbl_vi_viewincome
+            // 
+            this.lbl_vi_viewincome.AutoSize = true;
+            this.lbl_vi_viewincome.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vi_viewincome.Location = new System.Drawing.Point(269, 30);
+            this.lbl_vi_viewincome.Name = "lbl_vi_viewincome";
+            this.lbl_vi_viewincome.Size = new System.Drawing.Size(201, 36);
+            this.lbl_vi_viewincome.TabIndex = 0;
+            this.lbl_vi_viewincome.Text = "View Income";
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -676,6 +804,7 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.admin_close);
+            this.Controls.Add(this.panel_viewincome);
             this.Controls.Add(this.panel_assigntrainer);
             this.Controls.Add(this.panel_registertrainer);
             this.Controls.Add(this.panel_updateprofile);
@@ -703,6 +832,9 @@
             this.panel_registertrainer.PerformLayout();
             this.panel_assigntrainer.ResumeLayout(false);
             this.panel_assigntrainer.PerformLayout();
+            this.panel_viewincome.ResumeLayout(false);
+            this.panel_viewincome.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_vi_income)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -762,5 +894,16 @@
         private System.Windows.Forms.Label lbl_at_module;
         private System.Windows.Forms.Label lbl_at_level;
         private System.Windows.Forms.Label lbl_at_trainer;
+        private System.Windows.Forms.Panel panel_viewincome;
+        private System.Windows.Forms.Button btn_vi_search;
+        private System.Windows.Forms.ComboBox cbox_vi_level;
+        private System.Windows.Forms.ComboBox cbox_vi_module;
+        private System.Windows.Forms.ComboBox cbox_vi_trainer;
+        private System.Windows.Forms.Label lbl_vi_level;
+        private System.Windows.Forms.Label lbl_vi_module;
+        private System.Windows.Forms.Label lbl_vi_trainer;
+        private System.Windows.Forms.DataGridView dgv_vi_income;
+        private System.Windows.Forms.BindingSource invoiceDatasetBindingSource;
+        private System.Windows.Forms.Label lbl_vi_viewincome;
     }
 }
