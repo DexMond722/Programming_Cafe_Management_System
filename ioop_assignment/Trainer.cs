@@ -75,7 +75,7 @@ namespace ioop_assignment
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@phone", phone);
             cmd.Parameters.AddWithValue("@email", email);
-            
+
 
             int UserID = Convert.ToInt32(cmd.ExecuteScalar());
             cmd2.Parameters.AddWithValue("@userID", UserID);
@@ -111,7 +111,7 @@ namespace ioop_assignment
             SqlCommand cmd2 = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
             SqlCommand cmd3 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
             SqlCommand cmd4 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
-            
+
 
 
             cmd.Parameters.AddWithValue("@TrainerName", name);
@@ -167,7 +167,7 @@ namespace ioop_assignment
             int trainerID = GetTrainerID(name);
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO TrainerModules(trainerID, moduleID) SELECT @trainerID, m.moduleID FROM Modules m JOIN Levels l ON m.levelID = l.levelID WHERE m.moduleName = @ModuleName AND l.levelName = @LevelName" , con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO TrainerModules(trainerID, moduleID) SELECT @trainerID, m.moduleID FROM Modules m JOIN Levels l ON m.levelID = l.levelID WHERE m.moduleName = @ModuleName AND l.levelName = @LevelName", con);
 
             cmd.Parameters.AddWithValue("@trainerID", trainerID);
             cmd.Parameters.AddWithValue("@levelName", levelname);
@@ -190,7 +190,7 @@ namespace ioop_assignment
 
         private int GetTrainerID(string name)
         {
-            int trainerID = -1; 
+            int trainerID = -1;
 
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
@@ -221,68 +221,6 @@ namespace ioop_assignment
             return dataTable;
 
         }
-
-/*        public static List<Trainer> SearchIncomeByFilters(string trainerName, string moduleName, string levelName)
-        {
-            List<Trainer> incomeData = new List<Trainer>();
-            con.Open();
-
-            // Start with a base query to retrieve all income data
-            string query = "SELECT TrainerName, ModuleName, LevelName, Amount FROM vwIncome WHERE 1=1";
-
-            // Apply filters based on the selected values
-            if (!string.IsNullOrEmpty(trainerName))
-            {
-                query += " AND TrainerName = @TrainerName";
-            }
-
-            if (!string.IsNullOrEmpty(moduleName))
-            {
-                query += " AND ModuleName = @ModuleName";
-            }
-
-            if (!string.IsNullOrEmpty(levelName))
-            {
-                query += " AND LevelName = @LevelName";
-            }
-
-            using (SqlCommand cmd = new SqlCommand(query, con))
-            {
-                if (!string.IsNullOrEmpty(trainerName))
-                {
-                    cmd.Parameters.AddWithValue("@TrainerName", trainerName);
-                }
-
-                if (!string.IsNullOrEmpty(moduleName))
-                {
-                    cmd.Parameters.AddWithValue("@ModuleName", moduleName);
-                }
-
-                if (!string.IsNullOrEmpty(levelName))
-                {
-                    cmd.Parameters.AddWithValue("@LevelName", levelName);
-                }
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Trainer income = new Trainer(trainerName, moduleName, levelName)
-                        {
-                            name = reader.GetString(reader.GetOrdinal("TrainerName")),
-                            modulename = reader.GetString(reader.GetOrdinal("ModuleName")),
-                            levelname = reader.GetString(reader.GetOrdinal("LevelName")),
-                            amount = reader.GetString(reader.GetOrdinal("Amount"))
-                        };
-
-                        incomeData.Add(income);
-                    }
-                }
-            }
-            con.Close();
-
-            return incomeData;*/
-        }
-
     }
+}
 
