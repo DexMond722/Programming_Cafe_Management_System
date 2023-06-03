@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.admin_close = new System.Windows.Forms.Button();
             this.lbl_role = new System.Windows.Forms.Label();
             this.lbl_loggedintime = new System.Windows.Forms.Label();
@@ -783,6 +782,7 @@
             this.dgv_vi_income.Location = new System.Drawing.Point(95, 349);
             this.dgv_vi_income.Name = "dgv_vi_income";
             this.dgv_vi_income.ReadOnly = true;
+            this.dgv_vi_income.RowHeadersWidth = 45;
             this.dgv_vi_income.Size = new System.Drawing.Size(561, 241);
             this.dgv_vi_income.TabIndex = 1;
             // 
@@ -903,7 +903,6 @@
         private System.Windows.Forms.Label lbl_vi_module;
         private System.Windows.Forms.Label lbl_vi_trainer;
         private System.Windows.Forms.DataGridView dgv_vi_income;
-        private System.Windows.Forms.BindingSource invoiceDatasetBindingSource;
         private System.Windows.Forms.Label lbl_vi_viewincome;
     }
 }

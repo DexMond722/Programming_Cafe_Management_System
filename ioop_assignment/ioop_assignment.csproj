@@ -105,6 +105,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TrainerDGV.cs" />
     <Compile Include="UserLogin.cs" />
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="LecturerDashboard.resx">
@@ -222,15 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\payment.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

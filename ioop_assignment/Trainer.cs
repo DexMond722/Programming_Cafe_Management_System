@@ -20,10 +20,11 @@ namespace ioop_assignment
         private string email;
         private string modulename;
         private string levelname;
+        private string amount;
         static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
 
-        public string UserID { get { return UserID; } set { UserID = value; } }
+        public string UserID { get { return userID; } set { userID = value; } }
         public string Username { get { return username; } set { username = value; } }
         public string Password { get { return password; } set { password = value; } }
         public string Name { get { return name; } set { name = value; } }
@@ -31,6 +32,7 @@ namespace ioop_assignment
         public string Email { get { return email; } set { email = value; } }
         public string Modulename { get { return modulename; } set { modulename = value; } }
         public string Levelname { get { return levelname; } set { levelname = value; } }
+        public string Amount { get { return amount; } set { amount = value; } }
 
 
         public Trainer(string username, string password, string name, string phone, string email)
@@ -52,6 +54,13 @@ namespace ioop_assignment
             this.name = name;
             this.modulename = modulename;
             this.levelname = levelname;
+        }
+        public Trainer(string name, string modulename, string levelname, string amount)
+        {
+            this.name = name;
+            this.modulename = modulename;
+            this.levelname = levelname;
+            this.amount = amount;
         }
 
         public string addTrainer()
@@ -212,6 +221,68 @@ namespace ioop_assignment
             return dataTable;
 
         }
-        
+
+/*        public static List<Trainer> SearchIncomeByFilters(string trainerName, string moduleName, string levelName)
+        {
+            List<Trainer> incomeData = new List<Trainer>();
+            con.Open();
+
+            // Start with a base query to retrieve all income data
+            string query = "SELECT TrainerName, ModuleName, LevelName, Amount FROM vwIncome WHERE 1=1";
+
+            // Apply filters based on the selected values
+            if (!string.IsNullOrEmpty(trainerName))
+            {
+                query += " AND TrainerName = @TrainerName";
+            }
+
+            if (!string.IsNullOrEmpty(moduleName))
+            {
+                query += " AND ModuleName = @ModuleName";
+            }
+
+            if (!string.IsNullOrEmpty(levelName))
+            {
+                query += " AND LevelName = @LevelName";
+            }
+
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                if (!string.IsNullOrEmpty(trainerName))
+                {
+                    cmd.Parameters.AddWithValue("@TrainerName", trainerName);
+                }
+
+                if (!string.IsNullOrEmpty(moduleName))
+                {
+                    cmd.Parameters.AddWithValue("@ModuleName", moduleName);
+                }
+
+                if (!string.IsNullOrEmpty(levelName))
+                {
+                    cmd.Parameters.AddWithValue("@LevelName", levelName);
+                }
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Trainer income = new Trainer(trainerName, moduleName, levelName)
+                        {
+                            name = reader.GetString(reader.GetOrdinal("TrainerName")),
+                            modulename = reader.GetString(reader.GetOrdinal("ModuleName")),
+                            levelname = reader.GetString(reader.GetOrdinal("LevelName")),
+                            amount = reader.GetString(reader.GetOrdinal("Amount"))
+                        };
+
+                        incomeData.Add(income);
+                    }
+                }
+            }
+            con.Close();
+
+            return incomeData;*/
+        }
+
     }
-}
+

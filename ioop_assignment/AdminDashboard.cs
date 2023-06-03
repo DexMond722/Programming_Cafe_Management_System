@@ -22,7 +22,7 @@ namespace ioop_assignment
             InitializeComponent();
         }
 
-        public AdminDashboard(string id,string uname, string n, string r)
+        public AdminDashboard(string id, string uname, string n, string r)
         {
             InitializeComponent();
             userID = id;
@@ -117,7 +117,7 @@ namespace ioop_assignment
             LoadAssignTrainerCombobox();
         }
 
-            private void LoadViewIncomeComboBox()
+        private void LoadViewIncomeComboBox()
         {
             ArrayList trainername = new ArrayList();
 
@@ -156,6 +156,24 @@ namespace ioop_assignment
             DataTable dataTable = Trainer.Loadincome();
             dgv_vi_income.DataSource = dataTable;
         }
+
+        private void SearchDGV()
+        {
+            string trainerName = cbox_vi_trainer.SelectedItem?.ToString();
+            string moduleName = cbox_vi_module.SelectedItem?.ToString();
+            string levelName = cbox_vi_level.SelectedItem?.ToString();
+
+            // Call the SearchIncomeByFilters method and get the filtered data
+            List<TrainerDGV> filteredIncome = TrainerDGV.SearchIncomeByFilters(trainerName, moduleName, levelName);
+
+            cbox_vi_trainer.SelectedItem = null;
+            cbox_vi_module.SelectedItem = null;
+            cbox_vi_level.SelectedItem = null;
+
+            // Bind the filtered data to the DataGridView
+            dgv_vi_income.DataSource = filteredIncome;
+        }
+
 
         private void viewProfile()
         {
@@ -213,8 +231,8 @@ namespace ioop_assignment
                 string cbox_selectedModuleName = cbox_at_module.SelectedItem.ToString();
                 string cbox_selectedLevelName = cbox_at_level.SelectedItem.ToString();
 
-                Trainer obj1 = new Trainer(cbox_selectedTrainerName,cbox_selectedModuleName,cbox_selectedLevelName);
-                MessageBox.Show(obj1.assignTrainer(cbox_selectedTrainerName,cbox_selectedModuleName,cbox_selectedLevelName));
+                Trainer obj1 = new Trainer(cbox_selectedTrainerName, cbox_selectedModuleName, cbox_selectedLevelName);
+                MessageBox.Show(obj1.assignTrainer(cbox_selectedTrainerName, cbox_selectedModuleName, cbox_selectedLevelName));
 
                 cbox_at_level.SelectedItem = null;
                 cbox_at_module.SelectedItem = null;
@@ -248,7 +266,7 @@ namespace ioop_assignment
         }
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
-            
+
             panel_updateprofile.Visible = true;
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = false;
@@ -302,12 +320,14 @@ namespace ioop_assignment
         {
             panel_viewincome.Visible = true;
             ReloadViewIncomeComboBox();
-
         }
 
         private void btn_vi_search_Click(object sender, EventArgs e)
         {
-
+            SearchDGV();
         }
+
     }
 }
+
+    
