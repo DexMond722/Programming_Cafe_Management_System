@@ -15,6 +15,7 @@ namespace ioop_assignment
 {
     public partial class TrainerDashboard : Form
     {
+        public static string userID;
         public static string username;
         public static string name;
         public static string role;
@@ -24,9 +25,10 @@ namespace ioop_assignment
             InitializeComponent();
         }
 
-        public TrainerDashboard(string uname, string n, string r)
+        public TrainerDashboard(string id, string uname, string n, string r)
         {
             InitializeComponent();
+            userID = id;
             username = uname;
             name = n;
             role = r;
