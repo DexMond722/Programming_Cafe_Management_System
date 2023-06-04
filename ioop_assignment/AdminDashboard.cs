@@ -55,6 +55,7 @@ namespace ioop_assignment
             LoadAssignTrainerCombobox();
             LoadViewIncomeComboBox();
             LoadViewIncomeDGV();
+            LoadViewFeedbackDGV();
         }
 
 
@@ -65,6 +66,7 @@ namespace ioop_assignment
             panel_updateprofile.Visible = false;
             panel_assigntrainer.Visible = false;
             panel_viewincome.Visible = false;
+            panel_viewfeedback.Visible = false;
         }
 
         private void Loadlistbox()
@@ -173,6 +175,11 @@ namespace ioop_assignment
             // Bind the filtered data to the DataGridView
             dgv_vi_income.DataSource = filteredIncome;
         }
+        private void LoadViewFeedbackDGV()
+        {
+            DataTable feedbackdataTable = Trainer.LoadFeedback();
+            dgv_vf_feedback.DataSource = feedbackdataTable;
+        }
 
 
         private void viewProfile()
@@ -189,6 +196,7 @@ namespace ioop_assignment
         {
             Users obj1 = new Users(username);
             MessageBox.Show(obj1.updateProfile(txtbox_name.Text, txtbox_phone.Text, txtbox_email.Text));
+
         }
 
         private void Registertrainer()
@@ -263,6 +271,7 @@ namespace ioop_assignment
             panel_registertrainer.Visible = true;
             panel_assigntrainer.Visible = false;
             panel_viewincome.Visible = false;
+            panel_viewfeedback.Visible = false;
         }
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
@@ -271,6 +280,7 @@ namespace ioop_assignment
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = false;
             panel_viewincome.Visible = false;
+            panel_viewfeedback.Visible = false;
             viewProfile();
         }
 
@@ -285,6 +295,7 @@ namespace ioop_assignment
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = false;
             panel_viewincome.Visible = false;
+            panel_viewfeedback.Visible = false;
         }
 
         private void btn_rt_register_Click(object sender, EventArgs e)
@@ -308,6 +319,7 @@ namespace ioop_assignment
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = true;
             panel_viewincome.Visible = false;
+            panel_viewfeedback.Visible = false;
         }
 
         private void btn_at_assign_Click(object sender, EventArgs e)
@@ -319,6 +331,10 @@ namespace ioop_assignment
         private void lbl_viewincome_Click(object sender, EventArgs e)
         {
             panel_viewincome.Visible = true;
+            panel_updateprofile.Visible = false;
+            panel_registertrainer.Visible = false;
+            panel_assigntrainer.Visible = false;
+            panel_viewfeedback.Visible = false;
             ReloadViewIncomeComboBox();
         }
 
@@ -327,6 +343,14 @@ namespace ioop_assignment
             SearchDGV();
         }
 
+        private void lbl_viewfeedback_Click(object sender, EventArgs e)
+        {
+            panel_viewincome.Visible = false;
+            panel_updateprofile.Visible = false;
+            panel_registertrainer.Visible = false;
+            panel_assigntrainer.Visible = false;
+            panel_viewfeedback.Visible = true;
+        }
     }
 }
 

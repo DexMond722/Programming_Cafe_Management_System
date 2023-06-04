@@ -221,6 +221,20 @@ namespace ioop_assignment
             return dataTable;
 
         }
+
+        public static DataTable LoadFeedback()
+        {
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT Feedback.feedbackID, Users.name AS Name, Feedback.feedbackContent FROM Feedback JOIN Trainers ON Feedback.trainerID = Trainers.trainerID JOIN Users ON Trainers.userID = Users.userID", con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable feedbackdataTable = new DataTable();
+            adapter.Fill(feedbackdataTable);
+            con.Close();
+
+            return feedbackdataTable;
+
+        }
     }
 }
 

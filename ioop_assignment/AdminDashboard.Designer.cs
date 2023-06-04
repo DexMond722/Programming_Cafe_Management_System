@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.admin_close = new System.Windows.Forms.Button();
             this.lbl_role = new System.Windows.Forms.Label();
             this.lbl_loggedintime = new System.Windows.Forms.Label();
@@ -91,6 +93,9 @@
             this.lbl_vi_trainer = new System.Windows.Forms.Label();
             this.dgv_vi_income = new System.Windows.Forms.DataGridView();
             this.lbl_vi_viewincome = new System.Windows.Forms.Label();
+            this.panel_viewfeedback = new System.Windows.Forms.Panel();
+            this.lbl_vf_viewfeedback = new System.Windows.Forms.Label();
+            this.dgv_vf_feedback = new System.Windows.Forms.DataGridView();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -105,6 +110,8 @@
             this.panel_assigntrainer.SuspendLayout();
             this.panel_viewincome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vi_income)).BeginInit();
+            this.panel_viewfeedback.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_vf_feedback)).BeginInit();
             this.SuspendLayout();
             // 
             // admin_close
@@ -149,9 +156,9 @@
             // 
             this.lbl_identity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_identity.ForeColor = System.Drawing.Color.White;
-            this.lbl_identity.Location = new System.Drawing.Point(12, 125);
+            this.lbl_identity.Location = new System.Drawing.Point(20, 125);
             this.lbl_identity.Name = "lbl_identity";
-            this.lbl_identity.Size = new System.Drawing.Size(264, 23);
+            this.lbl_identity.Size = new System.Drawing.Size(256, 23);
             this.lbl_identity.TabIndex = 7;
             this.lbl_identity.Text = "identity";
             // 
@@ -211,7 +218,7 @@
             // 
             this.lbl_updateprofile.AutoSize = true;
             this.lbl_updateprofile.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_updateprofile.Location = new System.Drawing.Point(59, 340);
+            this.lbl_updateprofile.Location = new System.Drawing.Point(55, 340);
             this.lbl_updateprofile.Name = "lbl_updateprofile";
             this.lbl_updateprofile.Size = new System.Drawing.Size(141, 23);
             this.lbl_updateprofile.TabIndex = 10;
@@ -237,6 +244,7 @@
             this.lbl_viewfeedback.Size = new System.Drawing.Size(155, 23);
             this.lbl_viewfeedback.TabIndex = 8;
             this.lbl_viewfeedback.Text = "View Feedback";
+            this.lbl_viewfeedback.Click += new System.EventHandler(this.lbl_viewfeedback_Click);
             // 
             // pic_viewincome
             // 
@@ -315,7 +323,7 @@
             // 
             this.lbl_home.AutoSize = true;
             this.lbl_home.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_home.Location = new System.Drawing.Point(60, 32);
+            this.lbl_home.Location = new System.Drawing.Point(55, 32);
             this.lbl_home.Name = "lbl_home";
             this.lbl_home.Size = new System.Drawing.Size(65, 23);
             this.lbl_home.TabIndex = 0;
@@ -469,7 +477,7 @@
             // lbl_rt_deletetrainer
             // 
             this.lbl_rt_deletetrainer.AutoSize = true;
-            this.lbl_rt_deletetrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_rt_deletetrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rt_deletetrainer.Location = new System.Drawing.Point(485, 95);
             this.lbl_rt_deletetrainer.Name = "lbl_rt_deletetrainer";
             this.lbl_rt_deletetrainer.Size = new System.Drawing.Size(192, 32);
@@ -578,7 +586,7 @@
             // lbl_rt_registertrainer
             // 
             this.lbl_rt_registertrainer.AutoSize = true;
-            this.lbl_rt_registertrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_rt_registertrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_rt_registertrainer.Location = new System.Drawing.Point(107, 95);
             this.lbl_rt_registertrainer.Name = "lbl_rt_registertrainer";
             this.lbl_rt_registertrainer.Size = new System.Drawing.Size(211, 32);
@@ -602,13 +610,13 @@
             // 
             // btn_at_assign
             // 
-            this.btn_at_assign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_at_assign.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_at_assign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_at_assign.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_at_assign.ForeColor = System.Drawing.Color.White;
-            this.btn_at_assign.Location = new System.Drawing.Point(311, 531);
+            this.btn_at_assign.Location = new System.Drawing.Point(285, 531);
             this.btn_at_assign.Name = "btn_at_assign";
-            this.btn_at_assign.Size = new System.Drawing.Size(109, 46);
+            this.btn_at_assign.Size = new System.Drawing.Size(135, 46);
             this.btn_at_assign.TabIndex = 7;
             this.btn_at_assign.Text = "Assign";
             this.btn_at_assign.UseVisualStyleBackColor = false;
@@ -674,7 +682,7 @@
             // lbl_at_assigntrainer
             // 
             this.lbl_at_assigntrainer.AutoSize = true;
-            this.lbl_at_assigntrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_at_assigntrainer.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_at_assigntrainer.Location = new System.Drawing.Point(269, 77);
             this.lbl_at_assigntrainer.Name = "lbl_at_assigntrainer";
             this.lbl_at_assigntrainer.Size = new System.Drawing.Size(192, 32);
@@ -774,27 +782,79 @@
             this.dgv_vi_income.AllowUserToDeleteRows = false;
             this.dgv_vi_income.AllowUserToResizeColumns = false;
             this.dgv_vi_income.AllowUserToResizeRows = false;
-            this.dgv_vi_income.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_vi_income.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_vi_income.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_vi_income.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgv_vi_income.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vi_income.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_vi_income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_vi_income.Location = new System.Drawing.Point(95, 349);
+            this.dgv_vi_income.Location = new System.Drawing.Point(72, 349);
             this.dgv_vi_income.Name = "dgv_vi_income";
             this.dgv_vi_income.ReadOnly = true;
             this.dgv_vi_income.RowHeadersWidth = 45;
-            this.dgv_vi_income.Size = new System.Drawing.Size(561, 241);
+            this.dgv_vi_income.Size = new System.Drawing.Size(593, 241);
             this.dgv_vi_income.TabIndex = 1;
             // 
             // lbl_vi_viewincome
             // 
             this.lbl_vi_viewincome.AutoSize = true;
-            this.lbl_vi_viewincome.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vi_viewincome.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_vi_viewincome.Location = new System.Drawing.Point(269, 30);
             this.lbl_vi_viewincome.Name = "lbl_vi_viewincome";
             this.lbl_vi_viewincome.Size = new System.Drawing.Size(201, 36);
             this.lbl_vi_viewincome.TabIndex = 0;
             this.lbl_vi_viewincome.Text = "View Income";
+            // 
+            // panel_viewfeedback
+            // 
+            this.panel_viewfeedback.Controls.Add(this.dgv_vf_feedback);
+            this.panel_viewfeedback.Controls.Add(this.lbl_vf_viewfeedback);
+            this.panel_viewfeedback.Location = new System.Drawing.Point(283, 7);
+            this.panel_viewfeedback.Name = "panel_viewfeedback";
+            this.panel_viewfeedback.Size = new System.Drawing.Size(739, 624);
+            this.panel_viewfeedback.TabIndex = 9;
+            // 
+            // lbl_vf_viewfeedback
+            // 
+            this.lbl_vf_viewfeedback.AutoSize = true;
+            this.lbl_vf_viewfeedback.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vf_viewfeedback.Location = new System.Drawing.Point(253, 70);
+            this.lbl_vf_viewfeedback.Name = "lbl_vf_viewfeedback";
+            this.lbl_vf_viewfeedback.Size = new System.Drawing.Size(237, 36);
+            this.lbl_vf_viewfeedback.TabIndex = 0;
+            this.lbl_vf_viewfeedback.Text = "View Feedback";
+            // 
+            // dgv_vf_feedback
+            // 
+            this.dgv_vf_feedback.AllowUserToAddRows = false;
+            this.dgv_vf_feedback.AllowUserToDeleteRows = false;
+            this.dgv_vf_feedback.AllowUserToResizeColumns = false;
+            this.dgv_vf_feedback.AllowUserToResizeRows = false;
+            this.dgv_vf_feedback.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_vf_feedback.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_vf_feedback.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgv_vf_feedback.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vf_feedback.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_vf_feedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_vf_feedback.Location = new System.Drawing.Point(82, 198);
+            this.dgv_vf_feedback.Name = "dgv_vf_feedback";
+            this.dgv_vf_feedback.ReadOnly = true;
+            this.dgv_vf_feedback.Size = new System.Drawing.Size(567, 308);
+            this.dgv_vf_feedback.TabIndex = 1;
             // 
             // AdminDashboard
             // 
@@ -804,6 +864,7 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.admin_close);
+            this.Controls.Add(this.panel_viewfeedback);
             this.Controls.Add(this.panel_viewincome);
             this.Controls.Add(this.panel_assigntrainer);
             this.Controls.Add(this.panel_registertrainer);
@@ -835,6 +896,9 @@
             this.panel_viewincome.ResumeLayout(false);
             this.panel_viewincome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vi_income)).EndInit();
+            this.panel_viewfeedback.ResumeLayout(false);
+            this.panel_viewfeedback.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_vf_feedback)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -904,5 +968,8 @@
         private System.Windows.Forms.Label lbl_vi_trainer;
         private System.Windows.Forms.DataGridView dgv_vi_income;
         private System.Windows.Forms.Label lbl_vi_viewincome;
+        private System.Windows.Forms.Panel panel_viewfeedback;
+        private System.Windows.Forms.DataGridView dgv_vf_feedback;
+        private System.Windows.Forms.Label lbl_vf_viewfeedback;
     }
 }
