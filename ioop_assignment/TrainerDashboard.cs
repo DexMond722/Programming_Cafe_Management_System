@@ -56,6 +56,7 @@ namespace ioop_assignment
             FormInitial();
             MouseCursorChanged();
             loadComboBox();
+            loadDataGridView();
         }
 
         private void MouseCursorChanged()
@@ -151,20 +152,17 @@ namespace ioop_assignment
         private void loadComboBox()
         {
             ArrayList moduleName = new ArrayList();
-
-            moduleName = Coaching.viewModuleName();
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            moduleName = obj1.getTrainerModuleNames(username);
             foreach (var item in moduleName)
             {
-                cmbBox_module.Items.Add(item);
+                cmbBox_module1.Items.Add(item);
+                cmbBox_module2.Items.Add(item);
+                cmbBox_module3.Items.Add(item);
             }
 
-            ArrayList level = new ArrayList();
 
-            moduleName = Coaching.viewLevel();
-            foreach (var item in moduleName)
-            {
-                cmbBox_level.Items.Add(item);
-            }
         }
 
         // Return the item selected in combobox if no selected item return empty string
@@ -180,26 +178,166 @@ namespace ioop_assignment
             }
         }
 
-        // add coaching class
+        // display Correspond Level
+        private void displayCorrespondLevel()
+        {
+            cmbBox_level1.SelectedIndex = -1;
+            cmbBox_level1.Items.Clear();
+            ArrayList level = new ArrayList();
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            level = obj1.displaysSpecificLevel(GetSelectedComboBoxItem(cmbBox_module1));
+            foreach (var item in level)
+            {
+                cmbBox_level1.Items.Add(item);
+            }
+        }
+
+        private void displayCorrespondLeve2()
+        {
+            cmbBox_level2.SelectedIndex = -1;
+            cmbBox_level2.Items.Clear();
+            ArrayList level = new ArrayList();
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            level = obj1.displaysSpecificLevel(GetSelectedComboBoxItem(cmbBox_module2));
+            foreach (var item in level)
+            {
+                cmbBox_level2.Items.Add(item);
+            }
+        }
+
+        private void displayCorrespondLeve3()
+        {
+            cmbBox_level3.SelectedIndex = -1;
+            cmbBox_level3.Items.Clear();
+            ArrayList level = new ArrayList();
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            level = obj1.displaysSpecificLevel(GetSelectedComboBoxItem(cmbBox_module3));
+            foreach (var item in level)
+            {
+                cmbBox_level3.Items.Add(item);
+            }
+        }
+
+        private void cmbBox_module1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayCorrespondLevel();
+        }
+
         private void addCoachingClass()
         {
-            if (cmbBox_module.SelectedIndex != -1 && !string.IsNullOrEmpty(txtBox_Schedule.Text))
+            if (cmbBox_module1.SelectedIndex != -1 && !string.IsNullOrEmpty(txtBox_Schedule.Text))
             {
-                Coaching obj1 = new Coaching(GetSelectedComboBoxItem(cmbBox_module), GetSelectedComboBoxItem(cmbBox_level), txtBox_Schedule.Text);
+                Coaching obj1 = new Coaching(GetSelectedComboBoxItem(cmbBox_module1), GetSelectedComboBoxItem(cmbBox_level1), txtBox_Schedule.Text);
                 obj1.Username = username;
                 MessageBox.Show(obj1.addCoachingClass());
             }
             else
                 MessageBox.Show("Please insert data");
 
-            cmbBox_module.SelectedIndex = -1;
-            cmbBox_level.SelectedIndex = -1;
+            cmbBox_module1.SelectedIndex = -1;
+            cmbBox_level1.SelectedIndex = -1;
             txtBox_Schedule.Text = String.Empty;
+            loadDataGridView();
+        }
+
+        private void loadDataGridView()
+        {
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            obj1.loadClassTable(dgv_coachClass);
         }
 
         private void btn_addCoachingClass_Click(object sender, EventArgs e)
         {
             addCoachingClass();
+        }
+
+        private void cmbBox_module2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayCorrespondLeve2();
+        }
+
+        private void cmbBox_module3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayCorrespondLeve3();
+        }
+        private void btn_searchClass_Click(object sender, EventArgs e)
+        {
+            Coaching obj1 = new Coaching();
+            obj1.searchCoachingClass(dgv_coachClass, GetSelectedComboBoxItem(cmbBox_module2), GetSelectedComboBoxItem(cmbBox_level2));
+        }
+
+        private void btn_deleteClass_Click(object sender, EventArgs e)
+        {
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            obj1.deleteCoachingClass(dgv_coachClass);
+        }
+
+        private void btn_updateClass_Click(object sender, EventArgs e)
+        {
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            obj1.updateCoachingClass(dgv_coachClass, GetSelectedComboBoxItem(cmbBox_module2), GetSelectedComboBoxItem(cmbBox_level2), txtBox_schedule2.Text);
+        }
+
+        private void dgv_coachClass_SelectionChanged(object sender, EventArgs e)
+        {
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            if (dgv_coachClass.SelectedRows.Count > 0)
+            {
+                int rowIndex = dgv_coachClass.SelectedRows[0].Index;
+                DataGridViewRow selectedRow = dgv_coachClass.Rows[rowIndex];
+
+                // Call the method to update controls
+                obj1.UpdateControlsFromSelectedRow(selectedRow, cmbBox_module2, cmbBox_level2, txtBox_schedule2);
+            }
+        }
+
+        private void btn_sndFeedback_Click(object sender, EventArgs e)
+        {
+            TrainerFunction obj1 = new TrainerFunction(username);
+            obj1.sendFeedback(richTxtBox_Feedback.Text);
+        }
+
+        private void btn_viewStudent_Click(object sender, EventArgs e)
+        {
+            lstBox_student.Items.Clear();
+            ArrayList students = new ArrayList();
+            TrainerFunction obj1 = new TrainerFunction(username);
+            students = obj1.viewStudentEnrolled(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
+            foreach (var item in students)
+            {
+                lstBox_student.Items.Add(item);
+            }
+        }
+
+        private void btn_viewPaid_Click(object sender, EventArgs e)
+        {
+            lstBox_student.Items.Clear();
+            ArrayList students = new ArrayList();
+            TrainerFunction obj1 = new TrainerFunction(username);
+            students = obj1.viewStudentPaid(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
+            foreach (var item in students)
+            {
+                lstBox_student.Items.Add(item);
+            }
+        }
+
+        private void btn_viewUnpaid_Click(object sender, EventArgs e)
+        {
+            lstBox_student.Items.Clear();
+            ArrayList students = new ArrayList();
+            TrainerFunction obj1 = new TrainerFunction(username);
+            students = obj1.viewStudentUnPaid(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
+            foreach (var item in students)
+            {
+                lstBox_student.Items.Add(item);
+            }
         }
 
         
