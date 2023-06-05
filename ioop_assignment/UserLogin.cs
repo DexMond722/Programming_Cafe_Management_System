@@ -41,25 +41,27 @@ namespace ioop_assignment
                 string userRole = cmd2.ExecuteScalar().ToString();
                 SqlCommand cmd3 = new SqlCommand("select name from Users where username='" + username + "' and password = '" + password + "'", con);
                 string name = cmd3.ExecuteScalar().ToString();
+                SqlCommand cmd4 = new SqlCommand("select userID from Users where username='" + username + "' and password = '" + password + "'", con);
+                string userID = cmd4.ExecuteScalar().ToString();
 
                 if (userRole == "admin")
                 {
-                    AdminDashboard a = new AdminDashboard(un, name, userRole);
+                    AdminDashboard a = new AdminDashboard(userID, un, name, userRole);
                     a.Show();
                 }
                 else if (userRole == "student")
                 {
-                    StudentDashboard s = new StudentDashboard(un, name, userRole);
+                    StudentDashboard s = new StudentDashboard(userID, un, name, userRole);
                     s.Show();
                 }
                 else if (userRole == "trainer")
                 {
-                    TrainerDashboard t = new TrainerDashboard(un, name, userRole);
+                    TrainerDashboard t = new TrainerDashboard(userID, un, name, userRole);
                     t.Show();
                 }
                 else if (userRole == "lecturer")
                 {
-                    LecturerDashboard l = new LecturerDashboard(un, name, userRole);
+                    LecturerDashboard l = new LecturerDashboard(userID, un, name, userRole);
                     l.Show();
                 }
             }

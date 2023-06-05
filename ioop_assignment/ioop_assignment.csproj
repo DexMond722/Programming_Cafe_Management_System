@@ -69,6 +69,7 @@
     <Compile Include="LecturerDashboard.Designer.cs">
       <DependentUpon>LecturerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Trainer.cs" />
     <Compile Include="TrainerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +107,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="TrainerFunction.cs" />
+    <Compile Include="TrainerDGV.cs" />
     <Compile Include="UserLogin.cs" />
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="LecturerDashboard.resx">
