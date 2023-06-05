@@ -60,22 +60,35 @@ namespace ioop_assignment
         }
 
         // search the coaching class
-        public void searchCoachingClass(DataGridView dgv, string module_name, string level_name)
+        public string searchCoachingClass(DataGridView dgv, string module_name, string level_name)
         {
+            string status = string.Empty;
+            if (string.IsNullOrEmpty(module_name) && string.IsNullOrEmpty(level_name))
+            {
+                MessageBox.Show("Please select the module and level to search.");
+                return status;
+            }
+
             int levelID = GetLevelID(level_name);
             int moduleID = GetModuleID(module_name, levelID);
             dgv.ClearSelection();
+            bool moduleFound = false;
+            bool moduleAndLevelFound = false;
+
             if (string.IsNullOrEmpty(level_name))
             {
-                ArrayList moduleIDs = getModuleID(module_name);
-
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
-                    int rowModuleID = Convert.ToInt32(row.Cells["moduleID"].Value);
-
-                    if (moduleIDs.Contains(rowModuleID))
+                    var cellValue = row.Cells["modulename"].Value;
+                    if (cellValue != null && cellValue != DBNull.Value)
                     {
-                        row.Selected = true;
+                        string rowModuleName = cellValue.ToString();
+
+                        if (rowModuleName == module_name)
+                        {
+                            row.Selected = true;
+                            moduleFound = true;
+                        }
                     }
                 }
             }
@@ -83,21 +96,45 @@ namespace ioop_assignment
             {
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
-                    int rowModuleID = Convert.ToInt32(row.Cells["moduleID"].Value);
+                    var moduleCellValue = row.Cells["modulename"].Value;
+                    var levelCellValue = row.Cells["levelname"].Value;
 
-                    if (rowModuleID == moduleID)
+                    if (moduleCellValue != null && moduleCellValue != DBNull.Value && levelCellValue != null && levelCellValue != DBNull.Value)
                     {
-                        row.Selected = true;
+                        string rowModuleName = moduleCellValue.ToString();
+                        string rowLevelName = levelCellValue.ToString();
+
+                        if (rowModuleName == module_name && rowLevelName == level_name)
+                        {
+                            row.Selected = true;
+                            moduleAndLevelFound = true;
+                        }
                     }
                 }
             }
 
-            bool anyRowSelected = dgv.SelectedRows.Count > 0;
-            if (!anyRowSelected)
+            if (string.IsNullOrEmpty(level_name))
             {
-                string message = $"The module '{module_name}' with level '{level_name}' was not found.";
-                MessageBox.Show(message);
+                if (!moduleFound)
+                {
+                    string message = $"The module '{module_name}' does not exist in the class.";
+                    MessageBox.Show(message);
+                }
+                else
+                {
+                    status = "module";
+                }
             }
+            else
+            {
+                if (!moduleAndLevelFound)
+                {
+                    string message = $"The module '{module_name}' with level '{level_name}' was not found.";
+                    MessageBox.Show(message);
+                }
+            }
+
+            return status;
         }
 
 
@@ -186,21 +223,18 @@ namespace ioop_assignment
                 string schedule = selectedRow.Cells["schedule"].Value?.ToString() ?? string.Empty;
                 scheduleTextBox.Text = schedule;
 
-                if (selectedRow.Cells["moduleID"].Value == DBNull.Value || selectedRow.Cells["schedule"].Value == DBNull.Value)
+                if (selectedRow.Cells["modulename"].Value == DBNull.Value || selectedRow.Cells["schedule"].Value == DBNull.Value)
                 {
                     moduleComboBox.SelectedIndex = -1;
                     levelComboBox.SelectedIndex = -1;
                 }
                 else
                 {
-                    int moduleID = Convert.ToInt32(selectedRow.Cells["moduleID"].Value);
-                    int levelID = GetLevelIDWithModuleId(moduleID);
+                    string moduleName = selectedRow.Cells["modulename"].Value.ToString();
+                    string levelName = selectedRow.Cells["levelname"].Value.ToString();
 
-                    string module_name = GetModuleNameWithmdIDlvID(moduleID, levelID);
-                    string levelname = getLevelName(levelID);
-
-                    moduleComboBox.SelectedItem = module_name;
-                    levelComboBox.SelectedItem = levelname;
+                    moduleComboBox.SelectedItem = moduleName;
+                    levelComboBox.SelectedItem = levelName;
                 }
             }
         }
@@ -211,7 +245,7 @@ namespace ioop_assignment
         {
             int trainerId = GetTrainerID(username);
             con.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT * FROM Class WHERE trainerID = '{trainerId}'", con);
+            SqlCommand cmd = new SqlCommand($"SELECT C.classID, M.modulename, L.levelname, U.name AS trainerName, C.schedule FROM Class AS C JOIN Modules AS M ON C.moduleID = M.moduleID JOIN Levels AS L ON M.levelID = L.levelID JOIN Trainers AS T ON C.trainerID = T.trainerID JOIN Users AS U ON T.userID = U.userID WHERE C.trainerID = '{trainerId}'", con);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
