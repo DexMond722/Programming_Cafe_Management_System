@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Coaching.cs" />
+    <Compile Include="Enrollrequest.cs" />
     <Compile Include="LecturerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
