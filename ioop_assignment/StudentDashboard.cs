@@ -43,7 +43,7 @@ namespace ioop_assignment
             DateTime loggedInDate = DateTime.Now;
             lbl_loggedintime.Text = "Logged in on: \n" + loggedInDate.ToString();
             lbl_role.Text = "Role: " + role;
-            panel_updateprofile.Visible = false;
+            InitialLoad();
             MouseCursorChanged();
             LoadViewScheduleDGV();
             LoadEnrollRequestComboBox();
@@ -52,22 +52,25 @@ namespace ioop_assignment
             LoadInvoiceIDComboBox();
         }
 
+        private void InitialLoad()
+        {
+            panel_updateprofile.Visible = false;
+            panel_schedule.Visible = false;
+            panel_send.Visible = false;
+            panel_delete.Visible = false;
+            panel_payment.Visible = false;
+        }
+
         private void MouseCursorChanged()
         {
             //Base functions
             lbl_home.Cursor = Cursors.Hand;
-            //pic_home.Cursor = Cursors.Hand;
             lbl_updateprofile.Cursor = Cursors.Hand;
-            //pic_updateprofile.Cursor = Cursors.Hand;
             //
             //student functions
             lbl_viewschedule.Cursor = Cursors.Hand;
-            //pic_viewschedule.Cursor = Cursors.Hand;
             lbl_sendrequest.Cursor = Cursors.Hand;
-            //pic_sendrequest.Cursor = Cursors.Hand;
-            //pic_delrequest.Cursor = Cursors.Hand;
             lbl_delrequest.Cursor = Cursors.Hand;
-            //pic_invpayment.Cursor = Cursors.Hand;
             lbl_invpayment.Cursor = Cursors.Hand;
             //
         }
@@ -75,6 +78,11 @@ namespace ioop_assignment
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
             panel_updateprofile.Visible = true;
+            panel_schedule.Visible = false;
+            panel_send.Visible = false;
+            panel_delete.Visible = false;
+            panel_payment.Visible = false;
+
             //load viewProfile
             Users obj1 = new Users(username);
             Users.viewProfile(obj1);
@@ -204,13 +212,15 @@ namespace ioop_assignment
         {
             if (cbox_deleteenroll_module.SelectedItem != null)
             {
-                string cbox_deleteenrollmodule = cbox_deleteenroll_module.SelectedItem.ToString();
-                int cbox_deleteenroll = int.Parse(cbox_deleteenrollmodule);
-                Enrollrequest obj1 = new Enrollrequest(cbox_deleteenrollmodule);
-                MessageBox.Show(obj1.DeleteRequest(cbox_deleteenroll));
+                string deleteenrollmodule = cbox_deleteenroll_module.SelectedItem.ToString();
+                int deleteenrollID = int.Parse(deleteenrollmodule);
+                Enrollrequest obj1 = new Enrollrequest(deleteenrollmodule);
+                MessageBox.Show(obj1.DeleteRequest(deleteenrollID));
                 ReloadRequestIDComboBox();
                 cbox_deleteenroll_module.SelectedIndex = -1;
-
+                cbox_deleteenroll_module.Text = string.Empty;
+                lbl_module.Text = null;
+                lbl_level.Text = null;
             }
         }
 
@@ -262,5 +272,6 @@ namespace ioop_assignment
         {
             MakePayment();
         }
+
     }
 }
