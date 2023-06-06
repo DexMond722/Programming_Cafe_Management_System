@@ -70,6 +70,7 @@
     <Compile Include="LecturerDashboard.Designer.cs">
       <DependentUpon>LecturerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student.cs" />
     <Compile Include="Trainer.cs" />
     <Compile Include="TrainerDashboard.cs">
       <SubType>Form</SubType>
