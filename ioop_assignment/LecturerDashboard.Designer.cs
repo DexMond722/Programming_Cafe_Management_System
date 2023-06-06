@@ -59,7 +59,6 @@
             this.panel_regenrollstudent = new System.Windows.Forms.Panel();
             this.cmbBox_module = new System.Windows.Forms.ComboBox();
             this.cmbBox_level = new System.Windows.Forms.ComboBox();
-            this.btnReload = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -442,7 +441,6 @@
             this.panel_regenrollstudent.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel_regenrollstudent.Controls.Add(this.cmbBox_module);
             this.panel_regenrollstudent.Controls.Add(this.cmbBox_level);
-            this.panel_regenrollstudent.Controls.Add(this.btnReload);
             this.panel_regenrollstudent.Controls.Add(this.btnLoad);
             this.panel_regenrollstudent.Controls.Add(this.txtUsername);
             this.panel_regenrollstudent.Controls.Add(this.lblUsername);
@@ -472,38 +470,23 @@
             // 
             // cmbBox_module
             // 
-            this.cmbBox_module.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBox_module.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBox_module.FormattingEnabled = true;
-            this.cmbBox_module.Location = new System.Drawing.Point(557, 397);
+            this.cmbBox_module.Location = new System.Drawing.Point(574, 349);
             this.cmbBox_module.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBox_module.Name = "cmbBox_module";
-            this.cmbBox_module.Size = new System.Drawing.Size(159, 29);
+            this.cmbBox_module.Size = new System.Drawing.Size(140, 25);
             this.cmbBox_module.TabIndex = 57;
             // 
             // cmbBox_level
             // 
-            this.cmbBox_level.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBox_level.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBox_level.FormattingEnabled = true;
-            this.cmbBox_level.Location = new System.Drawing.Point(557, 359);
+            this.cmbBox_level.Location = new System.Drawing.Point(574, 393);
             this.cmbBox_level.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBox_level.Name = "cmbBox_level";
-            this.cmbBox_level.Size = new System.Drawing.Size(159, 29);
+            this.cmbBox_level.Size = new System.Drawing.Size(140, 25);
             this.cmbBox_level.TabIndex = 56;
-            // 
-            // btnReload
-            // 
-            this.btnReload.BackColor = System.Drawing.Color.DimGray;
-            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReload.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReload.Location = new System.Drawing.Point(583, 296);
-            this.btnReload.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(79, 35);
-            this.btnReload.TabIndex = 54;
-            this.btnReload.Text = "Reload";
-            this.btnReload.UseVisualStyleBackColor = false;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnLoad
             // 
@@ -511,10 +494,10 @@
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLoad.Location = new System.Drawing.Point(416, 296);
+            this.btnLoad.Location = new System.Drawing.Point(491, 288);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(79, 35);
+            this.btnLoad.Size = new System.Drawing.Size(97, 34);
             this.btnLoad.TabIndex = 53;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = false;
@@ -522,12 +505,12 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(188, 124);
+            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(187, 129);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(139, 30);
+            this.txtUsername.Size = new System.Drawing.Size(139, 24);
             this.txtUsername.TabIndex = 52;
             // 
             // lblUsername
@@ -598,62 +581,62 @@
             // 
             // txtmonthofEnrollment
             // 
-            this.txtmonthofEnrollment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmonthofEnrollment.Location = new System.Drawing.Point(557, 436);
+            this.txtmonthofEnrollment.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmonthofEnrollment.Location = new System.Drawing.Point(574, 434);
             this.txtmonthofEnrollment.Margin = new System.Windows.Forms.Padding(2);
             this.txtmonthofEnrollment.Multiline = true;
             this.txtmonthofEnrollment.Name = "txtmonthofEnrollment";
-            this.txtmonthofEnrollment.Size = new System.Drawing.Size(159, 23);
+            this.txtmonthofEnrollment.Size = new System.Drawing.Size(140, 22);
             this.txtmonthofEnrollment.TabIndex = 45;
             // 
             // txtAddress
             // 
-            this.txtAddress.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtAddress.Location = new System.Drawing.Point(187, 427);
+            this.txtAddress.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(188, 431);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(140, 28);
+            this.txtAddress.Size = new System.Drawing.Size(139, 24);
             this.txtAddress.TabIndex = 42;
             // 
             // txtContact
             // 
-            this.txtContact.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtContact.Location = new System.Drawing.Point(188, 369);
+            this.txtContact.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact.Location = new System.Drawing.Point(188, 373);
             this.txtContact.Margin = new System.Windows.Forms.Padding(2);
             this.txtContact.Multiline = true;
             this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(140, 30);
+            this.txtContact.Size = new System.Drawing.Size(139, 24);
             this.txtContact.TabIndex = 41;
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtEmail.Location = new System.Drawing.Point(187, 304);
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(188, 311);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(140, 30);
+            this.txtEmail.Size = new System.Drawing.Size(139, 24);
             this.txtEmail.TabIndex = 40;
             // 
             // txtTPnum
             // 
-            this.txtTPnum.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtTPnum.Location = new System.Drawing.Point(188, 243);
+            this.txtTPnum.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTPnum.Location = new System.Drawing.Point(186, 250);
             this.txtTPnum.Margin = new System.Windows.Forms.Padding(2);
             this.txtTPnum.Multiline = true;
             this.txtTPnum.Name = "txtTPnum";
-            this.txtTPnum.Size = new System.Drawing.Size(140, 30);
+            this.txtTPnum.Size = new System.Drawing.Size(139, 24);
             this.txtTPnum.TabIndex = 39;
             // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(188, 182);
+            this.txtName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(188, 187);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(140, 30);
+            this.txtName.Size = new System.Drawing.Size(139, 24);
             this.txtName.TabIndex = 38;
             // 
             // lblEnrollMonth
@@ -671,7 +654,7 @@
             // 
             this.lblModule.AutoSize = true;
             this.lblModule.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModule.Location = new System.Drawing.Point(364, 393);
+            this.lblModule.Location = new System.Drawing.Point(367, 349);
             this.lblModule.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblModule.Name = "lblModule";
             this.lblModule.Size = new System.Drawing.Size(84, 23);
@@ -682,7 +665,7 @@
             // 
             this.lblLevel.AutoSize = true;
             this.lblLevel.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLevel.Location = new System.Drawing.Point(364, 351);
+            this.lblLevel.Location = new System.Drawing.Point(367, 393);
             this.lblLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLevel.Name = "lblLevel";
             this.lblLevel.Size = new System.Drawing.Size(61, 23);
@@ -779,22 +762,22 @@
             // cmbBox_UpdateModule
             // 
             this.cmbBox_UpdateModule.BackColor = System.Drawing.Color.White;
-            this.cmbBox_UpdateModule.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBox_UpdateModule.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBox_UpdateModule.FormattingEnabled = true;
             this.cmbBox_UpdateModule.Location = new System.Drawing.Point(384, 392);
             this.cmbBox_UpdateModule.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBox_UpdateModule.Name = "cmbBox_UpdateModule";
-            this.cmbBox_UpdateModule.Size = new System.Drawing.Size(128, 23);
+            this.cmbBox_UpdateModule.Size = new System.Drawing.Size(128, 25);
             this.cmbBox_UpdateModule.TabIndex = 33;
             // 
             // cmbBox_Update_Level
             // 
-            this.cmbBox_Update_Level.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBox_Update_Level.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBox_Update_Level.FormattingEnabled = true;
             this.cmbBox_Update_Level.Location = new System.Drawing.Point(384, 447);
             this.cmbBox_Update_Level.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBox_Update_Level.Name = "cmbBox_Update_Level";
-            this.cmbBox_Update_Level.Size = new System.Drawing.Size(128, 23);
+            this.cmbBox_Update_Level.Size = new System.Drawing.Size(128, 25);
             this.cmbBox_Update_Level.TabIndex = 32;
             // 
             // lbl_UpdateEnrollment_Level
@@ -1043,12 +1026,12 @@
             this.Controls.Add(this.admin_close);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
-            this.Controls.Add(this.panel_updateEnrollment);
             this.Controls.Add(this.panel_regenrollstudent);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_deletestudent);
             this.Controls.Add(this.panel_approverequest);
+            this.Controls.Add(this.panel_updateEnrollment);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LecturerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1116,7 +1099,6 @@
         private System.Windows.Forms.Panel panel_regenrollstudent;
         private System.Windows.Forms.ComboBox cmbBox_module;
         private System.Windows.Forms.ComboBox cmbBox_level;
-        private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblUsername;

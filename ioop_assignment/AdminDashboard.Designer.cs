@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.admin_close = new System.Windows.Forms.Button();
             this.lbl_role = new System.Windows.Forms.Label();
             this.lbl_loggedintime = new System.Windows.Forms.Label();
@@ -97,8 +97,8 @@
             this.dgv_vf_feedback = new System.Windows.Forms.DataGridView();
             this.lbl_vf_viewfeedback = new System.Windows.Forms.Label();
             this.panel_home = new System.Windows.Forms.Panel();
-            this.lbl_home_title = new System.Windows.Forms.Label();
             this.btn_home_logout = new System.Windows.Forms.Button();
+            this.lbl_home_title = new System.Windows.Forms.Label();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -791,14 +791,14 @@
             this.dgv_vi_income.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_vi_income.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgv_vi_income.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_vi_income.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vi_income.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_vi_income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vi_income.Location = new System.Drawing.Point(72, 349);
             this.dgv_vi_income.Name = "dgv_vi_income";
@@ -836,14 +836,14 @@
             this.dgv_vf_feedback.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_vf_feedback.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgv_vf_feedback.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_vf_feedback.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vf_feedback.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_vf_feedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vf_feedback.Location = new System.Drawing.Point(82, 198);
             this.dgv_vf_feedback.Name = "dgv_vf_feedback";
@@ -871,17 +871,6 @@
             this.panel_home.Size = new System.Drawing.Size(739, 624);
             this.panel_home.TabIndex = 16;
             // 
-            // lbl_home_title
-            // 
-            this.lbl_home_title.AutoSize = true;
-            this.lbl_home_title.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_home_title.Location = new System.Drawing.Point(164, 174);
-            this.lbl_home_title.Name = "lbl_home_title";
-            this.lbl_home_title.Size = new System.Drawing.Size(426, 164);
-            this.lbl_home_title.TabIndex = 0;
-            this.lbl_home_title.Text = "Welcome to \r\n\r\nAPU Programming Café \r\n\r\n";
-            this.lbl_home_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btn_home_logout
             // 
             this.btn_home_logout.BackColor = System.Drawing.Color.DimGray;
@@ -896,6 +885,17 @@
             this.btn_home_logout.UseVisualStyleBackColor = false;
             this.btn_home_logout.Click += new System.EventHandler(this.btn_home_logout_Click);
             // 
+            // lbl_home_title
+            // 
+            this.lbl_home_title.AutoSize = true;
+            this.lbl_home_title.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_home_title.Location = new System.Drawing.Point(164, 174);
+            this.lbl_home_title.Name = "lbl_home_title";
+            this.lbl_home_title.Size = new System.Drawing.Size(426, 164);
+            this.lbl_home_title.TabIndex = 0;
+            this.lbl_home_title.Text = "Welcome to \r\n\r\nAPU Programming Café \r\n\r\n";
+            this.lbl_home_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -904,7 +904,6 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.admin_close);
-            this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
             this.Controls.Add(this.panel_registertrainer);
@@ -912,6 +911,7 @@
             this.Controls.Add(this.panel_viewfeedback);
             this.Controls.Add(this.panel_viewincome);
             this.Controls.Add(this.panel_assigntrainer);
+            this.Controls.Add(this.panel_home);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

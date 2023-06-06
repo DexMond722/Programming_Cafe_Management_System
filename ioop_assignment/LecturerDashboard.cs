@@ -191,10 +191,10 @@ namespace ioop_assignment
 
         private void reloadList()
         {
+            listStudent.Items.Clear();
             ArrayList name = new ArrayList();
 
             name = Student.viewStudent();
-            listStudent.Items.Clear();
             foreach (var item in name)
             {
                 listStudent.Items.Add(item);
@@ -286,7 +286,9 @@ namespace ioop_assignment
         private void UpdateEnrollment()
         {
             Student obj1 = new Student();
+            Student obj2 = new Student();
             obj1.updateEnrollment(dGV_updateEnrollment, GetSelectedComboBoxItem(cmbBox_Update_Level), GetSelectedComboBoxItem(cmbBox_UpdateModule));
+            obj2.getOriginModuleID(dGV_updateEnrollment);
         }
 
         private void UpdateRequest()
@@ -362,16 +364,12 @@ namespace ioop_assignment
         private void btnRegister_Click(object sender, EventArgs e)
         {
             RegisterStudent();
+            reloadList();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
             showList();
-            reloadList();
-        }
-
-        private void btnReload_Click(object sender, EventArgs e)
-        {
             reloadList();
         }
 
@@ -412,5 +410,6 @@ namespace ioop_assignment
             LoginPanel login = new LoginPanel();
             login.Show();
         }
+
     }
 }

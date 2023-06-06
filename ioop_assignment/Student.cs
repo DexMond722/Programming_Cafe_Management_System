@@ -210,7 +210,7 @@ namespace ioop_assignment
             int modulecharges = getModuleCharges(module_id);
             int paymentID = 2;
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET studentID = @studentID WHERE trainerID = @trainerID AND moduleID = @moduleID AND amount = @am", con);
+            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET studentID = @studentID WHERE trainerID = @trainerID AND moduleID = @moduleID AND amount = @amount", con);
             cmd.Parameters.AddWithValue("@studentID", studentid);
             cmd.Parameters.AddWithValue("@trainerID", trainerID);
             cmd.Parameters.AddWithValue("@moduleID", module_id);
@@ -291,14 +291,92 @@ namespace ioop_assignment
             con.Close();
             return dt;
         }
+        public string updateInvoice(int module_id, DataGridView dgv)
+        {
+            string status;
+            int modulecharges = getModuleCharges(module_id);
+            int moduleid = getOriginModuleID(dgv);
+            string studentName = dgv.SelectedRows[0].Cells["studentName"].Value.ToString();
+            int studentid = GetstudentID(studentName);
+
+
+
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET moduleID = @newModuleID, amount = @newAmount WHERE studentID = @studentID AND moduleID = @moduleID;", con);
+
+
+
+            cmd.Parameters.AddWithValue("@newModuleID", module_id);
+            cmd.Parameters.AddWithValue("@newAmount", modulecharges);
+            cmd.Parameters.AddWithValue("@studentID", studentid);
+            cmd.Parameters.AddWithValue("@moduleID", moduleid);
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+
+            if (rowsAffected > 0)
+                status = "Student Enrolled";
+            else
+                status = "Unable to Enroll Student";
+            con.Close();
+            return status;
+        }
+
+
+
+        public int getOriginModuleID(DataGridView dgv)
+        {
+            int moduleID = 0;
+
+
+
+            if (dgv.SelectedRows.Count > 0)
+            {
+                string moduleName = dgv.SelectedRows[0].Cells["modulename"].Value.ToString();
+                string levelName = dgv.SelectedRows[0].Cells["levelname"].Value.ToString();
+
+
+
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT moduleID FROM Modules WHERE modulename = @moduleName AND levelID = (SELECT levelID FROM Levels WHERE levelname = @levelName)", con);
+                cmd.Parameters.AddWithValue("@moduleName", moduleName);
+                cmd.Parameters.AddWithValue("@levelName", levelName);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+
+
+                if (reader.Read())
+                {
+                    moduleID = reader.GetInt32(0);
+                }
+
+
+
+                reader.Close();
+                con.Close();
+            }
+
+
+
+            return moduleID;
+        }
+
 
         public void updateEnrollment(DataGridView dgv, string level, string module_name)
         {
             if (dgv.SelectedRows.Count > 0)
             {
                 int enrollID = Convert.ToInt32(dgv.SelectedRows[0].Cells["enrollID"].Value);
+                string studentName = dgv.SelectedRows[0].Cells["studentName"].Value.ToString();
                 int levelID = getLevelIDFromLevel(level);
                 int moduleID = getModuleID(module_name, levelID);
+                int studentid = GetstudentID(studentName);
+
+
+
+                updateInvoice(moduleID, dgv);
+
 
 
                 if (string.IsNullOrEmpty(module_name) && string.IsNullOrEmpty(level))
@@ -306,14 +384,20 @@ namespace ioop_assignment
                     MessageBox.Show("Please select what you want to update.");
                     return;
                 }
-                con.Open();
 
+
+
+                con.Open();
                 string updateQuery = "UPDATE Enrollment SET ";
+
+
 
                 if ((!string.IsNullOrEmpty(module_name)) && (!string.IsNullOrEmpty(level)))
                 {
                     updateQuery += "moduleID = @moduleID, levelID = @levelID ";
                 }
+
+
 
                 updateQuery += "WHERE enrollID = @enrollID";
 
@@ -324,9 +408,13 @@ namespace ioop_assignment
                 cmd.Parameters.AddWithValue("@moduleID", moduleID);
                 cmd.Parameters.AddWithValue("@levelID", levelID);
 
+
+
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Row updated successfully.");
                 con.Close();
+
+
 
                 showEnrollment();
             }
@@ -334,6 +422,9 @@ namespace ioop_assignment
             {
                 MessageBox.Show("Please select a row to update.");
             }
+
+
+
         }
 
         public static DataTable showRequest()
@@ -482,17 +573,23 @@ namespace ioop_assignment
             deleteRequestCmd.Parameters.AddWithValue("@studentID", studentID);
             int affectedRowsRequest = deleteRequestCmd.ExecuteNonQuery();
 
+            SqlCommand deleteInvoicesCmd = new SqlCommand("DELETE FROM Invoice Where studentID = @studentID", con);
+            deleteInvoicesCmd.Parameters.AddWithValue("@studentID", studentID);
+            int affectedRowsInvoices = deleteInvoicesCmd.ExecuteNonQuery();
+
             SqlCommand deleteStudentsCmd = new SqlCommand("DELETE FROM Students WHERE name = @name", con);
             deleteStudentsCmd.Parameters.AddWithValue("@name", name);
             int affectedRowsStudents = deleteStudentsCmd.ExecuteNonQuery();
+
 
             SqlCommand deleteUsersCmd = new SqlCommand("DELETE FROM Users WHERE name = @name", con);
             deleteUsersCmd.Parameters.AddWithValue("@name", name);
             int affectedRowsUsers = deleteUsersCmd.ExecuteNonQuery();
 
+
             con.Close();
 
-            if (affectedRowsEnrollment > 0 || affectedRowsRequest > 0 || affectedRowsStudents > 0 || affectedRowsUsers > 0)
+            if (affectedRowsEnrollment > 0 || affectedRowsRequest > 0 || affectedRowsStudents > 0 || affectedRowsUsers > 0 || affectedRowsInvoices > 0)
                 status = "Student Deleted";
             else
                 status = "Unable to Delete Student";
