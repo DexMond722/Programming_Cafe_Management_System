@@ -210,7 +210,7 @@ namespace ioop_assignment
             int modulecharges = getModuleCharges(module_id);
             int paymentID = 2;
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Invoice (studentID, trainerID, moduleID, amount, paymentID) VALUES(@studentID, @trainerID, @moduleID, @amount, @paymentID)", con);
+            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET studentID = @studentID WHERE trainerID = @trainerID AND moduleID = @moduleID AND amount = @am", con);
             cmd.Parameters.AddWithValue("@studentID", studentid);
             cmd.Parameters.AddWithValue("@trainerID", trainerID);
             cmd.Parameters.AddWithValue("@moduleID", module_id);

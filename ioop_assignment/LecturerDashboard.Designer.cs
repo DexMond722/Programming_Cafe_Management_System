@@ -97,11 +97,11 @@
             this.dgv_RequestApproval = new System.Windows.Forms.DataGridView();
             this.lbl_Enrollment_Request = new System.Windows.Forms.Label();
             this.panel_deletestudent = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btn_DeleteStudent = new System.Windows.Forms.Button();
             this.lstBox_DeleteStudent = new System.Windows.Forms.ListBox();
             this.label_delete = new System.Windows.Forms.Label();
             this.panel_home = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btn_home_logout = new System.Windows.Forms.Button();
             this.lbl_home_title = new System.Windows.Forms.Label();
             this.panel_info.SuspendLayout();
@@ -953,6 +953,13 @@
             this.panel_deletestudent.Size = new System.Drawing.Size(732, 627);
             this.panel_deletestudent.TabIndex = 9;
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(-196, -2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.TabIndex = 3;
+            // 
             // btn_DeleteStudent
             // 
             this.btn_DeleteStudent.BackColor = System.Drawing.Color.DimGray;
@@ -1001,13 +1008,6 @@
             this.panel_home.Size = new System.Drawing.Size(744, 618);
             this.panel_home.TabIndex = 8;
             // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(-196, -2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 3;
-            // 
             // btn_home_logout
             // 
             this.btn_home_logout.BackColor = System.Drawing.Color.DimGray;
@@ -1041,14 +1041,14 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.admin_close);
-            this.Controls.Add(this.panel_home);
-            this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
-            this.Controls.Add(this.panel_deletestudent);
-            this.Controls.Add(this.panel_approverequest);
             this.Controls.Add(this.panel_updateEnrollment);
             this.Controls.Add(this.panel_regenrollstudent);
+            this.Controls.Add(this.panel_home);
+            this.Controls.Add(this.panel_updateprofile);
+            this.Controls.Add(this.panel_deletestudent);
+            this.Controls.Add(this.panel_approverequest);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LecturerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
