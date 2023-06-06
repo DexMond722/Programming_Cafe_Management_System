@@ -906,6 +906,7 @@
             this.dgv_RequestApproval.Location = new System.Drawing.Point(112, 137);
             this.dgv_RequestApproval.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_RequestApproval.Name = "dgv_RequestApproval";
+            this.dgv_RequestApproval.ReadOnly = true;
             this.dgv_RequestApproval.RowHeadersWidth = 51;
             this.dgv_RequestApproval.RowTemplate.Height = 24;
             this.dgv_RequestApproval.Size = new System.Drawing.Size(512, 229);
@@ -1026,12 +1027,12 @@
             this.Controls.Add(this.admin_close);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
-            this.Controls.Add(this.panel_regenrollstudent);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_deletestudent);
             this.Controls.Add(this.panel_approverequest);
             this.Controls.Add(this.panel_updateEnrollment);
+            this.Controls.Add(this.panel_regenrollstudent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LecturerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -108,10 +108,11 @@ namespace ioop_assignment
             con.Open();
 
             SqlCommand cmd = new SqlCommand("Delete from Class WHERE trainerID= (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
-            SqlCommand cmd2 = new SqlCommand("DELETE FROM Invoice WHERE trainerID = (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
-            SqlCommand cmd3 = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
-            SqlCommand cmd4 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
-            SqlCommand cmd5 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
+            SqlCommand cmd2 = new SqlCommand("Delete from Feedback WHERE trainerID= (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
+            SqlCommand cmd3 = new SqlCommand("DELETE FROM Invoice WHERE trainerID = (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
+            SqlCommand cmd4 = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
+            SqlCommand cmd5 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
+            SqlCommand cmd6 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
 
 
             cmd.Parameters.AddWithValue("@TrainerName", name);
@@ -119,12 +120,14 @@ namespace ioop_assignment
             cmd3.Parameters.AddWithValue("@TrainerName", name);
             cmd4.Parameters.AddWithValue("@TrainerName", name);
             cmd5.Parameters.AddWithValue("@TrainerName", name);
+            cmd6.Parameters.AddWithValue("@TrainerName", name);
             cmd.ExecuteNonQuery();
             cmd2.ExecuteNonQuery();
             cmd3.ExecuteNonQuery();
             cmd4.ExecuteNonQuery();
+            cmd5.ExecuteNonQuery();
 
-            int i = cmd5.ExecuteNonQuery();
+            int i = cmd6.ExecuteNonQuery();
             if (i != 0)
                 status = "Trainer Deleted";
             else
@@ -174,12 +177,12 @@ namespace ioop_assignment
             cmd.Parameters.AddWithValue("@trainerID", trainerID);
             cmd.Parameters.AddWithValue("@levelName", levelname);
             cmd.Parameters.AddWithValue("@ModuleName", modulename);
-            SqlCommand cmd2 = new SqlCommand("INSERT INTO Invoice (trainerID, moduleID, paymentID, amount) SELECT Trainers.trainerID, Modules.moduleID, Payment.paymentID, Modules.charges FROM Trainers INNER JOIN TrainerModules ON Trainers.trainerID = TrainerModules.trainerID INNER JOIN Modules ON TrainerModules.moduleID = Modules.moduleID INNER JOIN Levels ON Modules.levelID = Levels.levelID CROSS JOIN Payment WHERE Trainers.trainerID = @trainerID AND Modules.modulename = @ModuleName AND Levels.levelname = @levelname AND Payment.paymentstatus = 'unpaid'", con);
+/*            SqlCommand cmd2 = new SqlCommand("INSERT INTO Invoice (trainerID, moduleID, paymentID, amount) SELECT Trainers.trainerID, Modules.moduleID, Payment.paymentID, Modules.charges FROM Trainers INNER JOIN TrainerModules ON Trainers.trainerID = TrainerModules.trainerID INNER JOIN Modules ON TrainerModules.moduleID = Modules.moduleID INNER JOIN Levels ON Modules.levelID = Levels.levelID CROSS JOIN Payment WHERE Trainers.trainerID = @trainerID AND Modules.modulename = @ModuleName AND Levels.levelname = @levelname AND Payment.paymentstatus = 'unpaid'", con);
             cmd2.Parameters.AddWithValue("@trainerID", trainerID);
             cmd2.Parameters.AddWithValue("@ModuleName", modulename);
             cmd2.Parameters.AddWithValue("@levelName", levelname);
-            cmd.ExecuteNonQuery();
-            int rowsAffected = cmd2.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();*/
+            int rowsAffected = cmd.ExecuteNonQuery();
             con.Close();
 
             if (rowsAffected > 0)

@@ -439,12 +439,13 @@
             this.dgv_vi_schedule.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_vi_schedule.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgv_vi_schedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_vi_schedule.Location = new System.Drawing.Point(93, 167);
+            this.dgv_vi_schedule.Location = new System.Drawing.Point(24, 167);
             this.dgv_vi_schedule.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_vi_schedule.Name = "dgv_vi_schedule";
+            this.dgv_vi_schedule.ReadOnly = true;
             this.dgv_vi_schedule.RowHeadersWidth = 51;
             this.dgv_vi_schedule.RowTemplate.Height = 24;
-            this.dgv_vi_schedule.Size = new System.Drawing.Size(562, 248);
+            this.dgv_vi_schedule.Size = new System.Drawing.Size(679, 248);
             this.dgv_vi_schedule.TabIndex = 6;
             // 
             // label_ViewSchedule
@@ -536,6 +537,7 @@
             this.dgv_vi_invoice.Location = new System.Drawing.Point(99, 99);
             this.dgv_vi_invoice.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_vi_invoice.Name = "dgv_vi_invoice";
+            this.dgv_vi_invoice.ReadOnly = true;
             this.dgv_vi_invoice.RowHeadersWidth = 51;
             this.dgv_vi_invoice.RowTemplate.Height = 24;
             this.dgv_vi_invoice.Size = new System.Drawing.Size(547, 205);
@@ -788,14 +790,14 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.admin_close);
-            this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
-            this.Controls.Add(this.panel_delete);
             this.Controls.Add(this.panel_payment);
             this.Controls.Add(this.panel_schedule);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_send);
+            this.Controls.Add(this.panel_home);
+            this.Controls.Add(this.panel_delete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

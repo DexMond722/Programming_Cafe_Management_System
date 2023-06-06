@@ -899,9 +899,9 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.btn_closeapp);
-            this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
+            this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_sendFeedback);
             this.Controls.Add(this.panel_viewStudentEnr);
