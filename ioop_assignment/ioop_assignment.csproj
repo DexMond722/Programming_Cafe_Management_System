@@ -62,12 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coaching.cs" />
     <Compile Include="LecturerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LecturerDashboard.Designer.cs">
       <DependentUpon>LecturerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student.cs" />
+    <Compile Include="Trainer.cs" />
     <Compile Include="TrainerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +107,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TrainerFunction.cs" />
+    <Compile Include="TrainerDGV.cs" />
     <Compile Include="UserLogin.cs" />
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="LecturerDashboard.resx">
