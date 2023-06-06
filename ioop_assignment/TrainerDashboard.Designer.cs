@@ -68,6 +68,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel_updateCoachingClass = new System.Windows.Forms.Panel();
+            this.btn_refreshClass = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.cmbBox_level2 = new System.Windows.Forms.ComboBox();
             this.btn_updateClass = new System.Windows.Forms.Button();
@@ -93,7 +94,9 @@
             this.btn_sndFeedback = new System.Windows.Forms.Button();
             this.richTxtBox_Feedback = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_refreshClass = new System.Windows.Forms.Button();
+            this.panel_home = new System.Windows.Forms.Panel();
+            this.btn_home_logout = new System.Windows.Forms.Button();
+            this.lbl_home_title = new System.Windows.Forms.Label();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -109,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_coachClass)).BeginInit();
             this.panel_viewStudentEnr.SuspendLayout();
             this.panel_sendFeedback.SuspendLayout();
+            this.panel_home.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_closeapp
@@ -153,11 +157,12 @@
             // 
             this.lbl_identity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_identity.ForeColor = System.Drawing.Color.White;
-            this.lbl_identity.Location = new System.Drawing.Point(12, 125);
+            this.lbl_identity.Location = new System.Drawing.Point(3, 125);
             this.lbl_identity.Name = "lbl_identity";
-            this.lbl_identity.Size = new System.Drawing.Size(269, 23);
+            this.lbl_identity.Size = new System.Drawing.Size(273, 23);
             this.lbl_identity.TabIndex = 7;
             this.lbl_identity.Text = "identity";
+            this.lbl_identity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_info
             // 
@@ -367,7 +372,7 @@
             // 
             // btn_updateprofile
             // 
-            this.btn_updateprofile.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_updateprofile.BackColor = System.Drawing.Color.DimGray;
             this.btn_updateprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_updateprofile.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_updateprofile.ForeColor = System.Drawing.Color.White;
@@ -483,7 +488,8 @@
             // 
             // btn_addCoachingClass
             // 
-            this.btn_addCoachingClass.BackColor = System.Drawing.Color.Gray;
+            this.btn_addCoachingClass.BackColor = System.Drawing.Color.DimGray;
+            this.btn_addCoachingClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addCoachingClass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addCoachingClass.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btn_addCoachingClass.Location = new System.Drawing.Point(292, 343);
@@ -561,6 +567,20 @@
             this.panel_updateCoachingClass.Size = new System.Drawing.Size(730, 610);
             this.panel_updateCoachingClass.TabIndex = 16;
             // 
+            // btn_refreshClass
+            // 
+            this.btn_refreshClass.BackColor = System.Drawing.Color.DimGray;
+            this.btn_refreshClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refreshClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refreshClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_refreshClass.Location = new System.Drawing.Point(527, 292);
+            this.btn_refreshClass.Name = "btn_refreshClass";
+            this.btn_refreshClass.Size = new System.Drawing.Size(134, 37);
+            this.btn_refreshClass.TabIndex = 24;
+            this.btn_refreshClass.Text = "refresh";
+            this.btn_refreshClass.UseVisualStyleBackColor = false;
+            this.btn_refreshClass.Click += new System.EventHandler(this.btn_refreshClass_Click);
+            // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -582,8 +602,9 @@
             // 
             // btn_updateClass
             // 
-            this.btn_updateClass.BackColor = System.Drawing.Color.Gray;
-            this.btn_updateClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_updateClass.BackColor = System.Drawing.Color.DimGray;
+            this.btn_updateClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_updateClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_updateClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_updateClass.Location = new System.Drawing.Point(377, 291);
             this.btn_updateClass.Name = "btn_updateClass";
@@ -613,8 +634,9 @@
             // 
             // btn_deleteClass
             // 
-            this.btn_deleteClass.BackColor = System.Drawing.Color.Gray;
-            this.btn_deleteClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_deleteClass.BackColor = System.Drawing.Color.DimGray;
+            this.btn_deleteClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deleteClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_deleteClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_deleteClass.Location = new System.Drawing.Point(224, 292);
             this.btn_deleteClass.Name = "btn_deleteClass";
@@ -645,8 +667,9 @@
             // 
             // btn_searchClass
             // 
-            this.btn_searchClass.BackColor = System.Drawing.Color.Gray;
-            this.btn_searchClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_searchClass.BackColor = System.Drawing.Color.DimGray;
+            this.btn_searchClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_searchClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_searchClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_searchClass.Location = new System.Drawing.Point(71, 292);
             this.btn_searchClass.Name = "btn_searchClass";
@@ -695,7 +718,8 @@
             // btn_viewUnpaid
             // 
             this.btn_viewUnpaid.BackColor = System.Drawing.Color.DimGray;
-            this.btn_viewUnpaid.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_viewUnpaid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_viewUnpaid.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_viewUnpaid.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_viewUnpaid.Location = new System.Drawing.Point(146, 358);
             this.btn_viewUnpaid.Name = "btn_viewUnpaid";
@@ -708,7 +732,8 @@
             // btn_viewPaid
             // 
             this.btn_viewPaid.BackColor = System.Drawing.Color.DimGray;
-            this.btn_viewPaid.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_viewPaid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_viewPaid.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_viewPaid.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_viewPaid.Location = new System.Drawing.Point(143, 289);
             this.btn_viewPaid.Name = "btn_viewPaid";
@@ -721,7 +746,8 @@
             // btn_viewStudent
             // 
             this.btn_viewStudent.BackColor = System.Drawing.Color.DimGray;
-            this.btn_viewStudent.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_viewStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_viewStudent.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_viewStudent.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_viewStudent.Location = new System.Drawing.Point(143, 230);
             this.btn_viewStudent.Name = "btn_viewStudent";
@@ -800,8 +826,9 @@
             // 
             // btn_sndFeedback
             // 
-            this.btn_sndFeedback.BackColor = System.Drawing.Color.Gray;
-            this.btn_sndFeedback.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sndFeedback.BackColor = System.Drawing.Color.DimGray;
+            this.btn_sndFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sndFeedback.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sndFeedback.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_sndFeedback.Location = new System.Drawing.Point(281, 378);
             this.btn_sndFeedback.Name = "btn_sndFeedback";
@@ -830,18 +857,39 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Send Feedback";
             // 
-            // btn_refreshClass
+            // panel_home
             // 
-            this.btn_refreshClass.BackColor = System.Drawing.Color.Gray;
-            this.btn_refreshClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refreshClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_refreshClass.Location = new System.Drawing.Point(527, 292);
-            this.btn_refreshClass.Name = "btn_refreshClass";
-            this.btn_refreshClass.Size = new System.Drawing.Size(134, 37);
-            this.btn_refreshClass.TabIndex = 24;
-            this.btn_refreshClass.Text = "refresh";
-            this.btn_refreshClass.UseVisualStyleBackColor = false;
-            this.btn_refreshClass.Click += new System.EventHandler(this.btn_refreshClass_Click);
+            this.panel_home.Controls.Add(this.btn_home_logout);
+            this.panel_home.Controls.Add(this.lbl_home_title);
+            this.panel_home.Location = new System.Drawing.Point(283, 3);
+            this.panel_home.Name = "panel_home";
+            this.panel_home.Size = new System.Drawing.Size(743, 627);
+            this.panel_home.TabIndex = 19;
+            // 
+            // btn_home_logout
+            // 
+            this.btn_home_logout.BackColor = System.Drawing.Color.DimGray;
+            this.btn_home_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_home_logout.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_home_logout.ForeColor = System.Drawing.Color.White;
+            this.btn_home_logout.Location = new System.Drawing.Point(288, 398);
+            this.btn_home_logout.Name = "btn_home_logout";
+            this.btn_home_logout.Size = new System.Drawing.Size(150, 50);
+            this.btn_home_logout.TabIndex = 5;
+            this.btn_home_logout.Text = "Log Out";
+            this.btn_home_logout.UseVisualStyleBackColor = false;
+            this.btn_home_logout.Click += new System.EventHandler(this.btn_home_logout_Click);
+            // 
+            // lbl_home_title
+            // 
+            this.lbl_home_title.AutoSize = true;
+            this.lbl_home_title.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_home_title.Location = new System.Drawing.Point(158, 179);
+            this.lbl_home_title.Name = "lbl_home_title";
+            this.lbl_home_title.Size = new System.Drawing.Size(426, 164);
+            this.lbl_home_title.TabIndex = 4;
+            this.lbl_home_title.Text = "Welcome to \r\n\r\nAPU Programming Café \r\n\r\n";
+            this.lbl_home_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TrainerDashboard
             // 
@@ -851,13 +899,14 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.btn_closeapp);
+            this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
-            this.Controls.Add(this.panel_updateCoachingClass);
-            this.Controls.Add(this.panel_addCoachingClass);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_sendFeedback);
             this.Controls.Add(this.panel_viewStudentEnr);
+            this.Controls.Add(this.panel_updateCoachingClass);
+            this.Controls.Add(this.panel_addCoachingClass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TrainerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -885,6 +934,8 @@
             this.panel_viewStudentEnr.PerformLayout();
             this.panel_sendFeedback.ResumeLayout(false);
             this.panel_sendFeedback.PerformLayout();
+            this.panel_home.ResumeLayout(false);
+            this.panel_home.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -957,5 +1008,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_refreshClass;
+        private System.Windows.Forms.Panel panel_home;
+        private System.Windows.Forms.Button btn_home_logout;
+        private System.Windows.Forms.Label lbl_home_title;
     }
 }

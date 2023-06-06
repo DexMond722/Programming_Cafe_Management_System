@@ -17,8 +17,6 @@ namespace ioop_assignment
         private double charges;
         private string schedule;
         private string username;
-        private string student;
-
         static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
         public string Username { get { return username; } set { username = value; } }

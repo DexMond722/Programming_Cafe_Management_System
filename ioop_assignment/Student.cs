@@ -136,6 +136,7 @@ namespace ioop_assignment
             int studentid = GetstudentID(studentName);
             int level_id = getLevelIDFromLevel(level_name);
             int module_id = getModuleID(module_name, level_id);
+            addToInvoice(studentid, module_id);
             con.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO Enrollment (studentID, moduleID, levelID, MonthofEnroll) VALUES(@studentID, @moduleID, @levelID, @monthofenrollment)", con);
             cmd.Parameters.AddWithValue("@studentID", studentid);
@@ -143,6 +144,81 @@ namespace ioop_assignment
             cmd.Parameters.AddWithValue("@levelID", level_id);
             cmd.Parameters.AddWithValue("@monthofenrollment", monthofenrollment);
             int rowsAffected = cmd.ExecuteNonQuery();
+
+            if (rowsAffected > 0)
+                status = "Student Enrolled";
+            else
+                status = "Unable to Enroll Student";
+            con.Close();
+            return status;
+        }
+
+        private int getTrainerID(int module_id)
+        {
+            int trainerID = 0;
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand($"SELECT trainerID FROM TrainerModules WHERE moduleID = '{module_id}'", con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                trainerID = reader.GetInt32(0);
+            }
+
+            reader.Close();
+            con.Close();
+
+            return trainerID;
+        }
+
+
+
+
+        private int getModuleCharges(int module_id)
+        {
+            int moduleCharges = 0;
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand($"SELECT charges FROM Modules WHERE moduleID = '{module_id}'", con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                string chargesStr = reader.GetString(0);
+                if (int.TryParse(chargesStr, out int chargesValue))
+                {
+                    moduleCharges = chargesValue;
+                }
+                else
+                {
+                }
+            }
+
+            reader.Close();
+            con.Close();
+
+
+
+            return moduleCharges;
+        }
+
+        public string addToInvoice(int studentid, int module_id)
+        {
+            string status;
+            int trainerID = getTrainerID(module_id);
+            int modulecharges = getModuleCharges(module_id);
+            int paymentID = 2;
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Invoice (studentID, trainerID, moduleID, amount, paymentID) VALUES(@studentID, @trainerID, @moduleID, @amount, @paymentID)", con);
+            cmd.Parameters.AddWithValue("@studentID", studentid);
+            cmd.Parameters.AddWithValue("@trainerID", trainerID);
+            cmd.Parameters.AddWithValue("@moduleID", module_id);
+            cmd.Parameters.AddWithValue("@amount", modulecharges);
+            cmd.Parameters.AddWithValue("@paymentID", paymentID);
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
 
             if (rowsAffected > 0)
                 status = "Student Enrolled";
@@ -224,6 +300,7 @@ namespace ioop_assignment
                 int levelID = getLevelIDFromLevel(level);
                 int moduleID = getModuleID(module_name, levelID);
 
+
                 if (string.IsNullOrEmpty(module_name) && string.IsNullOrEmpty(level))
                 {
                     MessageBox.Show("Please select what you want to update.");
@@ -304,13 +381,15 @@ namespace ioop_assignment
 
             return status;
         }
-        
+
 
         public void acceptEnrollment(int requestID)
         {
             int studentID = GetStudentIDFromRequest(requestID);
             int moduleID = GetModuleIDFromRequest(requestID);
             int levelID = getLevelID(moduleID);
+
+            addToInvoice(studentID, moduleID);
 
             con.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO Enrollment (studentID, moduleID, levelID) VALUES (@studentID, @moduleID, @levelID)", con);

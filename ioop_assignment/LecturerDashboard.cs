@@ -29,11 +29,6 @@ namespace ioop_assignment
             username = uname;
             name = n;
             role = r;
-            panel_updateprofile.Visible = false;
-            panel_regenrollstudent.Visible = false;
-            panel_updateEnrollment.Visible = false;
-            panel_approverequest.Visible = false;
-            panel_deletestudent.Visible = false;
         }
 
         private void admin_close_Click(object sender, EventArgs e)
@@ -47,13 +42,22 @@ namespace ioop_assignment
             DateTime loggedInDate = DateTime.Now;
             lbl_loggedintime.Text = "Logged in on: \n" + loggedInDate.ToString();
             lbl_role.Text = "Role: " + role;
-            panel_updateprofile.Visible = false;
             MouseCursorChanged();
-
+            InitialLoad();
             loadallComboBox();
             ShowEnrollmentDGV();
             ShowRequestDGV();
             showDeleteList();
+        }
+
+        private void InitialLoad()
+        {
+            panel_updateprofile.Visible = false;
+            panel_regenrollstudent.Visible = false;
+            panel_updateEnrollment.Visible = false;
+            panel_approverequest.Visible = false;
+            panel_deletestudent.Visible = false;
+            panel_home.Visible = true;
         }
 
         private void MouseCursorChanged()
@@ -84,6 +88,18 @@ namespace ioop_assignment
             panel_updateEnrollment.Visible = false;
             panel_approverequest.Visible = false;
             panel_deletestudent.Visible = false;
+            panel_home.Visible = false;
+            viewProfile();
+        }
+
+        private void viewProfile()
+        {
+            Users obj1 = new Users(username);
+            Users.viewProfile(obj1);
+
+            txtbox_name.Text = obj1.Name;
+            txtbox_phone.Text = obj1.Phone;
+            txtbox_email.Text = obj1.Email;
         }
 
         private void btn_updateprofile_Click(object sender, EventArgs e)
@@ -99,6 +115,7 @@ namespace ioop_assignment
             panel_updateEnrollment.Visible = false;
             panel_approverequest.Visible = false;
             panel_deletestudent.Visible = false;
+            panel_home.Visible = true;
         }
 
         private void lbl_regenrollstudent_Click(object sender, EventArgs e)
@@ -108,6 +125,7 @@ namespace ioop_assignment
             panel_updateEnrollment.Visible = false;
             panel_approverequest.Visible = false;
             panel_deletestudent.Visible = false;
+            panel_home.Visible = false;
         }
 
         private void lbl_updateenroll_Click(object sender, EventArgs e)
@@ -117,6 +135,7 @@ namespace ioop_assignment
             panel_updateEnrollment.Visible = true;
             panel_approverequest.Visible = false;
             panel_deletestudent.Visible = false;
+            panel_home.Visible = false;
             ShowEnrollmentDGV();
         }
 
@@ -127,6 +146,7 @@ namespace ioop_assignment
             panel_updateEnrollment.Visible = false;
             panel_approverequest.Visible = true;
             panel_deletestudent.Visible = false;
+            panel_home.Visible = false;
         }
 
         private void lbl_delete_Click(object sender, EventArgs e)
@@ -136,6 +156,7 @@ namespace ioop_assignment
             panel_updateEnrollment.Visible = false;
             panel_approverequest.Visible = false;
             panel_deletestudent.Visible = true;
+            panel_home.Visible = false;
             showDeleteList();
         }
 
@@ -337,6 +358,7 @@ namespace ioop_assignment
             }
         }
 
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             RegisterStudent();
@@ -382,6 +404,13 @@ namespace ioop_assignment
         private void btn_DeleteStudent_Click(object sender, EventArgs e)
         {
             DeleteStudent();
+        }
+
+        private void btn_home_logout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginPanel login = new LoginPanel();
+            login.Show();
         }
     }
 }

@@ -94,8 +94,11 @@
             this.dgv_vi_income = new System.Windows.Forms.DataGridView();
             this.lbl_vi_viewincome = new System.Windows.Forms.Label();
             this.panel_viewfeedback = new System.Windows.Forms.Panel();
-            this.lbl_vf_viewfeedback = new System.Windows.Forms.Label();
             this.dgv_vf_feedback = new System.Windows.Forms.DataGridView();
+            this.lbl_vf_viewfeedback = new System.Windows.Forms.Label();
+            this.panel_home = new System.Windows.Forms.Panel();
+            this.lbl_home_title = new System.Windows.Forms.Label();
+            this.btn_home_logout = new System.Windows.Forms.Button();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -112,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vi_income)).BeginInit();
             this.panel_viewfeedback.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vf_feedback)).BeginInit();
+            this.panel_home.SuspendLayout();
             this.SuspendLayout();
             // 
             // admin_close
@@ -156,11 +160,12 @@
             // 
             this.lbl_identity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_identity.ForeColor = System.Drawing.Color.White;
-            this.lbl_identity.Location = new System.Drawing.Point(20, 125);
+            this.lbl_identity.Location = new System.Drawing.Point(3, 125);
             this.lbl_identity.Name = "lbl_identity";
-            this.lbl_identity.Size = new System.Drawing.Size(256, 23);
+            this.lbl_identity.Size = new System.Drawing.Size(273, 23);
             this.lbl_identity.TabIndex = 7;
             this.lbl_identity.Text = "identity";
+            this.lbl_identity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_info
             // 
@@ -348,7 +353,7 @@
             // 
             // btn_updateprofile
             // 
-            this.btn_updateprofile.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_updateprofile.BackColor = System.Drawing.Color.DimGray;
             this.btn_updateprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_updateprofile.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_updateprofile.ForeColor = System.Drawing.Color.White;
@@ -462,9 +467,9 @@
             // 
             // btn_rt_deletetrainer
             // 
-            this.btn_rt_deletetrainer.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_rt_deletetrainer.BackColor = System.Drawing.Color.DimGray;
             this.btn_rt_deletetrainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rt_deletetrainer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rt_deletetrainer.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rt_deletetrainer.ForeColor = System.Drawing.Color.White;
             this.btn_rt_deletetrainer.Location = new System.Drawing.Point(521, 499);
             this.btn_rt_deletetrainer.Name = "btn_rt_deletetrainer";
@@ -486,9 +491,9 @@
             // 
             // btn_rt_register
             // 
-            this.btn_rt_register.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_rt_register.BackColor = System.Drawing.Color.DimGray;
             this.btn_rt_register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rt_register.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_rt_register.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rt_register.ForeColor = System.Drawing.Color.White;
             this.btn_rt_register.Location = new System.Drawing.Point(156, 501);
             this.btn_rt_register.Name = "btn_rt_register";
@@ -610,7 +615,7 @@
             // 
             // btn_at_assign
             // 
-            this.btn_at_assign.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_at_assign.BackColor = System.Drawing.Color.DimGray;
             this.btn_at_assign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_at_assign.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_at_assign.ForeColor = System.Drawing.Color.White;
@@ -707,7 +712,7 @@
             // 
             // btn_vi_search
             // 
-            this.btn_vi_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_vi_search.BackColor = System.Drawing.Color.DimGray;
             this.btn_vi_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_vi_search.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_vi_search.ForeColor = System.Drawing.Color.White;
@@ -821,16 +826,6 @@
             this.panel_viewfeedback.Size = new System.Drawing.Size(739, 624);
             this.panel_viewfeedback.TabIndex = 9;
             // 
-            // lbl_vf_viewfeedback
-            // 
-            this.lbl_vf_viewfeedback.AutoSize = true;
-            this.lbl_vf_viewfeedback.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_vf_viewfeedback.Location = new System.Drawing.Point(253, 70);
-            this.lbl_vf_viewfeedback.Name = "lbl_vf_viewfeedback";
-            this.lbl_vf_viewfeedback.Size = new System.Drawing.Size(237, 36);
-            this.lbl_vf_viewfeedback.TabIndex = 0;
-            this.lbl_vf_viewfeedback.Text = "View Feedback";
-            // 
             // dgv_vf_feedback
             // 
             this.dgv_vf_feedback.AllowUserToAddRows = false;
@@ -856,6 +851,51 @@
             this.dgv_vf_feedback.Size = new System.Drawing.Size(567, 308);
             this.dgv_vf_feedback.TabIndex = 1;
             // 
+            // lbl_vf_viewfeedback
+            // 
+            this.lbl_vf_viewfeedback.AutoSize = true;
+            this.lbl_vf_viewfeedback.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vf_viewfeedback.Location = new System.Drawing.Point(253, 70);
+            this.lbl_vf_viewfeedback.Name = "lbl_vf_viewfeedback";
+            this.lbl_vf_viewfeedback.Size = new System.Drawing.Size(237, 36);
+            this.lbl_vf_viewfeedback.TabIndex = 0;
+            this.lbl_vf_viewfeedback.Text = "View Feedback";
+            // 
+            // panel_home
+            // 
+            this.panel_home.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_home.Controls.Add(this.btn_home_logout);
+            this.panel_home.Controls.Add(this.lbl_home_title);
+            this.panel_home.Location = new System.Drawing.Point(283, 3);
+            this.panel_home.Name = "panel_home";
+            this.panel_home.Size = new System.Drawing.Size(739, 624);
+            this.panel_home.TabIndex = 16;
+            // 
+            // lbl_home_title
+            // 
+            this.lbl_home_title.AutoSize = true;
+            this.lbl_home_title.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_home_title.Location = new System.Drawing.Point(164, 174);
+            this.lbl_home_title.Name = "lbl_home_title";
+            this.lbl_home_title.Size = new System.Drawing.Size(426, 164);
+            this.lbl_home_title.TabIndex = 0;
+            this.lbl_home_title.Text = "Welcome to \r\n\r\nAPU Programming Café \r\n\r\n";
+            this.lbl_home_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_home_logout
+            // 
+            this.btn_home_logout.BackColor = System.Drawing.Color.DimGray;
+            this.btn_home_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_home_logout.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_home_logout.ForeColor = System.Drawing.Color.White;
+            this.btn_home_logout.Location = new System.Drawing.Point(294, 393);
+            this.btn_home_logout.Name = "btn_home_logout";
+            this.btn_home_logout.Size = new System.Drawing.Size(150, 50);
+            this.btn_home_logout.TabIndex = 1;
+            this.btn_home_logout.Text = "Log Out";
+            this.btn_home_logout.UseVisualStyleBackColor = false;
+            this.btn_home_logout.Click += new System.EventHandler(this.btn_home_logout_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -864,13 +904,14 @@
             this.ClientSize = new System.Drawing.Size(1026, 627);
             this.ControlBox = false;
             this.Controls.Add(this.admin_close);
+            this.Controls.Add(this.panel_home);
+            this.Controls.Add(this.panel_button);
+            this.Controls.Add(this.panel_info);
+            this.Controls.Add(this.panel_registertrainer);
+            this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_viewfeedback);
             this.Controls.Add(this.panel_viewincome);
             this.Controls.Add(this.panel_assigntrainer);
-            this.Controls.Add(this.panel_registertrainer);
-            this.Controls.Add(this.panel_updateprofile);
-            this.Controls.Add(this.panel_button);
-            this.Controls.Add(this.panel_info);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -899,6 +940,8 @@
             this.panel_viewfeedback.ResumeLayout(false);
             this.panel_viewfeedback.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vf_feedback)).EndInit();
+            this.panel_home.ResumeLayout(false);
+            this.panel_home.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -971,5 +1014,8 @@
         private System.Windows.Forms.Panel panel_viewfeedback;
         private System.Windows.Forms.DataGridView dgv_vf_feedback;
         private System.Windows.Forms.Label lbl_vf_viewfeedback;
+        private System.Windows.Forms.Panel panel_home;
+        private System.Windows.Forms.Label lbl_home_title;
+        private System.Windows.Forms.Button btn_home_logout;
     }
 }

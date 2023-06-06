@@ -107,22 +107,24 @@ namespace ioop_assignment
             string status;
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("DELETE FROM Invoice WHERE trainerID = (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
-            SqlCommand cmd2 = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
-            SqlCommand cmd3 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
-            SqlCommand cmd4 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
-
+            SqlCommand cmd = new SqlCommand("Delete from Class WHERE trainerID= (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
+            SqlCommand cmd2 = new SqlCommand("DELETE FROM Invoice WHERE trainerID = (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName))", con);
+            SqlCommand cmd3 = new SqlCommand("DELETE FROM TrainerModules WHERE trainerID IN (SELECT trainerID FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName));", con);
+            SqlCommand cmd4 = new SqlCommand("delete FROM Trainers WHERE userID IN (SELECT userID FROM Users WHERE name = @TrainerName)", con);
+            SqlCommand cmd5 = new SqlCommand("delete FROM Users WHERE name = @TrainerName", con);
 
 
             cmd.Parameters.AddWithValue("@TrainerName", name);
             cmd2.Parameters.AddWithValue("@TrainerName", name);
             cmd3.Parameters.AddWithValue("@TrainerName", name);
             cmd4.Parameters.AddWithValue("@TrainerName", name);
+            cmd5.Parameters.AddWithValue("@TrainerName", name);
             cmd.ExecuteNonQuery();
             cmd2.ExecuteNonQuery();
             cmd3.ExecuteNonQuery();
+            cmd4.ExecuteNonQuery();
 
-            int i = cmd4.ExecuteNonQuery();
+            int i = cmd5.ExecuteNonQuery();
             if (i != 0)
                 status = "Trainer Deleted";
             else

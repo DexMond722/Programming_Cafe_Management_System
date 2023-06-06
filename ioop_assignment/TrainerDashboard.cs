@@ -37,6 +37,7 @@ namespace ioop_assignment
             panel_sendFeedback.Visible = false;
             panel_addCoachingClass.Visible = false;
             panel_updateprofile.Visible = false;
+            panel_home.Visible = true;
         }
 
         private void admin_close_Click(object sender, EventArgs e)
@@ -90,6 +91,7 @@ namespace ioop_assignment
             panel_sendFeedback.Visible = false;
             panel_addCoachingClass.Visible = false;
             panel_updateprofile.Visible = true;
+            panel_home.Visible = false;
             //load viewProfile
             Users obj1 = new Users(username);
             Users.viewProfile(obj1);
@@ -113,6 +115,7 @@ namespace ioop_assignment
             panel_updateCoachingClass.Visible = false;
             panel_viewStudentEnr.Visible = false;
             panel_sendFeedback.Visible = false;
+            panel_home.Visible = true;
         }
 
         private void lbl_addcoachclass_Click(object sender, EventArgs e)
@@ -122,6 +125,7 @@ namespace ioop_assignment
             panel_viewStudentEnr.Visible = false;
             panel_sendFeedback.Visible = false;
             panel_addCoachingClass.Visible = true;
+            panel_home.Visible = false;
         }
 
         private void lbl_updatecoachclass_Click(object sender, EventArgs e)
@@ -131,6 +135,7 @@ namespace ioop_assignment
             panel_sendFeedback.Visible = false;
             panel_addCoachingClass.Visible = false;
             panel_updateCoachingClass.Visible = true;
+            panel_home.Visible = false;
         }
 
         private void lbl_viewenroll_Click(object sender, EventArgs e)
@@ -140,6 +145,7 @@ namespace ioop_assignment
             panel_addCoachingClass.Visible = false;
             panel_updateCoachingClass.Visible = false;
             panel_viewStudentEnr.Visible = true;
+            panel_home.Visible = false;
         }
 
         private void lbl_sendfeedback_Click(object sender, EventArgs e)
@@ -149,6 +155,7 @@ namespace ioop_assignment
             panel_updateCoachingClass.Visible = false;
             panel_viewStudentEnr.Visible = false;
             panel_sendFeedback.Visible = true;
+            panel_home.Visible = false;
         }
 
         private void loadComboBox()
@@ -402,6 +409,11 @@ namespace ioop_assignment
             viewUnpaid();
         }
 
-        
+        private void btn_home_logout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginPanel login = new LoginPanel();
+            login.Show();
+        }
     }
 }

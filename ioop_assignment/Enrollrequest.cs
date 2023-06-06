@@ -121,7 +121,7 @@ namespace ioop_assignment
             int studentID = getStudentID(username);
             ArrayList nm = new ArrayList();
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select requestID from Request WHERE studentID = @studentID", con);
+            SqlCommand cmd = new SqlCommand("SELECT requestID FROM Request WHERE studentID = @studentID AND status = 'pending'", con);
             cmd.Parameters.AddWithValue("@studentID", studentID);
             SqlDataReader rd = cmd.ExecuteReader();
 
@@ -223,23 +223,35 @@ namespace ioop_assignment
 
         }
 
-        public string UpdatePaymentstatus()
+        public void UpdatePaymentstatus(DataGridView dgv)
         {
-            string status;
-            int studentID = GetStudentID(username);
-            int invoiceID = GetInvoiceID(studentID);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET paymentID = 1 WHERE invoiceID = @invoiceID", con);
-            cmd.Parameters.AddWithValue("@invoiceID", invoiceID);
-            int updated = cmd.ExecuteNonQuery();
-            con.Close();
+            if (dgv.SelectedRows.Count > 0)
+            {
+                int rowIndex = dgv.SelectedRows[0].Index;
+                int invoiceID = Convert.ToInt32(dgv.Rows[rowIndex].Cells["invoiceID"].Value);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Invoice SET paymentID = 1 WHERE invoiceID = @invoiceID", con);
+                cmd.Parameters.AddWithValue("@invoiceID", invoiceID);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                con.Close();
 
-            if (updated > 0)
-                status = "Invoice Paid";
+
+
+                if (rowsAffected > 0)
+                {
+                    dgv.Rows.RemoveAt(rowIndex);
+                    MessageBox.Show("Pay Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("No matching row found in the database.");
+                }
+            }
             else
-                status = "Payment unsucessful. Please try again.";
-
-            return status;
+            {
+                MessageBox.Show("No row selected");
+            }
+            Loadinvoice(dgv);
         }
 
 
@@ -264,28 +276,6 @@ namespace ioop_assignment
             con.Close();
 
             return studentID;
-        }
-
-        private int GetInvoiceID(int studentID)
-        {
-            int invoiceID = 0;
-
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("SELECT invoiceID FROM Invoice WHERE studentID = @StudentID", con);
-            cmd.Parameters.AddWithValue("@StudentID", studentID);
-
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
-            {
-                invoiceID = Convert.ToInt32(reader["invoiceID"]);
-            }
-
-            reader.Close();
-            con.Close();
-
-            return invoiceID;
         }
 
         public ArrayList viewInvoiceID()

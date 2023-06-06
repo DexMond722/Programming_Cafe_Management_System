@@ -49,7 +49,6 @@ namespace ioop_assignment
             LoadEnrollRequestComboBox();
             LoadRequestIDComboBox();
             LoadViewInvoiceDGV();
-            LoadInvoiceIDComboBox();
         }
 
         private void InitialLoad()
@@ -59,6 +58,7 @@ namespace ioop_assignment
             panel_send.Visible = false;
             panel_delete.Visible = false;
             panel_payment.Visible = false;
+            panel_home.Visible = true;
         }
 
         private void MouseCursorChanged()
@@ -106,6 +106,7 @@ namespace ioop_assignment
             panel_send.Visible = false;
             panel_delete.Visible = false;
             panel_payment.Visible = false;
+            panel_home.Visible = true;
         }
 
         private void lbl_viewschedule_Click(object sender, EventArgs e)
@@ -115,6 +116,7 @@ namespace ioop_assignment
             panel_send.Visible = false;
             panel_delete.Visible = false;
             panel_payment.Visible = false;
+            panel_home.Visible = false;
         }
 
         private void lbl_sendrequest_Click(object sender, EventArgs e)
@@ -124,6 +126,7 @@ namespace ioop_assignment
             panel_send.Visible = true;
             panel_delete.Visible = false;
             panel_payment.Visible = false;
+            panel_home.Visible = false;
         }
 
         private void lbl_delrequest_Click(object sender, EventArgs e)
@@ -133,6 +136,7 @@ namespace ioop_assignment
             panel_send.Visible = false;
             panel_delete.Visible = true;
             panel_payment.Visible = false;
+            panel_home.Visible = false;
         }
 
         private void lbl_invpayment_Click(object sender, EventArgs e)
@@ -142,6 +146,7 @@ namespace ioop_assignment
             panel_send.Visible = false;
             panel_delete.Visible = false;
             panel_payment.Visible = true;
+            panel_home.Visible = false;
         }
 
         private void LoadViewScheduleDGV()
@@ -246,23 +251,12 @@ namespace ioop_assignment
             obj1.Loadinvoice(dgv_vi_invoice);
         }
 
-        private void LoadInvoiceIDComboBox()
-        {
-            ArrayList invoice = new ArrayList();
-            Enrollrequest obj1 = new Enrollrequest();
-            obj1.Username = username;
-            invoice = obj1.viewInvoiceID();
-            foreach (var item in invoice)
-            {
-                cbox_makepayment.Items.Add(item);
-            }
-        }
 
         private void MakePayment()
         {
             Enrollrequest obj1 = new Enrollrequest();
             obj1.Username = username;
-            MessageBox.Show(obj1.UpdatePaymentstatus());
+            obj1.UpdatePaymentstatus(dgv_vi_invoice);
             LoadViewInvoiceDGV();
 
         }
@@ -273,5 +267,11 @@ namespace ioop_assignment
             MakePayment();
         }
 
+        private void btn_home_logout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginPanel login = new LoginPanel();
+            login.Show();
+        }
     }
 }

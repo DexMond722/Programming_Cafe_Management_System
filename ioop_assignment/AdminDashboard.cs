@@ -34,7 +34,6 @@ namespace ioop_assignment
         private void admin_close_Click(object sender, EventArgs e)
         {
             Application.Exit();
-            FormInitial();
         }
 
         private void FormInitial()
@@ -62,6 +61,7 @@ namespace ioop_assignment
 
         private void InitialVisibleItem()
         {
+            panel_home.Visible = true;
             panel_registertrainer.Visible = false;
             panel_updateprofile.Visible = false;
             panel_assigntrainer.Visible = false;
@@ -272,6 +272,7 @@ namespace ioop_assignment
             panel_assigntrainer.Visible = false;
             panel_viewincome.Visible = false;
             panel_viewfeedback.Visible = false;
+            panel_home.Visible = false;
         }
         private void lbl_updateprofile_Click(object sender, EventArgs e)
         {
@@ -281,6 +282,7 @@ namespace ioop_assignment
             panel_assigntrainer.Visible = false;
             panel_viewincome.Visible = false;
             panel_viewfeedback.Visible = false;
+            panel_home.Visible = false;
             viewProfile();
         }
 
@@ -296,6 +298,7 @@ namespace ioop_assignment
             panel_assigntrainer.Visible = false;
             panel_viewincome.Visible = false;
             panel_viewfeedback.Visible = false;
+            panel_home.Visible = true;
         }
 
         private void btn_rt_register_Click(object sender, EventArgs e)
@@ -320,6 +323,7 @@ namespace ioop_assignment
             panel_assigntrainer.Visible = true;
             panel_viewincome.Visible = false;
             panel_viewfeedback.Visible = false;
+            panel_home.Visible = false;
         }
 
         private void btn_at_assign_Click(object sender, EventArgs e)
@@ -335,6 +339,7 @@ namespace ioop_assignment
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = false;
             panel_viewfeedback.Visible = false;
+            panel_home.Visible = false;
             ReloadViewIncomeComboBox();
         }
 
@@ -350,6 +355,14 @@ namespace ioop_assignment
             panel_registertrainer.Visible = false;
             panel_assigntrainer.Visible = false;
             panel_viewfeedback.Visible = true;
+            panel_home.Visible = false;
+        }
+
+        private void btn_home_logout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginPanel login = new LoginPanel();
+            login.Show();
         }
     }
 }
