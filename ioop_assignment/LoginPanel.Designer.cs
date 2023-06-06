@@ -32,25 +32,24 @@
             this.login_welcome3 = new System.Windows.Forms.Label();
             this.login_welcome2 = new System.Windows.Forms.Label();
             this.login_welcome1 = new System.Windows.Forms.Label();
+            this.login_apulogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.login_rememberdetails = new System.Windows.Forms.CheckBox();
             this.login_btnLogin = new System.Windows.Forms.Button();
             this.login_password_panel = new System.Windows.Forms.Panel();
             this.login_passwordbox = new System.Windows.Forms.TextBox();
+            this.login_password_icon = new System.Windows.Forms.PictureBox();
             this.login_username_panel = new System.Windows.Forms.Panel();
             this.login_usernamebox = new System.Windows.Forms.TextBox();
+            this.login_username_icon = new System.Windows.Forms.PictureBox();
             this.login_loginmsg = new System.Windows.Forms.Label();
             this.login_close = new System.Windows.Forms.Button();
-            this.login_password_icon = new System.Windows.Forms.PictureBox();
-            this.login_username_icon = new System.Windows.Forms.PictureBox();
-            this.login_apulogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.login_apulogo)).BeginInit();
             this.panel2.SuspendLayout();
             this.login_password_panel.SuspendLayout();
-            this.login_username_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.login_password_icon)).BeginInit();
+            this.login_username_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.login_username_icon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.login_apulogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -99,9 +98,18 @@
             this.login_welcome1.Text = "Welcome to";
             this.login_welcome1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // login_apulogo
+            // 
+            this.login_apulogo.Image = global::ioop_assignment.Properties.Resources.APU_Logo_Full_Size_removebg_preview;
+            this.login_apulogo.Location = new System.Drawing.Point(75, 43);
+            this.login_apulogo.Name = "login_apulogo";
+            this.login_apulogo.Size = new System.Drawing.Size(142, 135);
+            this.login_apulogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.login_apulogo.TabIndex = 0;
+            this.login_apulogo.TabStop = false;
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.login_rememberdetails);
             this.panel2.Controls.Add(this.login_btnLogin);
             this.panel2.Controls.Add(this.login_password_panel);
             this.panel2.Controls.Add(this.login_username_panel);
@@ -113,18 +121,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(450, 530);
             this.panel2.TabIndex = 1;
-            // 
-            // login_rememberdetails
-            // 
-            this.login_rememberdetails.AutoSize = true;
-            this.login_rememberdetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login_rememberdetails.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_rememberdetails.Location = new System.Drawing.Point(320, 286);
-            this.login_rememberdetails.Name = "login_rememberdetails";
-            this.login_rememberdetails.Size = new System.Drawing.Size(117, 20);
-            this.login_rememberdetails.TabIndex = 6;
-            this.login_rememberdetails.Text = "Remember Me";
-            this.login_rememberdetails.UseVisualStyleBackColor = true;
             // 
             // login_btnLogin
             // 
@@ -161,6 +157,19 @@
             this.login_passwordbox.UseSystemPasswordChar = true;
             this.login_passwordbox.Click += new System.EventHandler(this.login_passwordbox_Click);
             // 
+            // login_password_icon
+            // 
+            this.login_password_icon.Image = global::ioop_assignment.Properties.Resources.padlock;
+            this.login_password_icon.Location = new System.Drawing.Point(15, 11);
+            this.login_password_icon.Name = "login_password_icon";
+            this.login_password_icon.Size = new System.Drawing.Size(24, 24);
+            this.login_password_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.login_password_icon.TabIndex = 0;
+            this.login_password_icon.TabStop = false;
+            this.login_password_icon.Click += new System.EventHandler(this.login_password_icon_Click);
+            this.login_password_icon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.login_password_icon_MouseDown);
+            this.login_password_icon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.login_password_icon_MouseUp);
+            // 
             // login_username_panel
             // 
             this.login_username_panel.BackColor = System.Drawing.Color.White;
@@ -180,6 +189,16 @@
             this.login_usernamebox.Size = new System.Drawing.Size(370, 20);
             this.login_usernamebox.TabIndex = 1;
             this.login_usernamebox.Click += new System.EventHandler(this.login_usernamebox_Click);
+            // 
+            // login_username_icon
+            // 
+            this.login_username_icon.Image = global::ioop_assignment.Properties.Resources.user;
+            this.login_username_icon.Location = new System.Drawing.Point(15, 11);
+            this.login_username_icon.Name = "login_username_icon";
+            this.login_username_icon.Size = new System.Drawing.Size(24, 24);
+            this.login_username_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.login_username_icon.TabIndex = 0;
+            this.login_username_icon.TabStop = false;
             // 
             // login_loginmsg
             // 
@@ -207,39 +226,6 @@
             this.login_close.UseVisualStyleBackColor = true;
             this.login_close.Click += new System.EventHandler(this.login_close_Click);
             // 
-            // login_password_icon
-            // 
-            this.login_password_icon.Image = global::ioop_assignment.Properties.Resources.padlock;
-            this.login_password_icon.Location = new System.Drawing.Point(15, 11);
-            this.login_password_icon.Name = "login_password_icon";
-            this.login_password_icon.Size = new System.Drawing.Size(24, 24);
-            this.login_password_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.login_password_icon.TabIndex = 0;
-            this.login_password_icon.TabStop = false;
-            this.login_password_icon.Click += new System.EventHandler(this.login_password_icon_Click);
-            this.login_password_icon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.login_password_icon_MouseDown);
-            this.login_password_icon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.login_password_icon_MouseUp);
-            // 
-            // login_username_icon
-            // 
-            this.login_username_icon.Image = global::ioop_assignment.Properties.Resources.user;
-            this.login_username_icon.Location = new System.Drawing.Point(15, 11);
-            this.login_username_icon.Name = "login_username_icon";
-            this.login_username_icon.Size = new System.Drawing.Size(24, 24);
-            this.login_username_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.login_username_icon.TabIndex = 0;
-            this.login_username_icon.TabStop = false;
-            // 
-            // login_apulogo
-            // 
-            this.login_apulogo.Image = global::ioop_assignment.Properties.Resources.APU_Logo_Full_Size_removebg_preview;
-            this.login_apulogo.Location = new System.Drawing.Point(75, 43);
-            this.login_apulogo.Name = "login_apulogo";
-            this.login_apulogo.Size = new System.Drawing.Size(142, 135);
-            this.login_apulogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.login_apulogo.TabIndex = 0;
-            this.login_apulogo.TabStop = false;
-            // 
             // LoginPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,15 +239,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.login_apulogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.login_password_panel.ResumeLayout(false);
             this.login_password_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.login_password_icon)).EndInit();
             this.login_username_panel.ResumeLayout(false);
             this.login_username_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.login_password_icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.login_username_icon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.login_apulogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,7 +266,6 @@
         private System.Windows.Forms.PictureBox login_username_icon;
         private System.Windows.Forms.Label login_loginmsg;
         private System.Windows.Forms.PictureBox login_password_icon;
-        private System.Windows.Forms.CheckBox login_rememberdetails;
         private System.Windows.Forms.Button login_btnLogin;
         private System.Windows.Forms.TextBox login_passwordbox;
         private System.Windows.Forms.TextBox login_usernamebox;
