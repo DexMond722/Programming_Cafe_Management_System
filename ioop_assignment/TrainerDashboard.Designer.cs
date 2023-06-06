@@ -93,6 +93,7 @@
             this.btn_sndFeedback = new System.Windows.Forms.Button();
             this.richTxtBox_Feedback = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btn_refreshClass = new System.Windows.Forms.Button();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -543,6 +544,7 @@
             // 
             // panel_updateCoachingClass
             // 
+            this.panel_updateCoachingClass.Controls.Add(this.btn_refreshClass);
             this.panel_updateCoachingClass.Controls.Add(this.label11);
             this.panel_updateCoachingClass.Controls.Add(this.cmbBox_level2);
             this.panel_updateCoachingClass.Controls.Add(this.btn_updateClass);
@@ -583,9 +585,9 @@
             this.btn_updateClass.BackColor = System.Drawing.Color.Gray;
             this.btn_updateClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_updateClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_updateClass.Location = new System.Drawing.Point(482, 291);
+            this.btn_updateClass.Location = new System.Drawing.Point(377, 291);
             this.btn_updateClass.Name = "btn_updateClass";
-            this.btn_updateClass.Size = new System.Drawing.Size(167, 37);
+            this.btn_updateClass.Size = new System.Drawing.Size(134, 37);
             this.btn_updateClass.TabIndex = 21;
             this.btn_updateClass.Text = "update";
             this.btn_updateClass.UseVisualStyleBackColor = false;
@@ -614,9 +616,9 @@
             this.btn_deleteClass.BackColor = System.Drawing.Color.Gray;
             this.btn_deleteClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_deleteClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_deleteClass.Location = new System.Drawing.Point(281, 293);
+            this.btn_deleteClass.Location = new System.Drawing.Point(224, 292);
             this.btn_deleteClass.Name = "btn_deleteClass";
-            this.btn_deleteClass.Size = new System.Drawing.Size(167, 32);
+            this.btn_deleteClass.Size = new System.Drawing.Size(134, 37);
             this.btn_deleteClass.TabIndex = 18;
             this.btn_deleteClass.Text = "Delete";
             this.btn_deleteClass.UseVisualStyleBackColor = false;
@@ -646,9 +648,9 @@
             this.btn_searchClass.BackColor = System.Drawing.Color.Gray;
             this.btn_searchClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_searchClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_searchClass.Location = new System.Drawing.Point(81, 292);
+            this.btn_searchClass.Location = new System.Drawing.Point(71, 292);
             this.btn_searchClass.Name = "btn_searchClass";
-            this.btn_searchClass.Size = new System.Drawing.Size(167, 36);
+            this.btn_searchClass.Size = new System.Drawing.Size(137, 36);
             this.btn_searchClass.TabIndex = 15;
             this.btn_searchClass.Text = "Search";
             this.btn_searchClass.UseVisualStyleBackColor = false;
@@ -828,6 +830,19 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Send Feedback";
             // 
+            // btn_refreshClass
+            // 
+            this.btn_refreshClass.BackColor = System.Drawing.Color.Gray;
+            this.btn_refreshClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refreshClass.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_refreshClass.Location = new System.Drawing.Point(527, 292);
+            this.btn_refreshClass.Name = "btn_refreshClass";
+            this.btn_refreshClass.Size = new System.Drawing.Size(134, 37);
+            this.btn_refreshClass.TabIndex = 24;
+            this.btn_refreshClass.Text = "refresh";
+            this.btn_refreshClass.UseVisualStyleBackColor = false;
+            this.btn_refreshClass.Click += new System.EventHandler(this.btn_refreshClass_Click);
+            // 
             // TrainerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -838,11 +853,11 @@
             this.Controls.Add(this.btn_closeapp);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
-            this.Controls.Add(this.panel_sendFeedback);
-            this.Controls.Add(this.panel_viewStudentEnr);
             this.Controls.Add(this.panel_updateCoachingClass);
             this.Controls.Add(this.panel_addCoachingClass);
             this.Controls.Add(this.panel_updateprofile);
+            this.Controls.Add(this.panel_sendFeedback);
+            this.Controls.Add(this.panel_viewStudentEnr);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TrainerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -941,5 +956,6 @@
         private System.Windows.Forms.ComboBox cmbBox_module3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_refreshClass;
     }
 }

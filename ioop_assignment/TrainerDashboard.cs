@@ -252,6 +252,86 @@ namespace ioop_assignment
             obj1.loadClassTable(dgv_coachClass);
         }
 
+        private void searchClass()
+        {
+            Coaching obj1 = new Coaching();
+            string status = obj1.searchCoachingClass(dgv_coachClass, GetSelectedComboBoxItem(cmbBox_module2), GetSelectedComboBoxItem(cmbBox_level2));
+            if (status == "")
+            {
+                txtBox_schedule2.Text = string.Empty;
+            }
+            else if (status == "module")
+            {
+                txtBox_schedule2.Text = string.Empty;
+                cmbBox_level2.SelectedIndex = -1;
+            }
+        }
+
+        private void deleteClass()
+        {
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            obj1.deleteCoachingClass(dgv_coachClass);
+        }
+
+        private void updateClass()
+        {
+            Coaching obj1 = new Coaching();
+            obj1.Username = username;
+            obj1.updateCoachingClass(dgv_coachClass, GetSelectedComboBoxItem(cmbBox_module2), GetSelectedComboBoxItem(cmbBox_level2), txtBox_schedule2.Text);
+        }
+
+        private void refreshClass()
+        {
+            loadDataGridView();
+            cmbBox_level2.SelectedIndex = -1;
+            cmbBox_module2.SelectedIndex = -1;
+            txtBox_schedule2.Text = String.Empty;
+        }
+
+        private void sendFeedback()
+        {
+            TrainerFunction obj1 = new TrainerFunction(username);
+            obj1.sendFeedback(richTxtBox_Feedback.Text);
+        }
+
+        private void viewStudentEnroll()
+        {
+            lstBox_student.Items.Clear();
+            ArrayList students = new ArrayList();
+            TrainerFunction obj1 = new TrainerFunction(username);
+            students = obj1.viewStudentEnrolled(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
+            foreach (var item in students)
+            {
+                lstBox_student.Items.Add(item);
+            }
+        }
+
+        private void viewPaid()
+        {
+            lstBox_student.Items.Clear();
+            ArrayList students = new ArrayList();
+            TrainerFunction obj1 = new TrainerFunction(username);
+            students = obj1.viewStudentPaid(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
+            foreach (var item in students)
+            {
+                lstBox_student.Items.Add(item);
+            }
+
+        }
+
+        private void viewUnpaid()
+        {
+            lstBox_student.Items.Clear();
+            ArrayList students = new ArrayList();
+            TrainerFunction obj1 = new TrainerFunction(username);
+            students = obj1.viewStudentUnPaid(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
+            foreach (var item in students)
+            {
+                lstBox_student.Items.Add(item);
+            }
+        }
+
         private void btn_addCoachingClass_Click(object sender, EventArgs e)
         {
             addCoachingClass();
@@ -266,24 +346,26 @@ namespace ioop_assignment
         {
             displayCorrespondLeve3();
         }
+
+
         private void btn_searchClass_Click(object sender, EventArgs e)
         {
-            Coaching obj1 = new Coaching();
-            obj1.searchCoachingClass(dgv_coachClass, GetSelectedComboBoxItem(cmbBox_module2), GetSelectedComboBoxItem(cmbBox_level2));
+            searchClass();
         }
 
         private void btn_deleteClass_Click(object sender, EventArgs e)
         {
-            Coaching obj1 = new Coaching();
-            obj1.Username = username;
-            obj1.deleteCoachingClass(dgv_coachClass);
+            deleteClass();
         }
 
         private void btn_updateClass_Click(object sender, EventArgs e)
         {
-            Coaching obj1 = new Coaching();
-            obj1.Username = username;
-            obj1.updateCoachingClass(dgv_coachClass, GetSelectedComboBoxItem(cmbBox_module2), GetSelectedComboBoxItem(cmbBox_level2), txtBox_schedule2.Text);
+            updateClass();
+        }
+
+        private void btn_refreshClass_Click(object sender, EventArgs e)
+        {
+            refreshClass(); 
         }
 
         private void dgv_coachClass_SelectionChanged(object sender, EventArgs e)
@@ -302,44 +384,22 @@ namespace ioop_assignment
 
         private void btn_sndFeedback_Click(object sender, EventArgs e)
         {
-            TrainerFunction obj1 = new TrainerFunction(username);
-            obj1.sendFeedback(richTxtBox_Feedback.Text);
+            sendFeedback();
         }
 
         private void btn_viewStudent_Click(object sender, EventArgs e)
         {
-            lstBox_student.Items.Clear();
-            ArrayList students = new ArrayList();
-            TrainerFunction obj1 = new TrainerFunction(username);
-            students = obj1.viewStudentEnrolled(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
-            foreach (var item in students)
-            {
-                lstBox_student.Items.Add(item);
-            }
+            viewStudentEnroll();
         }
 
         private void btn_viewPaid_Click(object sender, EventArgs e)
         {
-            lstBox_student.Items.Clear();
-            ArrayList students = new ArrayList();
-            TrainerFunction obj1 = new TrainerFunction(username);
-            students = obj1.viewStudentPaid(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
-            foreach (var item in students)
-            {
-                lstBox_student.Items.Add(item);
-            }
+            viewPaid();
         }
 
         private void btn_viewUnpaid_Click(object sender, EventArgs e)
         {
-            lstBox_student.Items.Clear();
-            ArrayList students = new ArrayList();
-            TrainerFunction obj1 = new TrainerFunction(username);
-            students = obj1.viewStudentUnPaid(GetSelectedComboBoxItem(cmbBox_module3), GetSelectedComboBoxItem(cmbBox_level3));
-            foreach (var item in students)
-            {
-                lstBox_student.Items.Add(item);
-            }
+            viewUnpaid();
         }
 
         
