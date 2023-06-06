@@ -116,41 +116,6 @@ namespace ioop_assignment
             return nm;
         }
 
-        private int GetLevelID(string level)
-        {
-            int levelID = 0;
-            con.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT levelID FROM Levels WHERE levelname = '{level}'", con);
-
-            object result = cmd.ExecuteScalar();
-            if (result != null && int.TryParse(result.ToString(), out int id))
-            {
-                levelID = id;
-            }
-            con.Close();
-            return levelID;
-        }
-
-        private int GetModuleID(string module_name, int levelID)
-        {
-            int moduleID = 0;
-            con.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT moduleID FROM Modules WHERE (moduleName = '{module_name}' AND levelID = '{levelID}')", con);
-
-            object result = cmd.ExecuteScalar();
-
-            if (result != null && int.TryParse(result.ToString(), out int id))
-            {
-                moduleID = id;
-            }
-            con.Close();
-            return moduleID;
-        }
-
-
-
-
-        /*DELETE*/
         public ArrayList viewRequestID()
         {
             int studentID = getStudentID(username);
@@ -344,6 +309,14 @@ namespace ioop_assignment
         {
             int studentID = getStudentID(username);
             ArrayList moduleIDs = getModuleIDEnrolled();
+            if (moduleIDs.Count == 0)
+            {
+                dgv.Columns.Clear();
+                dgv.Rows.Clear();
+                dgv.Columns.Add("MessageColumn", "Message");
+                dgv.Rows.Add("No classes found.");
+                return;
+            }
             con.Open();
 
             string query = "SELECT c.classID, m.modulename AS Modulename, l.levelname AS Levelname, u.name AS TrainerName, c.schedule FROM Class AS c " +
