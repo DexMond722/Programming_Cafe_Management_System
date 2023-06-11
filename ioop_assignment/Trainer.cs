@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ioop_assignment
 {
@@ -61,6 +62,11 @@ namespace ioop_assignment
             this.modulename = modulename;
             this.levelname = levelname;
             this.amount = amount;
+        }
+
+        public Trainer()
+        {
+
         }
 
         public string addTrainer()
@@ -177,11 +183,6 @@ namespace ioop_assignment
             cmd.Parameters.AddWithValue("@trainerID", trainerID);
             cmd.Parameters.AddWithValue("@levelName", levelname);
             cmd.Parameters.AddWithValue("@ModuleName", modulename);
-/*            SqlCommand cmd2 = new SqlCommand("INSERT INTO Invoice (trainerID, moduleID, paymentID, amount) SELECT Trainers.trainerID, Modules.moduleID, Payment.paymentID, Modules.charges FROM Trainers INNER JOIN TrainerModules ON Trainers.trainerID = TrainerModules.trainerID INNER JOIN Modules ON TrainerModules.moduleID = Modules.moduleID INNER JOIN Levels ON Modules.levelID = Levels.levelID CROSS JOIN Payment WHERE Trainers.trainerID = @trainerID AND Modules.modulename = @ModuleName AND Levels.levelname = @levelname AND Payment.paymentstatus = 'unpaid'", con);
-            cmd2.Parameters.AddWithValue("@trainerID", trainerID);
-            cmd2.Parameters.AddWithValue("@ModuleName", modulename);
-            cmd2.Parameters.AddWithValue("@levelName", levelname);
-            cmd.ExecuteNonQuery();*/
             int rowsAffected = cmd.ExecuteNonQuery();
             con.Close();
 
@@ -239,6 +240,14 @@ namespace ioop_assignment
 
             return feedbackdataTable;
 
+        }
+        public void DisplayFeedback(DataGridViewRow selectedRow,Label feedbacklabel)
+        {
+            if (selectedRow != null)
+            {
+                string feedback = selectedRow.Cells["feedbackContent"].Value?.ToString() ?? string.Empty;
+                feedbacklabel.Text = feedback;
+            }
         }
     }
 }

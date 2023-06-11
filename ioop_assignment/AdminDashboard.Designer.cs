@@ -99,6 +99,8 @@
             this.panel_home = new System.Windows.Forms.Panel();
             this.btn_home_logout = new System.Windows.Forms.Button();
             this.lbl_home_title = new System.Windows.Forms.Label();
+            this.lbl_vf_feedback = new System.Windows.Forms.Label();
+            this.lbl_vf_feedbackcontent = new System.Windows.Forms.Label();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -819,6 +821,8 @@
             // 
             // panel_viewfeedback
             // 
+            this.panel_viewfeedback.Controls.Add(this.lbl_vf_feedbackcontent);
+            this.panel_viewfeedback.Controls.Add(this.lbl_vf_feedback);
             this.panel_viewfeedback.Controls.Add(this.dgv_vf_feedback);
             this.panel_viewfeedback.Controls.Add(this.lbl_vf_viewfeedback);
             this.panel_viewfeedback.Location = new System.Drawing.Point(283, 7);
@@ -845,11 +849,12 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_vf_feedback.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_vf_feedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_vf_feedback.Location = new System.Drawing.Point(82, 198);
+            this.dgv_vf_feedback.Location = new System.Drawing.Point(89, 134);
             this.dgv_vf_feedback.Name = "dgv_vf_feedback";
             this.dgv_vf_feedback.ReadOnly = true;
             this.dgv_vf_feedback.Size = new System.Drawing.Size(567, 308);
             this.dgv_vf_feedback.TabIndex = 1;
+            this.dgv_vf_feedback.SelectionChanged += new System.EventHandler(this.dgv_vf_feedback_SelectionChanged);
             // 
             // lbl_vf_viewfeedback
             // 
@@ -896,6 +901,26 @@
             this.lbl_home_title.Text = "Welcome to \r\n\r\nAPU Programming Café \r\n\r\n";
             this.lbl_home_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbl_vf_feedback
+            // 
+            this.lbl_vf_feedback.AutoSize = true;
+            this.lbl_vf_feedback.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vf_feedback.Location = new System.Drawing.Point(58, 517);
+            this.lbl_vf_feedback.Name = "lbl_vf_feedback";
+            this.lbl_vf_feedback.Size = new System.Drawing.Size(121, 25);
+            this.lbl_vf_feedback.TabIndex = 2;
+            this.lbl_vf_feedback.Text = "Feedback:";
+            // 
+            // lbl_vf_feedbackcontent
+            // 
+            this.lbl_vf_feedbackcontent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_vf_feedbackcontent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_vf_feedbackcontent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vf_feedbackcontent.Location = new System.Drawing.Point(207, 519);
+            this.lbl_vf_feedbackcontent.Name = "lbl_vf_feedbackcontent";
+            this.lbl_vf_feedbackcontent.Size = new System.Drawing.Size(449, 23);
+            this.lbl_vf_feedbackcontent.TabIndex = 3;
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -906,12 +931,12 @@
             this.Controls.Add(this.admin_close);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
-            this.Controls.Add(this.panel_home);
-            this.Controls.Add(this.panel_registertrainer);
-            this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_viewfeedback);
             this.Controls.Add(this.panel_viewincome);
             this.Controls.Add(this.panel_assigntrainer);
+            this.Controls.Add(this.panel_home);
+            this.Controls.Add(this.panel_registertrainer);
+            this.Controls.Add(this.panel_updateprofile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1017,5 +1042,7 @@
         private System.Windows.Forms.Panel panel_home;
         private System.Windows.Forms.Label lbl_home_title;
         private System.Windows.Forms.Button btn_home_logout;
+        private System.Windows.Forms.Label lbl_vf_feedbackcontent;
+        private System.Windows.Forms.Label lbl_vf_feedback;
     }
 }

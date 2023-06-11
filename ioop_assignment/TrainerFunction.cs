@@ -47,6 +47,7 @@ namespace ioop_assignment
             cmd.Parameters.AddWithValue("@feedbackContent", feedback_content);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Feedback sent successfully");
+            con.Close();
         }
 
         public ArrayList viewStudentEnrolled(string module_name, string level_name)

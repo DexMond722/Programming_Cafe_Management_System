@@ -364,6 +364,20 @@ namespace ioop_assignment
             LoginPanel login = new LoginPanel();
             login.Show();
         }
+
+        private void dgv_vf_feedback_SelectionChanged(object sender, EventArgs e)
+        {
+            Trainer obj1 = new Trainer();
+            obj1.Username = username;
+            if (dgv_vf_feedback.SelectedRows.Count > 0)
+            {
+                int rowIndex = dgv_vf_feedback.SelectedRows[0].Index;
+                DataGridViewRow selectedRow = dgv_vf_feedback.Rows[rowIndex];
+
+                // Call the method to update controls
+                obj1.DisplayFeedback(selectedRow, lbl_vf_feedbackcontent);
+            }
+        }
     }
 }
 

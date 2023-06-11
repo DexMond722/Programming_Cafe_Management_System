@@ -415,5 +415,6 @@ namespace ioop_assignment
             LoginPanel login = new LoginPanel();
             login.Show();
         }
+
     }
 }

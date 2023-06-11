@@ -901,12 +901,12 @@
             this.Controls.Add(this.btn_closeapp);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
+            this.Controls.Add(this.panel_updateCoachingClass);
+            this.Controls.Add(this.panel_addCoachingClass);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_sendFeedback);
             this.Controls.Add(this.panel_viewStudentEnr);
-            this.Controls.Add(this.panel_updateCoachingClass);
-            this.Controls.Add(this.panel_addCoachingClass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TrainerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
