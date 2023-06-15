@@ -73,7 +73,6 @@
             this.lbl_level = new System.Windows.Forms.Label();
             this.lbl_module = new System.Windows.Forms.Label();
             this.cbox_deleteenroll_module = new System.Windows.Forms.ComboBox();
-            this.btn_der_delete = new System.Windows.Forms.Button();
             this.label_der_delete = new System.Windows.Forms.Label();
             this.panel_send = new System.Windows.Forms.Panel();
             this.cbox_sendenroll_level = new System.Windows.Forms.ComboBox();
@@ -85,6 +84,7 @@
             this.panel_home = new System.Windows.Forms.Panel();
             this.btn_home_logout = new System.Windows.Forms.Button();
             this.lbl_home_title = new System.Windows.Forms.Label();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -558,13 +558,13 @@
             // panel_delete
             // 
             this.panel_delete.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_delete.Controls.Add(this.btn_delete);
             this.panel_delete.Controls.Add(this.lbl_der_level);
             this.panel_delete.Controls.Add(this.lbl_der_module);
             this.panel_delete.Controls.Add(this.lbl_der_requestid);
             this.panel_delete.Controls.Add(this.lbl_level);
             this.panel_delete.Controls.Add(this.lbl_module);
             this.panel_delete.Controls.Add(this.cbox_deleteenroll_module);
-            this.panel_delete.Controls.Add(this.btn_der_delete);
             this.panel_delete.Controls.Add(this.label_der_delete);
             this.panel_delete.Location = new System.Drawing.Point(286, 3);
             this.panel_delete.Margin = new System.Windows.Forms.Padding(2);
@@ -637,21 +637,6 @@
             this.cbox_deleteenroll_module.Size = new System.Drawing.Size(186, 28);
             this.cbox_deleteenroll_module.TabIndex = 3;
             this.cbox_deleteenroll_module.SelectedIndexChanged += new System.EventHandler(this.cbox_deleteenroll_module_SelectedIndexChanged_1);
-            // 
-            // btn_der_delete
-            // 
-            this.btn_der_delete.BackColor = System.Drawing.Color.DimGray;
-            this.btn_der_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_der_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_der_delete.ForeColor = System.Drawing.Color.White;
-            this.btn_der_delete.Location = new System.Drawing.Point(284, 460);
-            this.btn_der_delete.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_der_delete.Name = "btn_der_delete";
-            this.btn_der_delete.Size = new System.Drawing.Size(156, 43);
-            this.btn_der_delete.TabIndex = 2;
-            this.btn_der_delete.Text = "Delete";
-            this.btn_der_delete.UseVisualStyleBackColor = false;
-            this.btn_der_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // label_der_delete
             // 
@@ -782,6 +767,21 @@
             this.lbl_home_title.Text = "Welcome to \r\n\r\nAPU Programming Café \r\n\r\n";
             this.lbl_home_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_delete
+            // 
+            this.btn_delete.BackColor = System.Drawing.Color.DimGray;
+            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.ForeColor = System.Drawing.Color.White;
+            this.btn_delete.Location = new System.Drawing.Point(284, 454);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(156, 43);
+            this.btn_delete.TabIndex = 9;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
+            // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -792,12 +792,12 @@
             this.Controls.Add(this.admin_close);
             this.Controls.Add(this.panel_button);
             this.Controls.Add(this.panel_info);
+            this.Controls.Add(this.panel_delete);
             this.Controls.Add(this.panel_payment);
             this.Controls.Add(this.panel_schedule);
             this.Controls.Add(this.panel_updateprofile);
             this.Controls.Add(this.panel_send);
             this.Controls.Add(this.panel_home);
-            this.Controls.Add(this.panel_delete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -874,7 +874,6 @@
         private System.Windows.Forms.Label lbl_level;
         private System.Windows.Forms.Label lbl_module;
         private System.Windows.Forms.ComboBox cbox_deleteenroll_module;
-        private System.Windows.Forms.Button btn_der_delete;
         private System.Windows.Forms.Label label_der_delete;
         private System.Windows.Forms.Panel panel_send;
         private System.Windows.Forms.ComboBox cbox_sendenroll_level;
@@ -891,5 +890,6 @@
         private System.Windows.Forms.Panel panel_home;
         private System.Windows.Forms.Button btn_home_logout;
         private System.Windows.Forms.Label lbl_home_title;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

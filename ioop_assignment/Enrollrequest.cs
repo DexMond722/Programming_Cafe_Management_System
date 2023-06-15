@@ -240,7 +240,7 @@ namespace ioop_assignment
                 if (rowsAffected > 0)
                 {
                     dgv.Rows.RemoveAt(rowIndex);
-                    MessageBox.Show("Pay Successfully");
+                    MessageBox.Show("Invoice Paid");
                 }
                 else
                 {

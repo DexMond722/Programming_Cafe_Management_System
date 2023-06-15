@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.admin_close = new System.Windows.Forms.Button();
             this.lbl_role = new System.Windows.Forms.Label();
             this.lbl_loggedintime = new System.Windows.Forms.Label();
@@ -94,13 +94,13 @@
             this.dgv_vi_income = new System.Windows.Forms.DataGridView();
             this.lbl_vi_viewincome = new System.Windows.Forms.Label();
             this.panel_viewfeedback = new System.Windows.Forms.Panel();
+            this.lbl_vf_feedbackcontent = new System.Windows.Forms.Label();
+            this.lbl_vf_feedback = new System.Windows.Forms.Label();
             this.dgv_vf_feedback = new System.Windows.Forms.DataGridView();
             this.lbl_vf_viewfeedback = new System.Windows.Forms.Label();
             this.panel_home = new System.Windows.Forms.Panel();
             this.btn_home_logout = new System.Windows.Forms.Button();
             this.lbl_home_title = new System.Windows.Forms.Label();
-            this.lbl_vf_feedback = new System.Windows.Forms.Label();
-            this.lbl_vf_feedbackcontent = new System.Windows.Forms.Label();
             this.panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_button.SuspendLayout();
@@ -793,14 +793,14 @@
             this.dgv_vi_income.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_vi_income.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgv_vi_income.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_vi_income.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vi_income.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_vi_income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vi_income.Location = new System.Drawing.Point(72, 349);
             this.dgv_vi_income.Name = "dgv_vi_income";
@@ -830,6 +830,26 @@
             this.panel_viewfeedback.Size = new System.Drawing.Size(739, 624);
             this.panel_viewfeedback.TabIndex = 9;
             // 
+            // lbl_vf_feedbackcontent
+            // 
+            this.lbl_vf_feedbackcontent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_vf_feedbackcontent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_vf_feedbackcontent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vf_feedbackcontent.Location = new System.Drawing.Point(207, 519);
+            this.lbl_vf_feedbackcontent.Name = "lbl_vf_feedbackcontent";
+            this.lbl_vf_feedbackcontent.Size = new System.Drawing.Size(449, 23);
+            this.lbl_vf_feedbackcontent.TabIndex = 3;
+            // 
+            // lbl_vf_feedback
+            // 
+            this.lbl_vf_feedback.AutoSize = true;
+            this.lbl_vf_feedback.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_vf_feedback.Location = new System.Drawing.Point(58, 517);
+            this.lbl_vf_feedback.Name = "lbl_vf_feedback";
+            this.lbl_vf_feedback.Size = new System.Drawing.Size(121, 25);
+            this.lbl_vf_feedback.TabIndex = 2;
+            this.lbl_vf_feedback.Text = "Feedback:";
+            // 
             // dgv_vf_feedback
             // 
             this.dgv_vf_feedback.AllowUserToAddRows = false;
@@ -840,14 +860,14 @@
             this.dgv_vf_feedback.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_vf_feedback.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgv_vf_feedback.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_vf_feedback.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vf_feedback.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_vf_feedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vf_feedback.Location = new System.Drawing.Point(89, 134);
             this.dgv_vf_feedback.Name = "dgv_vf_feedback";
@@ -900,26 +920,6 @@
             this.lbl_home_title.TabIndex = 0;
             this.lbl_home_title.Text = "Welcome to \r\n\r\nAPU Programming Café \r\n\r\n";
             this.lbl_home_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_vf_feedback
-            // 
-            this.lbl_vf_feedback.AutoSize = true;
-            this.lbl_vf_feedback.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_vf_feedback.Location = new System.Drawing.Point(58, 517);
-            this.lbl_vf_feedback.Name = "lbl_vf_feedback";
-            this.lbl_vf_feedback.Size = new System.Drawing.Size(121, 25);
-            this.lbl_vf_feedback.TabIndex = 2;
-            this.lbl_vf_feedback.Text = "Feedback:";
-            // 
-            // lbl_vf_feedbackcontent
-            // 
-            this.lbl_vf_feedbackcontent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_vf_feedbackcontent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_vf_feedbackcontent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_vf_feedbackcontent.Location = new System.Drawing.Point(207, 519);
-            this.lbl_vf_feedbackcontent.Name = "lbl_vf_feedbackcontent";
-            this.lbl_vf_feedbackcontent.Size = new System.Drawing.Size(449, 23);
-            this.lbl_vf_feedbackcontent.TabIndex = 3;
             // 
             // AdminDashboard
             // 

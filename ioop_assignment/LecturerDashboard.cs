@@ -166,6 +166,7 @@ namespace ioop_assignment
             {
                 Student obj1 = new Student(txtUsername.Text, txtName.Text, txtTPnum.Text, txtContact.Text, txtEmail.Text, txtAddress.Text);
                 MessageBox.Show(obj1.registerStudent());
+                reloadList();
             }
             else
                 MessageBox.Show("Please insert data");
@@ -285,10 +286,22 @@ namespace ioop_assignment
 
         private void UpdateEnrollment()
         {
-            Student obj1 = new Student();
-            Student obj2 = new Student();
-            obj1.updateEnrollment(dGV_updateEnrollment, GetSelectedComboBoxItem(cmbBox_Update_Level), GetSelectedComboBoxItem(cmbBox_UpdateModule));
-            obj2.getOriginModuleID(dGV_updateEnrollment);
+            if (dGV_updateEnrollment.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a student to enroll.");
+                return;
+            }
+            if (dGV_updateEnrollment.SelectedRows.Count > 0 & cmbBox_UpdateModule.SelectedItem != null & cmbBox_Update_Level.SelectedItem != null)
+            {
+                Student obj1 = new Student();
+                Student obj2 = new Student();
+                obj1.updateEnrollment(dGV_updateEnrollment, GetSelectedComboBoxItem(cmbBox_Update_Level), GetSelectedComboBoxItem(cmbBox_UpdateModule));
+                obj2.getOriginModuleID(dGV_updateEnrollment);
+            }
+            else
+            {
+                MessageBox.Show("Please select all the required fields");
+            }
         }
 
         private void UpdateRequest()
@@ -302,7 +315,7 @@ namespace ioop_assignment
             }
             else
             {
-                MessageBox.Show("Please fill in required requests.");
+                MessageBox.Show("Please select required requestID.");
             }
         }
 
@@ -317,13 +330,13 @@ namespace ioop_assignment
             }
             else
             {
-                MessageBox.Show("Please fill in required requests.");
+                MessageBox.Show("Please select required requestID.");
             }
         }
 
         private void DeleteStudent()
         {
-            if (lstBox_DeleteStudent != null)
+            if (lstBox_DeleteStudent.SelectedItem != null)
             {
                 string selectedStudentName = lstBox_DeleteStudent.SelectedItem.ToString();
 
@@ -331,6 +344,10 @@ namespace ioop_assignment
                 MessageBox.Show(obj1.deleteStudent(selectedStudentName));
 
                 lstBox_DeleteStudent.Items.Remove(lstBox_DeleteStudent.SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("Please select a student.");
             }
         }
         private void ShowEnrollmentDGV()
@@ -364,7 +381,7 @@ namespace ioop_assignment
         private void btnRegister_Click(object sender, EventArgs e)
         {
             RegisterStudent();
-            reloadList();
+
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -402,6 +419,7 @@ namespace ioop_assignment
         private void btn_DeleteStudent_Click(object sender, EventArgs e)
         {
             DeleteStudent();
+            reloadList();
         }
 
         private void btn_home_logout_Click(object sender, EventArgs e)

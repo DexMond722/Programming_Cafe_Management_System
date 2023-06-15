@@ -218,8 +218,6 @@ namespace ioop_assignment
             cmd.Parameters.AddWithValue("@paymentID", paymentID);
             int rowsAffected = cmd.ExecuteNonQuery();
 
-
-
             if (rowsAffected > 0)
                 status = "Student Enrolled";
             else
@@ -299,21 +297,14 @@ namespace ioop_assignment
             string studentName = dgv.SelectedRows[0].Cells["studentName"].Value.ToString();
             int studentid = GetstudentID(studentName);
 
-
-
-
             con.Open();
             SqlCommand cmd = new SqlCommand("UPDATE Invoice SET moduleID = @newModuleID, amount = @newAmount WHERE studentID = @studentID AND moduleID = @moduleID;", con);
-
-
 
             cmd.Parameters.AddWithValue("@newModuleID", module_id);
             cmd.Parameters.AddWithValue("@newAmount", modulecharges);
             cmd.Parameters.AddWithValue("@studentID", studentid);
             cmd.Parameters.AddWithValue("@moduleID", moduleid);
             int rowsAffected = cmd.ExecuteNonQuery();
-
-
 
             if (rowsAffected > 0)
                 status = "Student Enrolled";
@@ -329,14 +320,10 @@ namespace ioop_assignment
         {
             int moduleID = 0;
 
-
-
             if (dgv.SelectedRows.Count > 0)
             {
                 string moduleName = dgv.SelectedRows[0].Cells["modulename"].Value.ToString();
                 string levelName = dgv.SelectedRows[0].Cells["levelname"].Value.ToString();
-
-
 
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT moduleID FROM Modules WHERE modulename = @moduleName AND levelID = (SELECT levelID FROM Levels WHERE levelname = @levelName)", con);
@@ -344,20 +331,14 @@ namespace ioop_assignment
                 cmd.Parameters.AddWithValue("@levelName", levelName);
                 SqlDataReader reader = cmd.ExecuteReader();
 
-
-
                 if (reader.Read())
                 {
                     moduleID = reader.GetInt32(0);
                 }
 
-
-
                 reader.Close();
                 con.Close();
             }
-
-
 
             return moduleID;
         }
@@ -373,11 +354,7 @@ namespace ioop_assignment
                 int moduleID = getModuleID(module_name, levelID);
                 int studentid = GetstudentID(studentName);
 
-
-
                 updateInvoice(moduleID, dgv);
-
-
 
                 if (string.IsNullOrEmpty(module_name) && string.IsNullOrEmpty(level))
                 {
@@ -385,12 +362,8 @@ namespace ioop_assignment
                     return;
                 }
 
-
-
                 con.Open();
                 string updateQuery = "UPDATE Enrollment SET ";
-
-
 
                 if ((!string.IsNullOrEmpty(module_name)) && (!string.IsNullOrEmpty(level)))
                 {
@@ -401,17 +374,13 @@ namespace ioop_assignment
 
                 updateQuery += "WHERE enrollID = @enrollID";
 
-
-
                 SqlCommand cmd = new SqlCommand(updateQuery, con);
                 cmd.Parameters.AddWithValue("@enrollID", enrollID);
                 cmd.Parameters.AddWithValue("@moduleID", moduleID);
                 cmd.Parameters.AddWithValue("@levelID", levelID);
 
-
-
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Row updated successfully.");
+                MessageBox.Show("Enrollment updated successfully.");
                 con.Close();
 
 
@@ -457,7 +426,7 @@ namespace ioop_assignment
         public string updateRequest(int requestID)
         {
             string status;
-        
+
             acceptEnrollment(requestID);
             con.Open();
             SqlCommand cmd = new SqlCommand("UPDATE Request SET status = 'approved' WHERE requestID = @requestID", con);

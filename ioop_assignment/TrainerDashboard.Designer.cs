@@ -577,7 +577,7 @@
             this.btn_refreshClass.Name = "btn_refreshClass";
             this.btn_refreshClass.Size = new System.Drawing.Size(134, 37);
             this.btn_refreshClass.TabIndex = 24;
-            this.btn_refreshClass.Text = "refresh";
+            this.btn_refreshClass.Text = "Refresh";
             this.btn_refreshClass.UseVisualStyleBackColor = false;
             this.btn_refreshClass.Click += new System.EventHandler(this.btn_refreshClass_Click);
             // 
@@ -610,7 +610,7 @@
             this.btn_updateClass.Name = "btn_updateClass";
             this.btn_updateClass.Size = new System.Drawing.Size(134, 37);
             this.btn_updateClass.TabIndex = 21;
-            this.btn_updateClass.Text = "update";
+            this.btn_updateClass.Text = "Update";
             this.btn_updateClass.UseVisualStyleBackColor = false;
             this.btn_updateClass.Click += new System.EventHandler(this.btn_updateClass_Click);
             // 

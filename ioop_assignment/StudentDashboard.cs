@@ -158,7 +158,7 @@ namespace ioop_assignment
 
         private void button_send_Click(object sender, EventArgs e)
         {
-            if (cbox_sendenroll_module.SelectedItem != null)
+            if (cbox_sendenroll_module.SelectedItem != null && cbox_sendenroll_level.SelectedItem != null)
             {
                 string cbox_selectedmodulename = cbox_sendenroll_module.SelectedItem.ToString();
                 string cbox_selectedlevelname = cbox_sendenroll_level.SelectedItem.ToString();
@@ -213,22 +213,6 @@ namespace ioop_assignment
             }
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-            if (cbox_deleteenroll_module.SelectedItem != null)
-            {
-                string deleteenrollmodule = cbox_deleteenroll_module.SelectedItem.ToString();
-                int deleteenrollID = int.Parse(deleteenrollmodule);
-                Enrollrequest obj1 = new Enrollrequest(deleteenrollmodule);
-                MessageBox.Show(obj1.DeleteRequest(deleteenrollID));
-                ReloadRequestIDComboBox();
-                cbox_deleteenroll_module.SelectedIndex = -1;
-                cbox_deleteenroll_module.Text = string.Empty;
-                lbl_module.Text = null;
-                lbl_level.Text = null;
-            }
-        }
-
         private void cbox_deleteenroll_module_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string modulename = lbl_module.Text;
@@ -272,6 +256,22 @@ namespace ioop_assignment
             this.Close();
             LoginPanel login = new LoginPanel();
             login.Show();
+        }
+
+        private void btn_delete_Click_1(object sender, EventArgs e)
+        {
+            if (cbox_deleteenroll_module.SelectedItem != null)
+            {
+                string deleteenrollmodule = cbox_deleteenroll_module.SelectedItem.ToString();
+                int deleteenrollID = int.Parse(deleteenrollmodule);
+                Enrollrequest obj1 = new Enrollrequest(deleteenrollmodule);
+                MessageBox.Show(obj1.DeleteRequest(deleteenrollID));
+                ReloadRequestIDComboBox();
+                cbox_deleteenroll_module.SelectedIndex = -1;
+                cbox_deleteenroll_module.Text = string.Empty;
+                lbl_module.Text = null;
+                lbl_level.Text = null;
+            }
         }
     }
 }
