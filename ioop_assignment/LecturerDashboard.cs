@@ -64,18 +64,12 @@ namespace ioop_assignment
         {
             //Base functions
             lbl_home.Cursor = Cursors.Hand;
-            //pic_home.Cursor = Cursors.Hand;
             lbl_updateprofile.Cursor = Cursors.Hand;
-            //pic_updateprofile.Cursor = Cursors.Hand;
             //
             //lecturer functions
             lbl_regenrollstudent.Cursor = Cursors.Hand;
-            //pic_regenrollstudent.Cursor = Cursors.Hand;
             lbl_updateenroll.Cursor = Cursors.Hand;
-            //pic_updateenroll.Cursor = Cursors.Hand;
-            //pic_approve.Cursor = Cursors.Hand;
             lbl_approve.Cursor = Cursors.Hand;
-            //pic_delete.Cursor = Cursors.Hand;
             lbl_delete.Cursor = Cursors.Hand;
             //
 

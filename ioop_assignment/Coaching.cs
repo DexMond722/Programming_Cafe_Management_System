@@ -19,7 +19,7 @@ namespace ioop_assignment
         private string schedule;
         private string username;
 
-        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+        private static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
         public string Username { get { return username; } set { username = value; } }
         public string Module_Name { get { return module_name; } set { module_name = value; } }
@@ -253,32 +253,6 @@ namespace ioop_assignment
             con.Close();
         }
 
-        // get module name
-        private string GetModuleNameWithmdIDlvID(int moduleID, int levelID)
-        {
-            string moduleName = string.Empty;
-            con.Open();
-            SqlCommand moduleCmd = new SqlCommand("SELECT modulename FROM Modules WHERE moduleID = @moduleID AND levelID = @levelID", con);
-            moduleCmd.Parameters.AddWithValue("@moduleID", moduleID);
-            moduleCmd.Parameters.AddWithValue("@levelID", levelID);
-            moduleName = moduleCmd.ExecuteScalar()?.ToString();
-
-            con.Close();
-            return moduleName;
-        }
-
-        // get levelname
-        private string getLevelName(int levelID)
-        {
-            string levelname = string.Empty;
-            con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT levelname FROM Levels WHERE  levelID = @levelID", con);
-            cmd.Parameters.AddWithValue("@levelID", levelID);
-            levelname = cmd.ExecuteScalar()?.ToString();
-
-            con.Close();
-            return levelname;
-        }
         // get trainer's module's moduleID
         private ArrayList getTrainerModuleID(string username)
         {
@@ -292,21 +266,6 @@ namespace ioop_assignment
             {
                 int moduleID = rd.GetInt32(0);
                 nm.Add(moduleID);
-            }
-            con.Close();
-            return nm;
-        }
-
-        // get moduleID with module name
-        private ArrayList getModuleID(string module_name)
-        {
-            ArrayList nm = new ArrayList();
-            con.Open();
-            SqlCommand cmd = new SqlCommand($"Select moduleID from Modules WHERE modulename = '{module_name}'", con);
-            SqlDataReader rd = cmd.ExecuteReader();
-            while (rd.Read())
-            {
-                nm.Add(rd.GetInt32(0));
             }
             con.Close();
             return nm;
@@ -356,8 +315,6 @@ namespace ioop_assignment
             return uniqueModuleNames;
         }
 
-
-
         // loading Item From Database Modules Table to ComboBox
         public static ArrayList viewModuleName()
         {
@@ -372,7 +329,6 @@ namespace ioop_assignment
             con.Close();
             return nm;
         }
-
 
 
         // loading Item From Database level Table to ComboBox
@@ -407,22 +363,6 @@ namespace ioop_assignment
             return levelID;
         }
 
-        private int GetLevelIDWithModuleId(int moduleID)
-        {
-            int levelID = 0;
-            con.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT levelID FROM Modules WHERE moduleID = '{moduleID}'", con);
-
-            object result = cmd.ExecuteScalar();
-            if (result != null && int.TryParse(result.ToString(), out int id))
-            {
-                levelID = id;
-            }
-            con.Close();
-            return levelID;
-        }
-
-
         // GET Trainer Specific Module Level ID
         private ArrayList GetSpecificLevelID(string moduleName)
         {
@@ -449,7 +389,7 @@ namespace ioop_assignment
             return levelIDs;
         }
 
-        // display specif level ID
+        // display specific level ID
         public ArrayList displaysSpecificLevel(string module_name)
         {
             ArrayList arrlist = GetSpecificLevelID(module_name);

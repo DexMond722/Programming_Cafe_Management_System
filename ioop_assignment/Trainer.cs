@@ -22,7 +22,7 @@ namespace ioop_assignment
         private string modulename;
         private string levelname;
         private string amount;
-        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+        private static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
 
         public string UserID { get { return userID; } set { userID = value; } }

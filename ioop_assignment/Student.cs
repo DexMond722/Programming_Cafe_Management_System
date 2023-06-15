@@ -26,7 +26,7 @@ namespace ioop_assignment
         private int levelid;
         private int moduleid;
         private int studentid;
-        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+        private static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
         public string Username { get { return username; } set { username = value; } }
         public string Name { get { return name; } set { name = value; } }
@@ -172,9 +172,6 @@ namespace ioop_assignment
             return trainerID;
         }
 
-
-
-
         private int getModuleCharges(int module_id)
         {
             int moduleCharges = 0;
@@ -192,13 +189,12 @@ namespace ioop_assignment
                 }
                 else
                 {
+
                 }
             }
 
             reader.Close();
             con.Close();
-
-
 
             return moduleCharges;
         }
@@ -289,6 +285,7 @@ namespace ioop_assignment
             con.Close();
             return dt;
         }
+
         public string updateInvoice(int module_id, DataGridView dgv)
         {
             string status;
@@ -313,7 +310,6 @@ namespace ioop_assignment
             con.Close();
             return status;
         }
-
 
 
         public int getOriginModuleID(DataGridView dgv)
@@ -370,8 +366,6 @@ namespace ioop_assignment
                     updateQuery += "moduleID = @moduleID, levelID = @levelID ";
                 }
 
-
-
                 updateQuery += "WHERE enrollID = @enrollID";
 
                 SqlCommand cmd = new SqlCommand(updateQuery, con);
@@ -383,17 +377,12 @@ namespace ioop_assignment
                 MessageBox.Show("Enrollment updated successfully.");
                 con.Close();
 
-
-
                 showEnrollment();
             }
             else
             {
                 MessageBox.Show("Please select a row to update.");
             }
-
-
-
         }
 
         public static DataTable showRequest()

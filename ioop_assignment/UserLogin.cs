@@ -12,6 +12,7 @@ namespace ioop_assignment
     {
         private string username;
         private string password;
+        private static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
         public string Username { get { return username; } }
         public string Password { get { return password; } }
@@ -25,7 +26,6 @@ namespace ioop_assignment
         public string login(string un)
         {
             string status = null;
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
             con.Open();
             string sqlstring;
 
@@ -71,9 +71,6 @@ namespace ioop_assignment
 
 
             return status;
-
-
-
             }
         }
     }

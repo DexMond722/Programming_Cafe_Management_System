@@ -165,14 +165,12 @@ namespace ioop_assignment
             string moduleName = cbox_vi_module.SelectedItem?.ToString();
             string levelName = cbox_vi_level.SelectedItem?.ToString();
 
-            // Call the SearchIncomeByFilters method and get the filtered data
             List<TrainerDGV> filteredIncome = TrainerDGV.SearchIncomeByFilters(trainerName, moduleName, levelName);
 
             cbox_vi_trainer.SelectedItem = null;
             cbox_vi_module.SelectedItem = null;
             cbox_vi_level.SelectedItem = null;
 
-            // Bind the filtered data to the DataGridView
             dgv_vi_income.DataSource = filteredIncome;
         }
         private void LoadViewFeedbackDGV()
@@ -374,7 +372,6 @@ namespace ioop_assignment
                 int rowIndex = dgv_vf_feedback.SelectedRows[0].Index;
                 DataGridViewRow selectedRow = dgv_vf_feedback.Rows[rowIndex];
 
-                // Call the method to update controls
                 obj1.DisplayFeedback(selectedRow, lbl_vf_feedbackcontent);
             }
         }

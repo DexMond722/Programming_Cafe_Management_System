@@ -20,7 +20,7 @@ namespace ioop_assignment
         private string username;
         private string studentID;
         private string invoiceID;
-        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+        private static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
 
         public string Modulename { get { return modulename; } set { modulename = value; } }
