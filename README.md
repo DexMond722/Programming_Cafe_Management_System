@@ -1,11 +1,13 @@
-#Introduction to Object Oriented Programming Group Assignment (Group 8)
+# Introduction to Object Oriented Programming Group Assignment
 
-Admin Credentials:
+## Group 8
+
+### Admin Credentials:
 username: admin
 password: admin
 
-Lecturer Credentials:
+### Lecturer Credentials:
 username: lecturer
 password: lecturer
 
-Students and Trainers account can be created inside the program.
+### Students and Trainers account can be created inside the program.
