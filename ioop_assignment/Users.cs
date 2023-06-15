@@ -14,7 +14,7 @@ namespace ioop_assignment
         private string name;
         private string phone;
         private string email;
-        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+        private static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
         public string Username { get { return username; } set { username = value; } }
         public string Name { get { return name; } set { name = value; } }

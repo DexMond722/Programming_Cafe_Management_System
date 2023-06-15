@@ -17,7 +17,7 @@ namespace ioop_assignment
         private string amount;
         private string paymentstatus;
 
-        static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
+        private static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ToString());
 
         public int InvoiceID { get { return invoiceID; } set { invoiceID = value;} }
         public string Trainer { get { return trainer; } set { trainer = value; } }
@@ -39,10 +39,7 @@ namespace ioop_assignment
             List<TrainerDGV> incomeData = new List<TrainerDGV>();
             con.Open();
 
-            // Start with a base query to retrieve all income data
             string query = "SELECT invoiceID, Trainer, Module, Level, Amount, paymentstatus FROM vwIncome WHERE 1=1";
-
-            // Apply filters based on the selected values
             if (!string.IsNullOrEmpty(trainerName))
             {
                 query += " AND Trainer = @TrainerName";
