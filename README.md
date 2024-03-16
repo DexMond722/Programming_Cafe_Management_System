@@ -1,6 +1,5 @@
-# Introduction to Object Oriented Programming Group Assignment
+# Programming Cafe Management System
 
-## Group 8
 
 ### Admin Credentials:
 username: admin
